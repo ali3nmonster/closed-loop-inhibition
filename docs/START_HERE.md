@@ -1,6 +1,6 @@
 # Starting the research program
 
-**Status:** research plan, 7 October 2026. The simulator and classical-control groundwork in steps 1–3 now has an [implemented contract](EXPERIMENT_CONTRACT.md) and a [36-rollout validation report](../results/baseline/README.md). A causal predictor baseline is implemented and unit-tested; the measured pilot uses ordinary PD. Transformer training, suppressive-pathway interventions and architectural comparisons remain future work. Numerical settings below are proposed choices unless superseded by the implemented contract.
+**Status:** research plan, 7 October 2026. Steps 1–3 have an [implemented timing contract](EXPERIMENT_CONTRACT.md) and a [36-rollout classical validation report](../results/baseline/README.md). Step 4 now has a completed transformer/MLP teacher-imitation pilot: three training seeds per architecture, 768 held-out rollouts and 108 passing tests. See the [protocol](TRANSFORMER_PILOT.md) and [neural results](../results/transformer_pilot/README.md). Direct closed-loop training, suppressive-pathway interventions and explicit E/I-inspired architectures remain future work. Implemented contracts and configurations supersede illustrative settings below.
 
 ## Research question and first claim to test
 
@@ -65,6 +65,8 @@ Check that simulated transients agree with the appropriate linear calculation, a
 
 ## Step 4 Train the smallest useful transformer baseline
 
+The initial implementation is specified in [TRANSFORMER_PILOT.md](TRANSFORMER_PILOT.md) and [configs/transformer_pilot.json](../configs/transformer_pilot.json). It uses a two-block causal transformer and a similarly sized MLP with the same 0.5-second history, three training seeds, independent episode splits, two schedules and four virtual computation delays. The plant and data family are fixed. Follow the [CPU installation and staged run instructions](../README.md#run-locally): train and inspect closed-loop validation before final test evaluation. Evaluation checks code, configuration, dataset and checkpoint integrity against the training manifest.
+
 Begin with a small causal transformer policy: for example, two blocks, four heads and width 64. Treat these as pilot settings. Each history token contains timestamped observations, the reference, applied action and observation age. Use causal masking and normalized physical quantities. Record the normalization because apparent gains depend on units.
 
 Start with supervised imitation of a competent delay-aware teacher to debug optimization and evaluation. Such a pilot establishes feasibility, not that suppression emerges from autonomous interaction. Then choose and document a closed-loop training objective, using differentiable simulation or a standard reinforcement-learning implementation as justified by the pilot. Evaluate all learned policies through the same event-driven interface.
@@ -121,7 +123,7 @@ Scale to a nonlinear pendulum only after confirming the measurement pipeline. Ne
 
 ## Suggested initial configuration
 
-This is an illustrative configuration to implement after reviewing the experimental contract. Observation interval and computation duration are independent; the delay sweep represents computation duration, not an extra delay added on top of measured inference.
+This is an illustrative research configuration, superseded for the implemented milestones by [baseline.json](../configs/baseline.json) and [transformer_pilot.json](../configs/transformer_pilot.json). In particular, the neural pilot uses a 0.05-second sensing/decision interval, a 0.5-second history, an action limit of 5 and no inhibition intervention. Observation interval and computation duration are independent; the delay sweep represents computation duration, not an extra delay added on top of measured inference.
 
 ```yaml
 plant:
@@ -166,10 +168,12 @@ src/closed_loop_inhibition/
   plants.py              # Dynamics and exact linear propagation.
   timing.py              # Event queue, observations, inference and application.
   controllers.py         # Implemented PD/predictor and analytical calculations.
+  imitation.py           # Shared teacher/student information and demonstrations.
+  neural.py              # Causal transformer and matched-history MLP.
   interventions.py       # Planned candidate selection and interventions.
   metrics.py             # Task, transient and local-dynamics measurements.
 configs/                 # Pilot and frozen confirmation configurations.
-experiments/             # Baseline runner; training/intervention entry points planned.
+experiments/             # Baseline and staged neural runner; interventions planned.
 tests/                   # Timing causality, analytical dynamics and replay checks.
 results/                 # Manifests and small summaries; large data kept elsewhere.
 ```

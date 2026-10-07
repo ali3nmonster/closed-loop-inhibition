@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "scope": "Teacher-imitation feasibility pilot; no E/I mechanism tested",
+  "plant": {
+    "tau": 0.5,
+    "zeta": 0.15
+  },
+  "teacher": {
+    "kp": 2.0,
+    "kd": 1.0
+  },
+  "encoding": {
+    "max_tokens": 11,
+    "history_seconds": 0.5,
+    "action_limit": 5.0
+  },
+  "duration": 6.0,
+  "schedules": [
+    "serial",
+    "fixed_cadence"
+  ],
+  "compute_durations": [
+    0.0,
+    0.05,
+    0.1,
+    0.2
+  ],
+  "splits": {
+    "train": {
+      "scenarios": 32,
+      "seed": 104729
+    },
+    "validation": {
+      "scenarios": 8,
+      "seed": 130363
+    },
+    "test": {
+      "scenarios": 12,
+      "seed": 155921
+    }
+  },
+  "models": [
+    "transformer",
+    "mlp"
+  ],
+  "model_seeds": [
+    11,
+    22,
+    33
+  ],
+  "model": {
+    "input_dim": 10,
+    "max_tokens": 11,
+    "width": 64
+  },
+  "training": {
+    "epochs": 50,
+    "patience": 10,
+    "batch_size": 256,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "gradient_clip": 1.0,
+    "cpu_threads": 2
+  }
+}

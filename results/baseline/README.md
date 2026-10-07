@@ -1,6 +1,6 @@
 # Classical control and timing validation
 
-This is a deterministic simulator-validation pilot. No transformer was trained and no inhibitory mechanism was tested.
+This is a deterministic simulator-validation pilot. No transformer was trained for this classical milestone and no inhibitory mechanism was tested. The follow-up transformer/MLP experiment has a [separate protocol](../../docs/TRANSFORMER_PILOT.md) and [results directory](../transformer_pilot/).
 
 ## Analytical checks
 
@@ -66,4 +66,4 @@ From the repository root:
 
 Source fingerprint: `cb7a2a42e6ae9a2edb25eab7c4888d4f5625f84535caabf44c4e771b6b2a326d`.
 
-The next experiment is a small causal transformer imitation pilot with an equally informed classical teacher. Suppressive-pathway discovery starts after competent control and independent evaluation are established.
+The follow-up [causal transformer imitation pilot](../../docs/TRANSFORMER_PILOT.md) compares a transformer, a matched-history MLP and an equally informed classical teacher. Its [results](../transformer_pilot/) are recorded separately from this historical simulator validation. Suppressive-pathway discovery starts after competent control and independent evaluation are established.
