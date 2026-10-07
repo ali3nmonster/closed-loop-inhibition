@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "scope": "Classical-controller timing validation; no transformer or inhibition experiment",
+  "plant": {
+    "tau": 0.5,
+    "zeta": 0.15
+  },
+  "controller": {
+    "kp": 2.0,
+    "kd": 1.0
+  },
+  "timing": {
+    "duration": 12.0,
+    "observation_interval": 0.01,
+    "decision_interval": 0.01,
+    "sensor_delay": 0.0,
+    "actuator_delay": 0.0,
+    "sample_interval": 0.01,
+    "history_seconds": 1.0,
+    "action_limit": 5.0,
+    "max_abs_state": 1000000.0
+  },
+  "compute_durations": [
+    0.0,
+    0.025,
+    0.05,
+    0.1,
+    0.2,
+    0.4
+  ],
+  "schedules": [
+    "serial",
+    "fixed_cadence"
+  ],
+  "tasks": [
+    {
+      "name": "initial_recovery",
+      "initial_state": [
+        1.0,
+        0.0
+      ],
+      "reference_changes": [],
+      "disturbance_changes": [],
+      "last_change_time": 0.0
+    },
+    {
+      "name": "reference_step",
+      "initial_state": [
+        0.0,
+        0.0
+      ],
+      "reference_changes": [
+        [
+          2.0,
+          1.0
+        ]
+      ],
+      "disturbance_changes": [],
+      "last_change_time": 2.0
+    },
+    {
+      "name": "disturbance_pulse",
+      "initial_state": [
+        0.0,
+        0.0
+      ],
+      "reference_changes": [],
+      "disturbance_changes": [
+        [
+          2.0,
+          1.0
+        ],
+        [
+          2.25,
+          0.0
+        ]
+      ],
+      "last_change_time": 2.25
+    }
+  ],
+  "settling_tolerance": 0.02,
+  "validation": {
+    "period": 0.1,
+    "delay_steps": [
+      0,
+      1,
+      4
+    ],
+    "duration": 12.0,
+    "trajectory_atol": 1e-09
+  }
+}

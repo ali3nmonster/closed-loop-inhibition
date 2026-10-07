@@ -1,6 +1,6 @@
 # Starting the research program
 
-**Status:** proposed experiment plan, 7 October 2026. No controller, simulation, training run or empirical result is supplied by this document. Numerical settings below are starting choices to validate, not established optimal settings.
+**Status:** research plan, 7 October 2026. The simulator and classical-control groundwork in steps 1–3 now has an [implemented contract](EXPERIMENT_CONTRACT.md) and a [36-rollout validation report](../results/baseline/README.md). A causal predictor baseline is implemented and unit-tested; the measured pilot uses ordinary PD. Transformer training, suppressive-pathway interventions and architectural comparisons remain future work. Numerical settings below are proposed choices unless superseded by the implemented contract.
 
 ## Research question and first claim to test
 
@@ -159,17 +159,17 @@ The initial delay grid may miss the informative regime. Use pilot classical and 
 
 The first day should produce a reviewed experimental contract, the event-driven plant, its analytical checks and a plot showing one delayed observation-to-action cycle. Do not spend it designing a large architecture. Next implement PD and the teacher, then estimate training cost from a small pilot before allocating a full sweep.
 
-Proposed future layout—not implemented by this document:
+Implementation layout, with planned modules marked:
 
 ```text
 src/closed_loop_inhibition/
   plants.py              # Dynamics and exact linear propagation.
   timing.py              # Event queue, observations, inference and application.
-  controllers/           # PD, predictor/MPC, transformer and matched alternatives.
-  interventions.py       # Candidate selection and registered interventions.
+  controllers.py         # Implemented PD/predictor and analytical calculations.
+  interventions.py       # Planned candidate selection and interventions.
   metrics.py             # Task, transient and local-dynamics measurements.
 configs/                 # Pilot and frozen confirmation configurations.
-experiments/             # Training, evaluation and intervention entry points.
+experiments/             # Baseline runner; training/intervention entry points planned.
 tests/                   # Timing causality, analytical dynamics and replay checks.
 results/                 # Manifests and small summaries; large data kept elsewhere.
 ```
