@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "scope": "Frozen-controller functional suppression pilot; not emergence or biological E/I balance",
+  "pretrained_commit": "05401cd",
+  "pretrained_results": "results/transformer_pilot",
+  "pretrained_artifacts": "runs/transformer_pilot",
+  "model_seeds": [
+    11,
+    22,
+    33
+  ],
+  "cpu_threads": 2,
+  "splits": {
+    "discovery": {
+      "count": 8,
+      "seed": 196613
+    },
+    "calibration": {
+      "count": 4,
+      "seed": 216091
+    },
+    "confirmation": {
+      "count": 8,
+      "seed": 262147
+    }
+  },
+  "timing": {
+    "duration": 5.0,
+    "observation_interval": 0.05,
+    "decision_interval": 0.05,
+    "sample_interval": 0.01,
+    "history_seconds": 0.5,
+    "action_limit": 5.0
+  },
+  "schedules": [
+    "serial",
+    "fixed_cadence"
+  ],
+  "compute_durations": [
+    0.0,
+    0.05,
+    0.1,
+    0.2
+  ],
+  "discovery": {
+    "schedule": "fixed_cadence",
+    "compute_duration": 0.05,
+    "window_seconds": 2.0,
+    "attenuation_scale": 0.5,
+    "minimum_fractional_increase": 0.05,
+    "minimum_positive_fraction": 0.75,
+    "baseline_epsilon": 1e-08
+  },
+  "calibration": {
+    "head_scales": [
+      0.0,
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.95,
+      1.0
+    ],
+    "gain_min": 1.0,
+    "gain_max": 3.0,
+    "gain_step": 0.025,
+    "matching_relative_tolerance": 0.1
+  },
+  "candidate_scales": [
+    0.5,
+    1.5
+  ],
+  "recovery_seconds": 3.0,
+  "competence": {
+    "maximum_peak_error": 1.0,
+    "maximum_last_second_rmse": 0.05,
+    "maximum_teacher_response_ratio": 1.5
+  },
+  "primary": {
+    "schedule": "fixed_cadence",
+    "low_delay": 0.0,
+    "high_delay": 0.2,
+    "variant": "candidate_half",
+    "endpoint": "difference of paired J_response changes at high versus low delay"
+  }
+}

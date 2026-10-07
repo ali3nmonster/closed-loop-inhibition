@@ -1,6 +1,8 @@
 # Starting the research program
 
-**Status:** research plan, 7 October 2026. Steps 1–3 have an [implemented timing contract](EXPERIMENT_CONTRACT.md) and a [36-rollout classical validation report](../results/baseline/README.md). Step 4 now has a completed transformer/MLP teacher-imitation pilot: three training seeds per architecture, 768 held-out rollouts and 108 passing tests. See the [protocol](TRANSFORMER_PILOT.md) and [neural results](../results/transformer_pilot/README.md). Direct closed-loop training, suppressive-pathway interventions and explicit E/I-inspired architectures remain future work. Implemented contracts and configurations supersede illustrative settings below.
+**Status:** research plan, 7 October 2026. Steps 1–3 have an [implemented timing contract](EXPERIMENT_CONTRACT.md) and a [36-rollout classical validation report](../results/baseline/README.md). Step 4 has a completed transformer/MLP teacher-imitation pilot: three training seeds per architecture, 768 held-out rollouts and 108 tests at that milestone. See the [protocol](TRANSFORMER_PILOT.md) and [neural results](../results/transformer_pilot/README.md). The step 5 update below records the subsequent causal experiment. Implemented contracts and configurations supersede illustrative settings below.
+
+**Step 5 update:** the [first suppression protocol](SUPPRESSION_PILOT.md) and [2,432-rollout causal experiment](../results/suppression_pilot/README.md) are complete; the current suite has 188 passing tests. Functional suppression replicated, but head scaling also shifted the operating point and controls did not establish a consistent beneficial temporal mechanism. The next revision should isolate these effects with new calibration and confirmation data. Direct closed-loop training and explicit E/I architectures remain future work.
 
 ## Research question and first claim to test
 
@@ -83,6 +85,8 @@ Vary computation delay first while holding observation sampling and history dura
 **Deliverable:** reproducible training configurations and held-out control curves. **Pass criterion:** multiple independent seeds learn competent behavior across a useful, nontrivial timing range. Interpretability work should not begin with controllers that already fail throughout the range.
 
 ## Step 5 Identify suppression and test its causal role
+
+The initial implementation and qualified outcome are recorded in [SUPPRESSION_PILOT.md](SUPPRESSION_PILOT.md) and its [result report](../results/suppression_pilot/README.md). The broader design below remains the roadmap; the first study deliberately focused on eight attention heads, paired pulse/sham responses and three frozen models.
 
 Use a discovery set to identify head or MLP contributions that suppress a specified behaviorally relevant signal. State which signal is suppressed: for example, a disturbance-induced action transient, a distractor feature or an internally amplified response. Negative weight signs alone are insufficient, and a negative action can be appropriate control rather than an inhibitory mechanism.
 
@@ -170,10 +174,12 @@ src/closed_loop_inhibition/
   controllers.py         # Implemented PD/predictor and analytical calculations.
   imitation.py           # Shared teacher/student information and demonstrations.
   neural.py              # Causal transformer and matched-history MLP.
-  interventions.py       # Planned candidate selection and interventions.
+  interventions.py       # Implemented native head scaling and residual diagnostics.
+  suppression_tasks.py   # Paired pulse/sham tasks and absolute competence safeguards.
+  suppression_analysis.py # Discovery statistics and matched-effect calibration.
   metrics.py             # Task, transient and local-dynamics measurements.
 configs/                 # Pilot and frozen confirmation configurations.
-experiments/             # Baseline and staged neural runner; interventions planned.
+experiments/             # Baseline, staged training and staged suppression runners.
 tests/                   # Timing causality, analytical dynamics and replay checks.
 results/                 # Manifests and small summaries; large data kept elsewhere.
 ```

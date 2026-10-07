@@ -4,9 +4,11 @@ Research project investigating whether emergent suppression and explicit excitat
 
 **Central question:** Do suppressive mechanisms change the combined controller–environment dynamics beneficially, and does their causal contribution depend on the relationship between environmental timescales, observation-to-action latency, and fresh-feedback intervals?
 
-**Status on 7 October 2026:** The three-seed transformer/MLP imitation pilot is complete: 768 held-out feedback rollouts and 108 passing tests. Both learned controllers closely reproduce their causal teacher's tracking across the tested timing conditions. The earlier classical pilot contains 36 rollouts. No suppressive-pathway or E/I mechanism experiment has been performed.
+**Status on 7 October 2026:** The first causal suppression pilot is complete: 2,432 held-out pulse/sham rollouts and 188 passing tests. Suppressive head contributions replicated in all three trained transformers, but a consistent beneficial role at longer delays was not established. Earlier milestones contain 768 transformer/MLP control rollouts and 36 classical validation rollouts. No explicit E/I-inspired architecture has been tested.
 
 ## First results
+
+Read the [causal suppression report](results/suppression_pilot/README.md). Weakening selected heads increased disturbance-evoked action responses by about 8–13% on discovery histories, with independent replication. In closed loop it reduced incremental recovery error while causing baseline drift; temporal effects and control matching did not establish the proposed beneficial mechanism. The report preserves failed matches and competence failures alongside all outcomes.
 
 Read the [trained transformer pilot report](results/transformer_pilot/README.md). Mean held-out tracking RMSE is 0.2624 for the predictor teacher, 0.2629 for the transformer and 0.2635 for the matched-history MLP; all runs reached their horizon. The similar neural results establish usable baselines on this fixed, fully observed plant, without evidence for an attention-specific advantage.
 
@@ -55,6 +57,16 @@ Use a new output/artifact directory for a fresh run; training refuses to overwri
 
 The pilot uses prescribed virtual computation delays. Its separately measured CPU forward-pass latency excludes feature encoding and physical I/O and does not establish a real-time hardware control rate.
 
+For the suppression experiment, use the exact hash-verified transformer checkpoints retained on this server under `runs/transformer_pilot/checkpoints/`. A fresh clone needs those checkpoint artifacts; newly trained weights require their own recorded provenance. Run the three independent stages into a fresh directory:
+
+```bash
+.venv/bin/python experiments/run_suppression.py --stage discover --output runs/suppression_reproduction/results --artifacts runs/suppression_reproduction/artifacts
+.venv/bin/python experiments/run_suppression.py --stage calibrate --output runs/suppression_reproduction/results --artifacts runs/suppression_reproduction/artifacts
+.venv/bin/python experiments/run_suppression.py --stage evaluate --output runs/suppression_reproduction/results --artifacts runs/suppression_reproduction/artifacts
+```
+
+Inspect discovery and calibration records before confirmation, without selecting new heads or retuning against outcomes. The runner checks unchanged sources, configuration, selected heads, snapshots and checkpoint bytes between stages. The [suppression protocol](docs/SUPPRESSION_PILOT.md) defines the frozen pilot settings, matched controls, paired endpoint and interpretation limits. Historical baseline manifests fingerprint their original implementation; reevaluating those historical artifacts requires that source version, while new training runs receive new fingerprints.
+
 ## Read first
 
 1. [Research background and proposal](docs/RESEARCH_PROPOSAL.md) — the complete conceptual argument, evidence, definitions, hypotheses, and intended contribution.
@@ -64,6 +76,7 @@ The pilot uses prescribed virtual computation delays. Its separately measured CP
 5. [Source and provenance guide](docs/SOURCES.md) — primary references, version cautions, and connections to existing local research.
 6. [Implemented experiment contract](docs/EXPERIMENT_CONTRACT.md) — timing conventions, information access, scoring, censoring, and the current pilot's limits.
 7. [Transformer pilot protocol](docs/TRANSFORMER_PILOT.md) — teacher imitation, matched-history architectures, data splits, training and evaluation.
+8. [Suppression pilot protocol](docs/SUPPRESSION_PILOT.md) — frozen-head discovery, independent calibration and paired causal interventions.
 
 ## Implementation
 
@@ -76,6 +89,9 @@ The pilot uses prescribed virtual computation delays. Its separately measured CP
 | `metrics.py` | Tracking, effort, variation, finite-horizon settling and explicit censoring |
 | `imitation.py` | Shared bounded information, physical feature scaling and teacher demonstrations |
 | `neural.py` | Causally masked transformer and matched-history MLP |
+| `interventions.py` | Native head-contribution scaling and residual diagnostics |
+| `suppression_tasks.py` | Paired disturbance/sham tasks and recovery/competence scoring |
+| `suppression_analysis.py` | Functional suppression statistics and matched-control calibration |
 
 Validation covers analytical dynamics, delayed-feedback trajectories, information causality, event ordering, saturation, deterministic replay, reporting-grid independence and metric definitions. Neural checks additionally cover future-token and padding isolation, shared-information encoding, gradients and checkpoint round trips. Virtual computation time is independent of Python runtime. The fixed-cadence schedule assumes idealized parallel throughput; it is not a single-processor deployment claim.
 
@@ -83,6 +99,6 @@ The divergence guard is checked at event times rather than continuously. The pre
 
 ## Next milestone
 
-Define an operational competence threshold on separate development scenarios, then begin suppressive-pathway discovery and causal interventions with matched controls. Preserve the completed pilot as the baseline and reserve fresh confirmation scenarios for outcome-driven revisions. Direct closed-loop training and explicit E/I-inspired architectural comparisons remain subsequent work.
+Separate disturbance-response modulation from intervention-induced baseline drift using smaller, mean-preserving interventions and stricter timing-specific control matching. Freeze a new protocol and reserve fresh confirmation scenarios for that revision. Direct closed-loop training and explicit E/I-inspired architectural comparisons remain subsequent work.
 
 The primary research outcome remains the **stability–responsiveness tradeoff**, including disturbance recovery and delay tolerance at useful tracking performance. A reward increase, smaller actions, negative weights, or a static cancellation score alone would not establish the proposed mechanism.
