@@ -100,6 +100,7 @@ Choose fresh directories. The runner records every analytical comparison, retain
 8. [Suppression pilot protocol](docs/SUPPRESSION_PILOT.md) — frozen-head discovery, independent calibration and paired causal interventions.
 9. [Centered-intervention protocol](docs/CENTERED_SUPPRESSION_PILOT.md) — smaller interventions, sham command centering and controls matched within each timing condition.
 10. [Dynamics-validation protocol](docs/DYNAMICS_VALIDATION.md) — separate plant, feedback and perturbation timescales, with analytical and stochastic-input checks.
+11. [Two-timescale map design](docs/TIMESCALE_MAPS.md) — fixed delay and cadence, plant/noise axes, and distinct maps of accuracy, learned suppression and causal usefulness.
 
 ## Implementation
 
@@ -126,6 +127,6 @@ The divergence guard is checked at event times rather than continuously. The pre
 
 ## Next milestone
 
-Freeze a neural-controller protocol for the validated plant-speed, feedback-delay and perturbation distribution. Establish competent classical and learned baselines on the selected cells before comparing suppression; the old transformer checkpoints were trained at one plant speed. Measure controller and joint-loop responses, including observation history, pending commands and dispatch phase, then compare selected-head changes with matched output gain using fresh perturbations. Direct closed-loop training and explicit E/I-inspired architectures remain subsequent research choices.
+Begin the [two-timescale map experiment](docs/TIMESCALE_MAPS.md) with latency and update period fixed at 50 ms. Vary plant speed and noise correlation time on a four-by-four grid, with separate force-noise and sensor-noise panels. Establish a competent delay-aware reference before training per-cell neural ensembles for the emergence question. Map control accuracy, suppression diagnostics and causal usefulness separately, using fresh perturbations and matched controls. The design is recorded; this map experiment has not yet been run.
 
 The primary research outcome remains the **stability–responsiveness tradeoff**, including disturbance recovery and delay tolerance at useful tracking performance. A reward increase, smaller actions, negative weights, or a static cancellation score alone would not establish the proposed mechanism.
