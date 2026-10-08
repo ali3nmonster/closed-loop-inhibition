@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "scope": "Small head interventions with calibrated sham-command centering; frozen functional-role study",
+  "pretrained_commit": "05401cd",
+  "pretrained_results": "results/transformer_pilot",
+  "pretrained_artifacts": "runs/transformer_pilot",
+  "prior_suppression_commit": "bebc9bd",
+  "prior_suppression_results": "results/suppression_pilot",
+  "model_seeds": [
+    11,
+    22,
+    33
+  ],
+  "cpu_threads": 2,
+  "splits": {
+    "calibration": {
+      "count": 4,
+      "seed": 32452843,
+      "prefix": "centered_calibration"
+    },
+    "confirmation": {
+      "count": 8,
+      "seed": 49979687,
+      "prefix": "centered_confirmation"
+    }
+  },
+  "timing": {
+    "duration": 5.0,
+    "observation_interval": 0.05,
+    "decision_interval": 0.05,
+    "sample_interval": 0.01,
+    "history_seconds": 0.5,
+    "action_limit": 5.0
+  },
+  "schedules": [
+    "serial",
+    "fixed_cadence"
+  ],
+  "compute_durations": [
+    0.0,
+    0.05,
+    0.1,
+    0.2
+  ],
+  "discovery": {
+    "window_seconds": 2.0,
+    "schedule": "fixed_cadence",
+    "compute_duration": 0.05
+  },
+  "candidate_scales": {
+    "weak": 0.9,
+    "strong": 1.1
+  },
+  "calibration": {
+    "mean_atol": 1e-10,
+    "alternative_scale_min": 0.5,
+    "alternative_scale_max": 1.0,
+    "alternative_scale_step": 0.005,
+    "gain_min": 1.0,
+    "gain_max": 1.5,
+    "gain_step": 0.001,
+    "matching_relative_tolerance": 0.05,
+    "target_epsilon": 1e-08,
+    "direction_minimum_positive_fraction": 0.75,
+    "baseline_response_epsilon": 1e-08
+  },
+  "recovery_seconds": 3.0,
+  "competence": {
+    "maximum_peak_error": 1.0,
+    "maximum_last_second_rmse": 0.05,
+    "maximum_teacher_response_ratio": 1.5,
+    "maximum_sham_rmse_gap": 0.005
+  },
+  "primary": {
+    "schedule": "fixed_cadence",
+    "low_delay": 0.0,
+    "high_delay": 0.2,
+    "variant": "centered_weak",
+    "endpoint": "difference of paired centered-weak J_response changes at high versus low delay"
+  }
+}

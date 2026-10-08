@@ -4,9 +4,11 @@ Research project investigating whether emergent suppression and explicit excitat
 
 **Central question:** Do suppressive mechanisms change the combined controller–environment dynamics beneficially, and does their causal contribution depend on the relationship between environmental timescales, observation-to-action latency, and fresh-feedback intervals?
 
-**Status on 7 October 2026:** The first causal suppression pilot is complete: 2,432 held-out pulse/sham rollouts and 188 passing tests. Suppressive head contributions replicated in all three trained transformers, but a consistent beneficial role at longer delays was not established. Earlier milestones contain 768 transformer/MLP control rollouts and 36 classical validation rollouts. No explicit E/I-inspired architecture has been tested.
+**Status on 8 October 2026:** The centered-intervention follow-up is complete: 2,816 confirmation rollouts and 252 passing tests. Small recovery effects persist after correcting command bias, but delay interactions disagree across models and a matched output-gain control performs better. Earlier milestones contain 2,432 suppression-confirmation rollouts, 768 transformer/MLP control rollouts and 36 classical validation rollouts. No explicit E/I-inspired architecture has been tested.
 
 ## First results
+
+Read the [centered-intervention report](results/centered_suppression_pilot/README.md). Weakening a selected head by 10% with a calibrated command correction lowers mean incremental recovery error by 1.52% while raising effort by 2.43%. Centering removes most excess baseline drift, but the three models disagree on the primary delay interaction. All timing-specific control matches pass, and a simple matched gain increase achieves lower recovery cost in all 24 model × timing cells. The follow-up adds 832 calibration/probe and 48 numerical-check rollouts to its 2,816 confirmation rollouts.
 
 Read the [causal suppression report](results/suppression_pilot/README.md). Weakening selected heads increased disturbance-evoked action responses by about 8–13% on discovery histories, with independent replication. In closed loop it reduced incremental recovery error while causing baseline drift; temporal effects and control matching did not establish the proposed beneficial mechanism. The report preserves failed matches and competence failures alongside all outcomes.
 
@@ -67,6 +69,15 @@ For the suppression experiment, use the exact hash-verified transformer checkpoi
 
 Inspect discovery and calibration records before confirmation, without selecting new heads or retuning against outcomes. The runner checks unchanged sources, configuration, selected heads, snapshots and checkpoint bytes between stages. The [suppression protocol](docs/SUPPRESSION_PILOT.md) defines the frozen pilot settings, matched controls, paired endpoint and interpretation limits. Historical baseline manifests fingerprint their original implementation; reevaluating those historical artifacts requires that source version, while new training runs receive new fingerprints.
 
+The [centered-intervention follow-up](docs/CENTERED_SUPPRESSION_PILOT.md) uses the same checkpoint artifacts and the head selection committed at `bebc9bd`, with fresh calibration and confirmation scenarios. It fits constant command offsets on native sham histories and matches controls separately for each timing condition:
+
+```bash
+.venv/bin/python experiments/run_centered_suppression.py --stage calibrate --output runs/centered_reproduction/results --artifacts runs/centered_reproduction/artifacts
+.venv/bin/python experiments/run_centered_suppression.py --stage evaluate --output runs/centered_reproduction/results --artifacts runs/centered_reproduction/artifacts
+```
+
+Inspect `calibration_readiness.json` and record the decision before evaluation. Preserve failures without replacing heads or tuning against recovery outcomes. Keep sources, configuration, protocol, checkpoints, scenarios and calibration artifacts unchanged between stages; the runner verifies their fingerprints. Centering preserves the clipped command mean on calibration sham histories, so actual drift and signed held-action means are measured separately in closed loop.
+
 ## Read first
 
 1. [Research background and proposal](docs/RESEARCH_PROPOSAL.md) — the complete conceptual argument, evidence, definitions, hypotheses, and intended contribution.
@@ -77,6 +88,7 @@ Inspect discovery and calibration records before confirmation, without selecting
 6. [Implemented experiment contract](docs/EXPERIMENT_CONTRACT.md) — timing conventions, information access, scoring, censoring, and the current pilot's limits.
 7. [Transformer pilot protocol](docs/TRANSFORMER_PILOT.md) — teacher imitation, matched-history architectures, data splits, training and evaluation.
 8. [Suppression pilot protocol](docs/SUPPRESSION_PILOT.md) — frozen-head discovery, independent calibration and paired causal interventions.
+9. [Centered-intervention protocol](docs/CENTERED_SUPPRESSION_PILOT.md) — smaller interventions, sham command centering and controls matched within each timing condition.
 
 ## Implementation
 
@@ -92,6 +104,8 @@ Inspect discovery and calibration records before confirmation, without selecting
 | `interventions.py` | Native head-contribution scaling and residual diagnostics |
 | `suppression_tasks.py` | Paired disturbance/sham tasks and recovery/competence scoring |
 | `suppression_analysis.py` | Functional suppression statistics and matched-control calibration |
+| `centered_calibration.py` | Clipping-aware command offsets with equal scenario weighting |
+| `centered_metrics.py` | Exact held-action means and sampled position means |
 
 Validation covers analytical dynamics, delayed-feedback trajectories, information causality, event ordering, saturation, deterministic replay, reporting-grid independence and metric definitions. Neural checks additionally cover future-token and padding isolation, shared-information encoding, gradients and checkpoint round trips. Virtual computation time is independent of Python runtime. The fixed-cadence schedule assumes idealized parallel throughput; it is not a single-processor deployment claim.
 
@@ -99,6 +113,6 @@ The divergence guard is checked at event times rather than continuously. The pre
 
 ## Next milestone
 
-Separate disturbance-response modulation from intervention-induced baseline drift using smaller, mean-preserving interventions and stricter timing-specific control matching. Freeze a new protocol and reserve fresh confirmation scenarios for that revision. Direct closed-loop training and explicit E/I-inspired architectural comparisons remain subsequent work.
+Estimate local controller–environment dynamics around the sham operating trajectory, including observation history, pending commands and dispatch phase. Compare selected-head changes with matched output gain and validate their predicted responses using fresh small disturbances. The centered follow-up has addressed much of the command-bias confound; it has not measured gain, damping, phase lag or stability margins directly. Freeze a new protocol before that analysis and its confirmation. Plant-timescale sweeps, direct closed-loop training and explicit E/I-inspired architectural comparisons remain subsequent work.
 
 The primary research outcome remains the **stability–responsiveness tradeoff**, including disturbance recovery and delay tolerance at useful tracking performance. A reward increase, smaller actions, negative weights, or a static cancellation score alone would not establish the proposed mechanism.
