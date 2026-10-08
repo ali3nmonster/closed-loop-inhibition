@@ -4,9 +4,13 @@ Research project investigating whether emergent suppression and explicit excitat
 
 **Central question:** Do suppressive mechanisms change the combined controller–environment dynamics beneficially, and does their causal contribution depend on the relationship between environmental timescales, observation-to-action latency, and fresh-feedback intervals?
 
-**Status on 8 October 2026:** The first fixed-delay plant/noise maps are complete: 48 transformers trained across 16 timing cells, 4,950 simulator rollouts and 357 passing software tests. All 48 selected pathways show held-out functional suppression. Weakening usually improves control slightly, but can harm the fastest conditions; common-input suppression prevalence is lower after training than at initialization. No explicit E/I-inspired architecture has been tested.
+**Status on 8 October 2026:** Collective suppression measurements are complete for 48 transformers at three checkpoints each, adding 3,944 simulator rollouts and seven figure sets. Weakening discovered groups of attention and MLP branches increases trained response strength by 8.29% on average. Training reduces this relative score while increasing the mean physical effect. Weakening improves slower-plant control but worsens fastest-plant pulse recovery by 17.19% on average; matched output gain remains competitive. The software suite passes 409 tests. No explicit E/I-inspired architecture has been tested.
 
 ## First results
+
+Read the [collective-suppression report](results/collective_suppression/README.md) and its [plots](results/collective_suppression/plots/). This saved-checkpoint follow-up surveys eight attention heads and both complete MLP residual branches, measures joint effects and interactions, compares initialization with training on common inputs, and tests frequency dependence and actual closed-loop usefulness. It keeps physical and relative suppression separate and preserves failed control matches. In the fastest plant/noise cell, weakening worsens recovery while matched output gain improves it; three model seeds and previously used trained models limit the interpretation.
+
+![Collective suppression and closed-loop usefulness](results/collective_suppression/plots/collective_usefulness.png)
 
 Read the [two-timescale experiment report](results/timescale_maps/README.md) and its [2D plots](results/timescale_maps/plots/). Delay and update period are fixed at 50 ms, while plant tau and force-noise correlation time vary independently. Learned controllers improve over passive motion in all 16 cell means and remain close to the delay-aware teacher. Suppression, its change during learning, causal accuracy/effort effects and control-matching quality are plotted separately. The results show a timing-dependent contribution, with small effects and important matched-gain comparisons.
 
@@ -101,6 +105,15 @@ The [fixed-delay force-noise map protocol](docs/TIMESCALE_MAPS_PILOT.md) trains 
 
 Use fresh directories for a new experiment. The runner can resume an interrupted run with identical sources, configuration, protocol and completed artifacts. Initialization, epoch-25, selected and final weights remain in the artifact directory; compact results and PNG/SVG maps are written under the result directory. Force noise is the first channel; these models are trained by expert imitation and contain no explicit E/I component.
 
+The [collective-suppression protocol](docs/COLLECTIVE_SUPPRESSION.md) analyzes those saved checkpoints with eight attention-head and two MLP-output gates. It adds joint interventions, common-input learning comparisons, frequency-resolved controller assays and fresh closed-loop confirmation:
+
+```bash
+.venv/bin/python experiments/run_collective_suppression.py --output runs/collective_reproduction/results --artifacts runs/collective_reproduction/artifacts
+.venv/bin/python experiments/plot_collective_suppression.py --input runs/collective_reproduction/results
+```
+
+This follow-up requires the inherited checkpoint artifacts recorded in the timescale-map manifest. It verifies the parent bytes, saves its own probe banks and freezes discovery/calibration before confirmation. It does not retrain models. Frequency effects are measured on fixed teacher-generated histories; own-loop accuracy and recovery are reported separately.
+
 ## Read first
 
 1. [Research background and proposal](docs/RESEARCH_PROPOSAL.md) — the complete conceptual argument, evidence, definitions, hypotheses, and intended contribution.
@@ -115,6 +128,7 @@ Use fresh directories for a new experiment. The runner can resume an interrupted
 10. [Dynamics-validation protocol](docs/DYNAMICS_VALIDATION.md) — separate plant, feedback and perturbation timescales, with analytical and stochastic-input checks.
 11. [Two-timescale map design](docs/TIMESCALE_MAPS.md) — fixed delay and cadence, plant/noise axes, and distinct maps of accuracy, learned suppression and causal usefulness.
 12. [First timescale-map protocol](docs/TIMESCALE_MAPS_PILOT.md) — the frozen force-noise grid, per-cell training, common-history checkpoint comparisons and held-out interventions.
+13. [Collective-suppression protocol](docs/COLLECTIVE_SUPPRESSION.md) — ten-branch joint effects, learning-associated change, spectral selectivity and closed-loop usefulness.
 
 ## Implementation
 
@@ -136,6 +150,8 @@ Use fresh directories for a new experiment. The runner can resume an interrupted
 | `dynamics_validation.py` | Independent ringdown, delayed recurrence, frequency-response and covariance references |
 | `timescale_maps.py` | Per-cell imitation, paired force-noise trials and finite-horizon control metrics |
 | `timescale_diagnostics.py` | Common-history checkpoint assays, head selection, centered controls and held-out causal effects |
+| `collective_suppression.py` | Ten-branch survey, joint suppression and interaction effects across saved checkpoints |
+| `collective_dynamics.py` | Frequency-resolved fixed-history assays and own-loop collective interventions |
 
 Validation covers analytical dynamics, delayed-feedback trajectories, information causality, event ordering, saturation, deterministic replay, reporting-grid independence and metric definitions. Neural checks additionally cover future-token and padding isolation, shared-information encoding, gradients and checkpoint round trips. Virtual computation time is independent of Python runtime. The fixed-cadence schedule assumes idealized parallel throughput; it is not a single-processor deployment claim.
 

@@ -12,6 +12,9 @@ ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location("collective_runner", ROOT / "experiments/run_collective_suppression.py")
 runner = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(runner)
+PLOT_SPEC = importlib.util.spec_from_file_location("collective_plot", ROOT / "experiments/plot_collective_suppression.py")
+plot = importlib.util.module_from_spec(PLOT_SPEC)
+PLOT_SPEC.loader.exec_module(plot)
 
 
 def settings():
@@ -137,3 +140,28 @@ def test_parent_verification_accepts_new_modules_but_rejects_parent_mutation(tmp
     runner.write_json(directory / "run_manifest.json", {**manifest, "edited": True})
     with pytest.raises(ValueError, match="differs from its committed record"):
         runner.verify_parent(protocol)
+
+
+def test_plot_missing_required_outcomes_are_not_averaged_away():
+    result = plot.stats([1., None, 3.])
+    assert result["mean"] is None and result["n"] == 3 and result["valid_n"] == 2
+
+
+def test_frequency_phase_aggregation_is_circular_and_preserves_missingness():
+    measured = plot.circular_stats([179., -179.])
+    assert abs(measured["mean"]) == pytest.approx(180.)
+    assert measured["range"] == pytest.approx(2.)
+    assert plot.circular_stats([179., None])["mean"] is None
+
+
+def test_control_contrasts_use_only_identical_matched_direction_cohorts():
+    base = {"plant_taus": [.1], "noise_taus": [.2]}
+    rows = [{"tau": .1, "noise_tau": .2, "seed": seed,
+             "joint_weak_position_rms_percent": weak,
+             "gain_matched_minus_weak_position_rms_percent": contrast,
+             "gain_matched_usable": usable, "alternative_matched_usable": False}
+            for seed, weak, contrast, usable in [(11, 2., 1., True), (22, 100., 50., False)]]
+    result = plot.aggregate(base, rows)[0]
+    assert result["joint_weak_position_rms_percent_mean"] == pytest.approx(51.)
+    assert result["gain_matched_minus_weak_position_rms_percent_mean"] == pytest.approx(1.)
+    assert result["gain_matched_minus_weak_position_rms_percent_n"] == 1

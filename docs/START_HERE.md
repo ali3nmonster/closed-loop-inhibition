@@ -10,7 +10,9 @@
 
 **First timescale maps complete:** the [frozen force-noise protocol](TIMESCALE_MAPS_PILOT.md) and [results with 2D plots](../results/timescale_maps/README.md) cover 48 separately trained transformers, 16 timing cells and 4,950 simulator rollouts. All 48 selected pathways show held-out suppression, but common-input eligible-head prevalence decreases from 57.29% at initialization to 47.40% after training. Weakening usually improves control slightly, while the fastest plant shows adverse pulse-recovery effects and some adverse noise-regulation effects. Matched gain controls remain competitive. The suite passes 357 tests.
 
-**Next research decisions:** replicate the fastest-condition crossover with fresh seeds and measure the joint loop's temporal response, then repeat the grid for sensor noise. Direct closed-loop training and explicit E/I-inspired components remain separate subsequent experiments.
+**Collective-suppression follow-up complete:** the [frozen ten-branch protocol](COLLECTIVE_SUPPRESSION.md) and [report with seven plot sets](../results/collective_suppression/README.md) analyze 144 saved checkpoints without retraining and add 3,944 simulator rollouts. Joint weakening raises trained command-response RMS by 8.29% on common held-out inputs. The relative score falls from 20.72% at initialization, while the physical effect rises in 32/48 models. Weakening improves slower-plant control but worsens fastest-plant recovery by 17.19% on average. Frequency-resolved assays show amplitude and phase effects on fixed teacher histories; these are not the neural loop's transfer function. Matched gain remains competitive. The suite passes 409 tests.
+
+**Next research decisions:** replicate the fastest-condition crossover with fresh training seeds and measure the complete neural controller–environment loop's temporal response, including history and delayed commands, then repeat the grid for sensor noise. Use both physical and relative suppression measures. Direct closed-loop training and explicit E/I-inspired components remain separate subsequent experiments.
 
 ## Research question and first claim to test
 

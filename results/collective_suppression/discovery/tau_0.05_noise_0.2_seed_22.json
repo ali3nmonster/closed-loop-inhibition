@@ -1,0 +1,3457 @@
+{
+  "bank_metadata": {
+    "amplitudes": [
+      -0.02,
+      -0.01,
+      0.01,
+      0.02
+    ],
+    "decision_rows": 480,
+    "first_decision_time": 1.0,
+    "last_decision_time": 3.95,
+    "noise_seeds": [
+      1010001,
+      1010002
+    ],
+    "scenario_count": 8
+  },
+  "branch_ids": [
+    "L0H0",
+    "L0H1",
+    "L0H2",
+    "L0H3",
+    "L0MLP",
+    "L1H0",
+    "L1H1",
+    "L1H2",
+    "L1H3",
+    "L1MLP"
+  ],
+  "checkpoint_metadata": {
+    "epoch_025": {
+      "epoch": 25,
+      "path": "runs/timescale_maps/checkpoints/tau_0.05_noise_0.2/seed_22/epoch_025.pt",
+      "sha256": "96c4733b42f304d1848c90d2e081d0b4c11ccbd36ebc9676b241d6b93d196a48"
+    },
+    "initial": {
+      "epoch": 0,
+      "path": "runs/timescale_maps/checkpoints/tau_0.05_noise_0.2/seed_22/initial.pt",
+      "sha256": "997b36207f9748e35264c452153d27d004488ce28c097eca4e65eede942f4843"
+    },
+    "selected": {
+      "epoch": 47,
+      "path": "runs/timescale_maps/checkpoints/tau_0.05_noise_0.2/seed_22/selected.pt",
+      "sha256": "a04b9e17224835aa53bd8738617bc9e8234f94d94efe3c90e39041a860f07d2c"
+    }
+  },
+  "checkpoints": {
+    "epoch_025": {
+      "branches": [
+        {
+          "branch": "L0H0",
+          "weak": {
+            "changed_response_rms": 0.008148720065954088,
+            "classifiable": true,
+            "eligible": false,
+            "median_absolute_change": 3.234649240872181e-05,
+            "median_fractional_change": 0.0044657293682276444,
+            "median_normalized_absolute_change": 0.0023036676702787705,
+            "native_response_rms": 0.008113230580573682,
+            "normalized_native_response_rms": 0.5145519119148062,
+            "per_group": [
+              {
+                "absolute_change": 2.3015332400681994e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005172830114080346,
+                "fractional_change": 0.004469157314658911,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.005149814781679664,
+                "normalized_absolute_change": 0.0023015332400681994,
+                "normalized_changed_response_rms": 0.5172830114080346,
+                "normalized_native_response_rms": 0.5149814781679664
+              },
+              {
+                "absolute_change": 4.6119338697438866e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010231546384415681,
+                "fractional_change": 0.00452797300402108,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.010185427045718242,
+                "normalized_absolute_change": 0.0023059669348719433,
+                "normalized_changed_response_rms": 0.5115773192207841,
+                "normalized_native_response_rms": 0.5092713522859121
+              },
+              {
+                "absolute_change": 2.33139797728198e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0052173218232011535,
+                "fractional_change": 0.004488630066725285,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.005194007843428334,
+                "normalized_absolute_change": 0.00233139797728198,
+                "normalized_changed_response_rms": 0.5217321823201153,
+                "normalized_native_response_rms": 0.5194007843428333
+              },
+              {
+                "absolute_change": 4.635898969396028e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010344464547796778,
+                "fractional_change": 0.004501700767427508,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.010298105558102818,
+                "normalized_absolute_change": 0.002317949484698014,
+                "normalized_changed_response_rms": 0.5172232273898388,
+                "normalized_native_response_rms": 0.5149052779051408
+              },
+              {
+                "absolute_change": 2.0553108695331793e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005158142608633595,
+                "fractional_change": 0.004000535405870531,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.005137589499938263,
+                "normalized_absolute_change": 0.0020553108695331793,
+                "normalized_changed_response_rms": 0.5158142608633595,
+                "normalized_native_response_rms": 0.5137589499938263
+              },
+              {
+                "absolute_change": 4.1379005044623815e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010195980948933757,
+                "fractional_change": 0.00407490173157643,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.010154601943889133,
+                "normalized_absolute_change": 0.0020689502522311908,
+                "normalized_changed_response_rms": 0.5097990474466878,
+                "normalized_native_response_rms": 0.5077300971944566
+              },
+              {
+                "absolute_change": 2.2005576333331174e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0052171396345620695,
+                "fractional_change": 0.004235805291391115,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.005195134058228738,
+                "normalized_absolute_change": 0.0022005576333331174,
+                "normalized_changed_response_rms": 0.5217139634562069,
+                "normalized_native_response_rms": 0.5195134058228739
+              },
+              {
+                "absolute_change": 4.6116042009786834e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010380702985090218,
+                "fractional_change": 0.0044623014217963775,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.010334586943080431,
+                "normalized_absolute_change": 0.0023058021004893417,
+                "normalized_changed_response_rms": 0.5190351492545109,
+                "normalized_native_response_rms": 0.5167293471540215
+              }
+            ],
+            "positive_fraction": 1.0
+          }
+        },
+        {
+          "branch": "L0H1",
+          "weak": {
+            "changed_response_rms": 0.008267854949924928,
+            "classifiable": true,
+            "eligible": true,
+            "median_absolute_change": 0.0001395582498402853,
+            "median_fractional_change": 0.019423550488477104,
+            "median_normalized_absolute_change": 0.010045639042695733,
+            "native_response_rms": 0.008113230580573682,
+            "normalized_native_response_rms": 0.5145519119148062,
+            "per_group": [
+              {
+                "absolute_change": 0.00010262482169225238,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005252439603371916,
+                "fractional_change": 0.019927866543343997,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.005149814781679664,
+                "normalized_absolute_change": 0.010262482169225238,
+                "normalized_changed_response_rms": 0.5252439603371916,
+                "normalized_native_response_rms": 0.5149814781679664
+              },
+              {
+                "absolute_change": 0.00020910662878181538,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010394533674500057,
+                "fractional_change": 0.02052998149642815,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.010185427045718242,
+                "normalized_absolute_change": 0.010455331439090769,
+                "normalized_changed_response_rms": 0.5197266837250029,
+                "normalized_native_response_rms": 0.5092713522859121
+              },
+              {
+                "absolute_change": 9.328462270472883e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0052872924661330626,
+                "fractional_change": 0.017960046560722143,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.005194007843428334,
+                "normalized_absolute_change": 0.009328462270472883,
+                "normalized_changed_response_rms": 0.5287292466133062,
+                "normalized_native_response_rms": 0.5194007843428333
+              },
+              {
+                "absolute_change": 0.0001742850752262503,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010472390633329068,
+                "fractional_change": 0.016923993859153885,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.010298105558102818,
+                "normalized_absolute_change": 0.008714253761312515,
+                "normalized_changed_response_rms": 0.5236195316664534,
+                "normalized_native_response_rms": 0.5149052779051408
+              },
+              {
+                "absolute_change": 0.00010483142445432032,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0052424209243925836,
+                "fractional_change": 0.020404787976069372,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.005137589499938263,
+                "normalized_absolute_change": 0.010483142445432032,
+                "normalized_changed_response_rms": 0.5242420924392583,
+                "normalized_native_response_rms": 0.5137589499938263
+              },
+              {
+                "absolute_change": 0.0002105125378305782,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010365114481719711,
+                "fractional_change": 0.02073075232232613,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.010154601943889133,
+                "normalized_absolute_change": 0.01052562689152891,
+                "normalized_changed_response_rms": 0.5182557240859855,
+                "normalized_native_response_rms": 0.5077300971944566
+              },
+              {
+                "absolute_change": 9.828795916166227e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005293422017390401,
+                "fractional_change": 0.01891923443361021,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.005195134058228738,
+                "normalized_absolute_change": 0.009828795916166227,
+                "normalized_changed_response_rms": 0.52934220173904,
+                "normalized_native_response_rms": 0.5195134058228739
+              },
+              {
+                "absolute_change": 0.00018490127951270065,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010519488222593132,
+                "fractional_change": 0.017891501666305265,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.010334586943080431,
+                "normalized_absolute_change": 0.009245063975635032,
+                "normalized_changed_response_rms": 0.5259744111296566,
+                "normalized_native_response_rms": 0.5167293471540215
+              }
+            ],
+            "positive_fraction": 1.0
+          }
+        },
+        {
+          "branch": "L0H2",
+          "weak": {
+            "changed_response_rms": 0.008009530290962812,
+            "classifiable": true,
+            "eligible": false,
+            "median_absolute_change": -8.872933976150632e-05,
+            "median_fractional_change": -0.012882779451361015,
+            "median_normalized_absolute_change": -0.00666628046385666,
+            "native_response_rms": 0.008113230580573682,
+            "normalized_native_response_rms": 0.5145519119148062,
+            "per_group": [
+              {
+                "absolute_change": -6.0217353208972917e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005089597428470691,
+                "fractional_change": -0.011693110482962399,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.005149814781679664,
+                "normalized_absolute_change": -0.006021735320897292,
+                "normalized_changed_response_rms": 0.508959742847069,
+                "normalized_native_response_rms": 0.5149814781679664
+              },
+              {
+                "absolute_change": -0.00010664690764946791,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010078780138068774,
+                "fractional_change": -0.010470538659869022,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.010185427045718242,
+                "normalized_absolute_change": -0.0053323453824733955,
+                "normalized_changed_response_rms": 0.5039390069034387,
+                "normalized_native_response_rms": 0.5092713522859121
+              },
+              {
+                "absolute_change": -7.564491361053242e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005118362929817801,
+                "fractional_change": -0.014563881282205093,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.005194007843428334,
+                "normalized_absolute_change": -0.0075644913610532424,
+                "normalized_changed_response_rms": 0.5118362929817801,
+                "normalized_native_response_rms": 0.5194007843428333
+              },
+              {
+                "absolute_change": -0.00015665016724312857,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010141455390859689,
+                "fractional_change": -0.015211551907221676,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.010298105558102818,
+                "normalized_absolute_change": -0.007832508362156428,
+                "normalized_changed_response_rms": 0.5070727695429844,
+                "normalized_native_response_rms": 0.5149052779051408
+              },
+              {
+                "absolute_change": -5.673538229615353e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.00508085411764211,
+                "fractional_change": -0.011043191032844346,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.005137589499938263,
+                "normalized_absolute_change": -0.005673538229615353,
+                "normalized_changed_response_rms": 0.508085411764211,
+                "normalized_native_response_rms": 0.5137589499938263
+              },
+              {
+                "absolute_change": -0.00010181376591248022,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010052788177976653,
+                "fractional_change": -0.010026367008285297,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.010154601943889133,
+                "normalized_absolute_change": -0.005090688295624011,
+                "normalized_changed_response_rms": 0.5026394088988326,
+                "normalized_native_response_rms": 0.5077300971944566
+              },
+              {
+                "absolute_change": -7.310825606816028e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005122025802160578,
+                "fractional_change": -0.014072448419759631,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.005195134058228738,
+                "normalized_absolute_change": -0.007310825606816028,
+                "normalized_changed_response_rms": 0.5122025802160578,
+                "normalized_native_response_rms": 0.5195134058228739
+              },
+              {
+                "absolute_change": -0.0001571973347759114,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.01017738960830452,
+                "fractional_change": -0.015210799971174804,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.010334586943080431,
+                "normalized_absolute_change": -0.00785986673879557,
+                "normalized_changed_response_rms": 0.508869480415226,
+                "normalized_native_response_rms": 0.5167293471540215
+              }
+            ],
+            "positive_fraction": 0.0
+          }
+        },
+        {
+          "branch": "L0H3",
+          "weak": {
+            "changed_response_rms": 0.00823613200977201,
+            "classifiable": true,
+            "eligible": true,
+            "median_absolute_change": 0.00011231920413421132,
+            "median_fractional_change": 0.015002327205010713,
+            "median_normalized_absolute_change": 0.007756725666914358,
+            "native_response_rms": 0.008113230580573682,
+            "normalized_native_response_rms": 0.5145519119148062,
+            "per_group": [
+              {
+                "absolute_change": 7.407584342167522e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005223890625101339,
+                "fractional_change": 0.014384176239735424,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.005149814781679664,
+                "normalized_absolute_change": 0.007407584342167522,
+                "normalized_changed_response_rms": 0.5223890625101338,
+                "normalized_native_response_rms": 0.5149814781679664
+              },
+              {
+                "absolute_change": 0.00014309761645709025,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010328524662175332,
+                "fractional_change": 0.01404925054342665,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.010185427045718242,
+                "normalized_absolute_change": 0.007154880822854513,
+                "normalized_changed_response_rms": 0.5164262331087666,
+                "normalized_native_response_rms": 0.5092713522859121
+              },
+              {
+                "absolute_change": 8.154079181133238e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005275548635239666,
+                "fractional_change": 0.015699012067242224,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.005194007843428334,
+                "normalized_absolute_change": 0.008154079181133238,
+                "normalized_changed_response_rms": 0.5275548635239666,
+                "normalized_native_response_rms": 0.5194007843428333
+              },
+              {
+                "absolute_change": 0.0001670458757465111,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010465151433849329,
+                "fractional_change": 0.016221029664536202,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.010298105558102818,
+                "normalized_absolute_change": 0.008352293787325556,
+                "normalized_changed_response_rms": 0.5232575716924664,
+                "normalized_native_response_rms": 0.5149052779051408
+              },
+              {
+                "absolute_change": 7.399078412071661e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.00521158028405898,
+                "fractional_change": 0.014401848205584766,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.005137589499938263,
+                "normalized_absolute_change": 0.007399078412071661,
+                "normalized_changed_response_rms": 0.521158028405898,
+                "normalized_native_response_rms": 0.5137589499938263
+              },
+              {
+                "absolute_change": 0.00014425785981816291,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010298859803707296,
+                "fractional_change": 0.01420615604779818,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.010154601943889133,
+                "normalized_absolute_change": 0.007212892990908146,
+                "normalized_changed_response_rms": 0.5149429901853648,
+                "normalized_native_response_rms": 0.5077300971944566
+              },
+              {
+                "absolute_change": 8.105866991661194e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.00527619272814535,
+                "fractional_change": 0.015602806204436659,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.005195134058228738,
+                "normalized_absolute_change": 0.008105866991661194,
+                "normalized_changed_response_rms": 0.527619272814535,
+                "normalized_native_response_rms": 0.5195134058228739
+              },
+              {
+                "absolute_change": 0.00016719428415057531,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010501781227231007,
+                "fractional_change": 0.01617812933128615,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.010334586943080431,
+                "normalized_absolute_change": 0.008359714207528766,
+                "normalized_changed_response_rms": 0.5250890613615503,
+                "normalized_native_response_rms": 0.5167293471540215
+              }
+            ],
+            "positive_fraction": 1.0
+          }
+        },
+        {
+          "branch": "L0MLP",
+          "weak": {
+            "changed_response_rms": 0.008013385197827747,
+            "classifiable": true,
+            "eligible": false,
+            "median_absolute_change": -8.90654335947475e-05,
+            "median_fractional_change": -0.012456733805916498,
+            "median_normalized_absolute_change": -0.006441910033682828,
+            "native_response_rms": 0.008113230580573682,
+            "normalized_native_response_rms": 0.5145519119148062,
+            "per_group": [
+              {
+                "absolute_change": -6.711268317981679e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005082702098499847,
+                "fractional_change": -0.013032057661290786,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.005149814781679664,
+                "normalized_absolute_change": -0.006711268317981679,
+                "normalized_changed_response_rms": 0.5082702098499847,
+                "normalized_native_response_rms": 0.5149814781679664
+              },
+              {
+                "absolute_change": -0.00013880731324758533,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010046619732470657,
+                "fractional_change": -0.013628030776180133,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.010185427045718242,
+                "normalized_absolute_change": -0.0069403656623792664,
+                "normalized_changed_response_rms": 0.5023309866235328,
+                "normalized_native_response_rms": 0.5092713522859121
+              },
+              {
+                "absolute_change": -5.9713505302450356e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005134294338125883,
+                "fractional_change": -0.011496614387674131,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.005194007843428334,
+                "normalized_absolute_change": -0.005971350530245036,
+                "normalized_changed_response_rms": 0.5134294338125883,
+                "normalized_native_response_rms": 0.5194007843428333
+              },
+              {
+                "absolute_change": -0.00011026134673572385,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010187844211367094,
+                "fractional_change": -0.010706954411529357,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.010298105558102818,
+                "normalized_absolute_change": -0.005513067336786193,
+                "normalized_changed_response_rms": 0.5093922105683547,
+                "normalized_native_response_rms": 0.5149052779051408
+              },
+              {
+                "absolute_change": -6.786952045377114e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005069719979484492,
+                "fractional_change": -0.01321038211686365,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.005137589499938263,
+                "normalized_absolute_change": -0.006786952045377114,
+                "normalized_changed_response_rms": 0.5069719979484492,
+                "normalized_native_response_rms": 0.5137589499938263
+              },
+              {
+                "absolute_change": -0.00013905145722965112,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010015550486659482,
+                "fractional_change": -0.013693442440974257,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.010154601943889133,
+                "normalized_absolute_change": -0.006952572861482556,
+                "normalized_changed_response_rms": 0.5007775243329741,
+                "normalized_native_response_rms": 0.5077300971944566
+              },
+              {
+                "absolute_change": -6.172551749383977e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005133408540734899,
+                "fractional_change": -0.01188140995054221,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.005195134058228738,
+                "normalized_absolute_change": -0.006172551749383977,
+                "normalized_changed_response_rms": 0.5133408540734898,
+                "normalized_native_response_rms": 0.5195134058228739
+              },
+              {
+                "absolute_change": -0.00011558667562479655,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010219000267455635,
+                "fractional_change": -0.011184450453744388,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.010334586943080431,
+                "normalized_absolute_change": -0.005779333781239827,
+                "normalized_changed_response_rms": 0.5109500133727817,
+                "normalized_native_response_rms": 0.5167293471540215
+              }
+            ],
+            "positive_fraction": 0.0
+          }
+        },
+        {
+          "branch": "L1H0",
+          "weak": {
+            "changed_response_rms": 0.008196861114144732,
+            "classifiable": true,
+            "eligible": true,
+            "median_absolute_change": 7.743377839800926e-05,
+            "median_fractional_change": 0.010385101237004202,
+            "median_normalized_absolute_change": 0.005371842693698871,
+            "native_response_rms": 0.008113230580573682,
+            "normalized_native_response_rms": 0.5145519119148062,
+            "per_group": [
+              {
+                "absolute_change": 5.308216494647952e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005202896946626143,
+                "fractional_change": 0.0103075872039744,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.005149814781679664,
+                "normalized_absolute_change": 0.005308216494647952,
+                "normalized_changed_response_rms": 0.5202896946626143,
+                "normalized_native_response_rms": 0.5149814781679664
+              },
+              {
+                "absolute_change": 0.00010237477140281025,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010287801817121052,
+                "fractional_change": 0.010051102515711063,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.010185427045718242,
+                "normalized_absolute_change": 0.005118738570140512,
+                "normalized_changed_response_rms": 0.5143900908560526,
+                "normalized_native_response_rms": 0.5092713522859121
+              },
+              {
+                "absolute_change": 5.541225125533546e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005249420094683669,
+                "fractional_change": 0.010668495875578055,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.005194007843428334,
+                "normalized_absolute_change": 0.005541225125533546,
+                "normalized_changed_response_rms": 0.5249420094683669,
+                "normalized_native_response_rms": 0.5194007843428333
+              },
+              {
+                "absolute_change": 0.00011046931616836078,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010408574874271178,
+                "fractional_change": 0.010727149332960595,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.010298105558102818,
+                "normalized_absolute_change": 0.005523465808418039,
+                "normalized_changed_response_rms": 0.5204287437135589,
+                "normalized_native_response_rms": 0.5149052779051408
+              },
+              {
+                "absolute_change": 5.1669146940525566e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005189258646878789,
+                "fractional_change": 0.010057079675428904,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.005137589499938263,
+                "normalized_absolute_change": 0.005166914694052557,
+                "normalized_changed_response_rms": 0.5189258646878788,
+                "normalized_native_response_rms": 0.5137589499938263
+              },
+              {
+                "absolute_change": 9.945530554068306e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010254057249429816,
+                "fractional_change": 0.00979411168357358,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.010154601943889133,
+                "normalized_absolute_change": 0.004972765277034153,
+                "normalized_changed_response_rms": 0.5127028624714908,
+                "normalized_native_response_rms": 0.5077300971944566
+              },
+              {
+                "absolute_change": 5.4354688927497896e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005249488747156236,
+                "fractional_change": 0.010462615270034004,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.005195134058228738,
+                "normalized_absolute_change": 0.00543546889274979,
+                "normalized_changed_response_rms": 0.5249488747156236,
+                "normalized_native_response_rms": 0.5195134058228739
+              },
+              {
+                "absolute_change": 0.00010922387490956524,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010443810817989996,
+                "fractional_change": 0.010568770238339908,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.010334586943080431,
+                "normalized_absolute_change": 0.005461193745478262,
+                "normalized_changed_response_rms": 0.5221905408994998,
+                "normalized_native_response_rms": 0.5167293471540215
+              }
+            ],
+            "positive_fraction": 1.0
+          }
+        },
+        {
+          "branch": "L1H1",
+          "weak": {
+            "changed_response_rms": 0.008211847727736154,
+            "classifiable": true,
+            "eligible": true,
+            "median_absolute_change": 9.296280226580005e-05,
+            "median_fractional_change": 0.012175623812580527,
+            "median_normalized_absolute_change": 0.006280870832764797,
+            "native_response_rms": 0.008113230580573682,
+            "normalized_native_response_rms": 0.5145519119148062,
+            "per_group": [
+              {
+                "absolute_change": 6.264689573804143e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005212461677417705,
+                "fractional_change": 0.01216488328102705,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.005149814781679664,
+                "normalized_absolute_change": 0.0062646895738041435,
+                "normalized_changed_response_rms": 0.5212461677417705,
+                "normalized_native_response_rms": 0.5149814781679664
+              },
+              {
+                "absolute_change": 0.00012243654912547086,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010307863594843713,
+                "fractional_change": 0.01202075755644838,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.010185427045718242,
+                "normalized_absolute_change": 0.006121827456273543,
+                "normalized_changed_response_rms": 0.5153931797421857,
+                "normalized_native_response_rms": 0.5092713522859121
+              },
+              {
+                "absolute_change": 6.4036093850698e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005258043937279032,
+                "fractional_change": 0.012328840421702347,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.005194007843428334,
+                "normalized_absolute_change": 0.0064036093850698,
+                "normalized_changed_response_rms": 0.5258043937279031,
+                "normalized_native_response_rms": 0.5194007843428333
+              },
+              {
+                "absolute_change": 0.00012712014609000434,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010425225704192822,
+                "fractional_change": 0.012344032149678608,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.010298105558102818,
+                "normalized_absolute_change": 0.006356007304500217,
+                "normalized_changed_response_rms": 0.5212612852096411,
+                "normalized_native_response_rms": 0.5149052779051408
+              },
+              {
+                "absolute_change": 6.236554857571002e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005199955048513973,
+                "fractional_change": 0.012139068054475732,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.005137589499938263,
+                "normalized_absolute_change": 0.006236554857571002,
+                "normalized_changed_response_rms": 0.5199955048513973,
+                "normalized_native_response_rms": 0.5137589499938263
+              },
+              {
+                "absolute_change": 0.0001218895106809021,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010276491454570035,
+                "fractional_change": 0.012003376533558097,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.010154601943889133,
+                "normalized_absolute_change": 0.006094475534045105,
+                "normalized_changed_response_rms": 0.5138245727285017,
+                "normalized_native_response_rms": 0.5077300971944566
+              },
+              {
+                "absolute_change": 6.34707305366012e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0052586047887653396,
+                "fractional_change": 0.012217342194676961,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.005195134058228738,
+                "normalized_absolute_change": 0.00634707305366012,
+                "normalized_changed_response_rms": 0.525860478876534,
+                "normalized_native_response_rms": 0.5195134058228739
+              },
+              {
+                "absolute_change": 0.00012594104183450902,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.01046052798491494,
+                "fractional_change": 0.012186364344134004,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.010334586943080431,
+                "normalized_absolute_change": 0.006297052091725451,
+                "normalized_changed_response_rms": 0.523026399245747,
+                "normalized_native_response_rms": 0.5167293471540215
+              }
+            ],
+            "positive_fraction": 1.0
+          }
+        },
+        {
+          "branch": "L1H2",
+          "weak": {
+            "changed_response_rms": 0.008148928180081371,
+            "classifiable": true,
+            "eligible": false,
+            "median_absolute_change": 3.345045378995567e-05,
+            "median_fractional_change": 0.004434334324206701,
+            "median_normalized_absolute_change": 0.0022743534474442117,
+            "native_response_rms": 0.008113230580573682,
+            "normalized_native_response_rms": 0.5145519119148062,
+            "per_group": [
+              {
+                "absolute_change": 2.2807558404121242e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005172622340083785,
+                "fractional_change": 0.0044288113982775545,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.005149814781679664,
+                "normalized_absolute_change": 0.002280755840412124,
+                "normalized_changed_response_rms": 0.5172622340083785,
+                "normalized_native_response_rms": 0.5149814781679664
+              },
+              {
+                "absolute_change": 4.522184211466079e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010230648887832903,
+                "fractional_change": 0.004439857250135848,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.010185427045718242,
+                "normalized_absolute_change": 0.0022610921057330396,
+                "normalized_changed_response_rms": 0.5115324443916451,
+                "normalized_native_response_rms": 0.5092713522859121
+              },
+              {
+                "absolute_change": 2.2460532707539727e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0052164683761358735,
+                "fractional_change": 0.0043243162861137385,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.005194007843428334,
+                "normalized_absolute_change": 0.0022460532707539727,
+                "normalized_changed_response_rms": 0.5216468376135873,
+                "normalized_native_response_rms": 0.5194007843428333
+              },
+              {
+                "absolute_change": 4.374461288433017e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010341850170987148,
+                "fractional_change": 0.004247831082864639,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.010298105558102818,
+                "normalized_absolute_change": 0.0021872306442165083,
+                "normalized_changed_response_rms": 0.5170925085493574,
+                "normalized_native_response_rms": 0.5149052779051408
+              },
+              {
+                "absolute_change": 2.3156294695581177e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005160745794633844,
+                "fractional_change": 0.00450722944989268,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.005137589499938263,
+                "normalized_absolute_change": 0.0023156294695581177,
+                "normalized_changed_response_rms": 0.5160745794633844,
+                "normalized_native_response_rms": 0.5137589499938263
+              },
+              {
+                "absolute_change": 4.5682898238629324e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010200284842127762,
+                "fractional_change": 0.004498738452876516,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.010154601943889133,
+                "normalized_absolute_change": 0.002284144911931466,
+                "normalized_changed_response_rms": 0.5100142421063881,
+                "normalized_native_response_rms": 0.5077300971944566
+              },
+              {
+                "absolute_change": 2.3127320708782838e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005218261378937521,
+                "fractional_change": 0.004451727414454432,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.005195134058228738,
+                "normalized_absolute_change": 0.0023127320708782838,
+                "normalized_changed_response_rms": 0.5218261378937521,
+                "normalized_native_response_rms": 0.5195134058228739
+              },
+              {
+                "absolute_change": 4.535902108952598e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010379945964169957,
+                "fractional_change": 0.004389050219360424,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.010334586943080431,
+                "normalized_absolute_change": 0.002267951054476299,
+                "normalized_changed_response_rms": 0.5189972982084978,
+                "normalized_native_response_rms": 0.5167293471540215
+              }
+            ],
+            "positive_fraction": 1.0
+          }
+        },
+        {
+          "branch": "L1H3",
+          "weak": {
+            "changed_response_rms": 0.008174567359559145,
+            "classifiable": true,
+            "eligible": false,
+            "median_absolute_change": 5.813299238922138e-05,
+            "median_fractional_change": 0.007520907321583836,
+            "median_normalized_absolute_change": 0.0038819641369708478,
+            "native_response_rms": 0.008113230580573682,
+            "normalized_native_response_rms": 0.5145519119148062,
+            "per_group": [
+              {
+                "absolute_change": 3.881839026149709e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005188633171941161,
+                "fractional_change": 0.007537822602784239,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.005149814781679664,
+                "normalized_absolute_change": 0.003881839026149709,
+                "normalized_changed_response_rms": 0.518863317194116,
+                "normalized_native_response_rms": 0.5149814781679664
+              },
+              {
+                "absolute_change": 7.764178495583973e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010263068830674082,
+                "fractional_change": 0.007622830599771424,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.010185427045718242,
+                "normalized_absolute_change": 0.0038820892477919866,
+                "normalized_changed_response_rms": 0.5131534415337041,
+                "normalized_native_response_rms": 0.5092713522859121
+              },
+              {
+                "absolute_change": 3.8725732101795723e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0052327335755301295,
+                "fractional_change": 0.0074558478287229946,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.005194007843428334,
+                "normalized_absolute_change": 0.0038725732101795723,
+                "normalized_changed_response_rms": 0.523273357553013,
+                "normalized_native_response_rms": 0.5194007843428333
+              },
+              {
+                "absolute_change": 7.7271438901046e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010375376997003864,
+                "fractional_change": 0.007503461531353839,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.010298105558102818,
+                "normalized_absolute_change": 0.0038635719450523,
+                "normalized_changed_response_rms": 0.5187688498501931,
+                "normalized_native_response_rms": 0.5149052779051408
+              },
+              {
+                "absolute_change": 3.8994545877396765e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.00517658404581566,
+                "fractional_change": 0.0075900470206631265,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.005137589499938263,
+                "normalized_absolute_change": 0.0038994545877396765,
+                "normalized_changed_response_rms": 0.517658404581566,
+                "normalized_native_response_rms": 0.5137589499938263
+              },
+              {
+                "absolute_change": 7.776295750886245e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010232364901397995,
+                "fractional_change": 0.007657903080648065,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.010154601943889133,
+                "normalized_absolute_change": 0.0038881478754431223,
+                "normalized_changed_response_rms": 0.5116182450698997,
+                "normalized_native_response_rms": 0.5077300971944566
+              },
+              {
+                "absolute_change": 3.889348499716387e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005234027543225902,
+                "fractional_change": 0.007486521918632638,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.005195134058228738,
+                "normalized_absolute_change": 0.003889348499716387,
+                "normalized_changed_response_rms": 0.5234027543225902,
+                "normalized_native_response_rms": 0.5195134058228739
+              },
+              {
+                "absolute_change": 7.755065816152616e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010412137601241957,
+                "fractional_change": 0.007503992040383434,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.010334586943080431,
+                "normalized_absolute_change": 0.003877532908076308,
+                "normalized_changed_response_rms": 0.5206068800620979,
+                "normalized_native_response_rms": 0.5167293471540215
+              }
+            ],
+            "positive_fraction": 1.0
+          }
+        },
+        {
+          "branch": "L1MLP",
+          "weak": {
+            "changed_response_rms": 0.008166731069140934,
+            "classifiable": true,
+            "eligible": false,
+            "median_absolute_change": 4.66931113762524e-05,
+            "median_fractional_change": 0.006631570927056796,
+            "median_normalized_absolute_change": 0.0034307396044520443,
+            "native_response_rms": 0.008113230580573682,
+            "normalized_native_response_rms": 0.5145519119148062,
+            "per_group": [
+              {
+                "absolute_change": 3.284114723700084e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0051826559289166645,
+                "fractional_change": 0.006377151146063076,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.005149814781679664,
+                "normalized_absolute_change": 0.0032841147237000837,
+                "normalized_changed_response_rms": 0.5182655928916664,
+                "normalized_native_response_rms": 0.5149814781679664
+              },
+              {
+                "absolute_change": 5.889676499352611e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010244323810711768,
+                "fractional_change": 0.005782454160160544,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.010185427045718242,
+                "normalized_absolute_change": 0.0029448382496763056,
+                "normalized_changed_response_rms": 0.5122161905355884,
+                "normalized_native_response_rms": 0.5092713522859121
+              },
+              {
+                "absolute_change": 3.843770911380641e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.00523244555254214,
+                "fractional_change": 0.007400394892056017,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.005194007843428334,
+                "normalized_absolute_change": 0.003843770911380641,
+                "normalized_changed_response_rms": 0.523244555254214,
+                "normalized_native_response_rms": 0.5194007843428333
+              },
+              {
+                "absolute_change": 7.970409574628405e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010377809653849102,
+                "fractional_change": 0.007739685255369277,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.010298105558102818,
+                "normalized_absolute_change": 0.0039852047873142026,
+                "normalized_changed_response_rms": 0.5188904826924551,
+                "normalized_native_response_rms": 0.5149052779051408
+              },
+              {
+                "absolute_change": 3.0589168660079095e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005168178668598342,
+                "fractional_change": 0.005953992365572702,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.005137589499938263,
+                "normalized_absolute_change": 0.0030589168660079095,
+                "normalized_changed_response_rms": 0.5168178668598342,
+                "normalized_native_response_rms": 0.5137589499938263
+              },
+              {
+                "absolute_change": 5.494851363869839e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010209550457527831,
+                "fractional_change": 0.0054111932641303095,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.010154601943889133,
+                "normalized_absolute_change": 0.0027474256819349195,
+                "normalized_changed_response_rms": 0.5104775228763916,
+                "normalized_native_response_rms": 0.5077300971944566
+              },
+              {
+                "absolute_change": 3.577364485204005e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005230907703080778,
+                "fractional_change": 0.006885990708050516,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.005195134058228738,
+                "normalized_absolute_change": 0.003577364485204005,
+                "normalized_changed_response_rms": 0.5230907703080778,
+                "normalized_native_response_rms": 0.5195134058228739
+              },
+              {
+                "absolute_change": 7.565184686912467e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010410238789949556,
+                "fractional_change": 0.00732025839888828,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.010334586943080431,
+                "normalized_absolute_change": 0.0037825923434562335,
+                "normalized_changed_response_rms": 0.5205119394974778,
+                "normalized_native_response_rms": 0.5167293471540215
+              }
+            ],
+            "positive_fraction": 1.0
+          }
+        }
+      ],
+      "classifiable": true,
+      "eligible_count": 4,
+      "eligible_fraction": 0.4,
+      "selected": [
+        "L0H1",
+        "L0H3",
+        "L1H0",
+        "L1H1"
+      ]
+    },
+    "initial": {
+      "branches": [
+        {
+          "branch": "L0H0",
+          "weak": {
+            "changed_response_rms": 0.002555649869437927,
+            "classifiable": true,
+            "eligible": true,
+            "median_absolute_change": 4.735369003280431e-05,
+            "median_fractional_change": 0.02154812536534001,
+            "median_normalized_absolute_change": 0.0034253788663245427,
+            "native_response_rms": 0.002503650879409305,
+            "normalized_native_response_rms": 0.15894160442218708,
+            "per_group": [
+              {
+                "absolute_change": 3.5135749721916e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0016071029130440995,
+                "fractional_change": 0.02235145271588257,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.0015719671633221835,
+                "normalized_absolute_change": 0.0035135749721916,
+                "normalized_changed_response_rms": 0.16071029130440995,
+                "normalized_native_response_rms": 0.15719671633221835
+              },
+              {
+                "absolute_change": 6.977170661608655e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0031141833163331133,
+                "fractional_change": 0.022917961025175515,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.0030444116097170268,
+                "normalized_absolute_change": 0.0034885853308043273,
+                "normalized_changed_response_rms": 0.15570916581665567,
+                "normalized_native_response_rms": 0.15222058048585133
+              },
+              {
+                "absolute_change": 3.2264245854060365e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.001672084929140329,
+                "fractional_change": 0.01967547194818975,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.0016398206832862687,
+                "normalized_absolute_change": 0.0032264245854060365,
+                "normalized_changed_response_rms": 0.1672084929140329,
+                "normalized_native_response_rms": 0.16398206832862686
+              },
+              {
+                "absolute_change": 5.914478347938479e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.003351970336179953,
+                "fractional_change": 0.017961711767839672,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.003292825552700568,
+                "normalized_absolute_change": 0.0029572391739692396,
+                "normalized_changed_response_rms": 0.16759851680899765,
+                "normalized_native_response_rms": 0.1646412776350284
+              },
+              {
+                "absolute_change": 3.556259658622383e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0015853356839067225,
+                "fractional_change": 0.022946970028825397,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.0015497730873204987,
+                "normalized_absolute_change": 0.003556259658622383,
+                "normalized_changed_response_rms": 0.15853356839067226,
+                "normalized_native_response_rms": 0.15497730873204987
+              },
+              {
+                "absolute_change": 6.922915355438543e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0030544878152636754,
+                "fractional_change": 0.02319033671767201,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.00298525866170929,
+                "normalized_absolute_change": 0.0034614576777192716,
+                "normalized_changed_response_rms": 0.15272439076318375,
+                "normalized_native_response_rms": 0.14926293308546448
+              },
+              {
+                "absolute_change": 3.389300054929814e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0016677002097167154,
+                "fractional_change": 0.02074479801479745,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.0016338072091674173,
+                "normalized_absolute_change": 0.0033893000549298138,
+                "normalized_changed_response_rms": 0.16677002097167154,
+                "normalized_native_response_rms": 0.16338072091674172
+              },
+              {
+                "absolute_change": 6.330441705189142e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.003363609721977627,
+                "fractional_change": 0.01918138208529041,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.0033003053049257356,
+                "normalized_absolute_change": 0.003165220852594571,
+                "normalized_changed_response_rms": 0.16818048609888134,
+                "normalized_native_response_rms": 0.1650152652462868
+              }
+            ],
+            "positive_fraction": 1.0
+          }
+        },
+        {
+          "branch": "L0H1",
+          "weak": {
+            "changed_response_rms": 0.0026915424507898103,
+            "classifiable": true,
+            "eligible": true,
+            "median_absolute_change": 0.00017399863499300736,
+            "median_fractional_change": 0.07630943203005969,
+            "median_normalized_absolute_change": 0.012195077593931822,
+            "native_response_rms": 0.002503650879409305,
+            "normalized_native_response_rms": 0.15894160442218708,
+            "per_group": [
+              {
+                "absolute_change": 0.00012351885025355092,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0016954860135757345,
+                "fractional_change": 0.07857597355437562,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.0015719671633221835,
+                "normalized_absolute_change": 0.012351885025355091,
+                "normalized_changed_response_rms": 0.16954860135757344,
+                "normalized_native_response_rms": 0.15719671633221835
+              },
+              {
+                "absolute_change": 0.00023018502472177751,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0032745966344388043,
+                "fractional_change": 0.0756090352523564,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.0030444116097170268,
+                "normalized_absolute_change": 0.011509251236088876,
+                "normalized_changed_response_rms": 0.16372983172194022,
+                "normalized_native_response_rms": 0.15222058048585133
+              },
+              {
+                "absolute_change": 0.00012628231009530438,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.001766102993381573,
+                "fractional_change": 0.07700982880776297,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.0016398206832862687,
+                "normalized_absolute_change": 0.012628231009530437,
+                "normalized_changed_response_rms": 0.1766102993381573,
+                "normalized_native_response_rms": 0.16398206832862686
+              },
+              {
+                "absolute_change": 0.0002394898693279554,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0035323154220285235,
+                "fractional_change": 0.07273080990626446,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.003292825552700568,
+                "normalized_absolute_change": 0.011974493466397769,
+                "normalized_changed_response_rms": 0.17661577110142618,
+                "normalized_native_response_rms": 0.1646412776350284
+              },
+              {
+                "absolute_change": 0.00012038270162508555,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0016701557889455842,
+                "fractional_change": 0.07767763075123657,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.0015497730873204987,
+                "normalized_absolute_change": 0.012038270162508554,
+                "normalized_changed_response_rms": 0.16701557889455843,
+                "normalized_native_response_rms": 0.15497730873204987
+              },
+              {
+                "absolute_change": 0.00021946345648152926,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0032047221181908192,
+                "fractional_change": 0.07351572555386854,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.00298525866170929,
+                "normalized_absolute_change": 0.010973172824076463,
+                "normalized_changed_response_rms": 0.16023610590954096,
+                "normalized_native_response_rms": 0.14926293308546448
+              },
+              {
+                "absolute_change": 0.00012853381350448547,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0017623410226719027,
+                "fractional_change": 0.07867134676801046,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.0016338072091674173,
+                "normalized_absolute_change": 0.012853381350448546,
+                "normalized_changed_response_rms": 0.17623410226719027,
+                "normalized_native_response_rms": 0.16338072091674172
+              },
+              {
+                "absolute_change": 0.00024873231905432223,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.003549037623980058,
+                "fractional_change": 0.07536645736474346,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.0033003053049257356,
+                "normalized_absolute_change": 0.01243661595271611,
+                "normalized_changed_response_rms": 0.17745188119900288,
+                "normalized_native_response_rms": 0.1650152652462868
+              }
+            ],
+            "positive_fraction": 1.0
+          }
+        },
+        {
+          "branch": "L0H2",
+          "weak": {
+            "changed_response_rms": 0.0025028298487528395,
+            "classifiable": true,
+            "eligible": false,
+            "median_absolute_change": -9.780410865221e-07,
+            "median_fractional_change": -0.0006186130425159253,
+            "median_normalized_absolute_change": -9.780410865221e-05,
+            "native_response_rms": 0.002503650879409305,
+            "normalized_native_response_rms": 0.15894160442218708,
+            "per_group": [
+              {
+                "absolute_change": -1.6600897419925993e-06,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.001570307073580191,
+                "fractional_change": -0.0010560587910017905,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.0015719671633221835,
+                "normalized_absolute_change": -0.00016600897419925993,
+                "normalized_changed_response_rms": 0.15703070735801908,
+                "normalized_native_response_rms": 0.15719671633221835
+              },
+              {
+                "absolute_change": -3.592607402152625e-06,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.003040819002314874,
+                "fractional_change": -0.0011800662534218187,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.0030444116097170268,
+                "normalized_absolute_change": -0.00017963037010763124,
+                "normalized_changed_response_rms": 0.1520409501157437,
+                "normalized_native_response_rms": 0.15222058048585133
+              },
+              {
+                "absolute_change": 4.615671480706889e-07,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0016402822504343393,
+                "fractional_change": 0.00028147415920232177,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.0016398206832862687,
+                "normalized_absolute_change": 4.615671480706889e-05,
+                "normalized_changed_response_rms": 0.16402822504343392,
+                "normalized_native_response_rms": 0.16398206832862686
+              },
+              {
+                "absolute_change": 2.7718733508902416e-06,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0032955974260514584,
+                "fractional_change": 0.0008417917398073627,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.003292825552700568,
+                "normalized_absolute_change": 0.00013859366754451208,
+                "normalized_changed_response_rms": 0.1647798713025729,
+                "normalized_native_response_rms": 0.1646412776350284
+              },
+              {
+                "absolute_change": -2.648019614399791e-06,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0015471250677060989,
+                "fractional_change": -0.0017086498894997026,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.0015497730873204987,
+                "normalized_absolute_change": -0.0002648019614399791,
+                "normalized_changed_response_rms": 0.15471250677060988,
+                "normalized_native_response_rms": 0.15497730873204987
+              },
+              {
+                "absolute_change": -5.073012900224695e-06,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0029801856488090653,
+                "fractional_change": -0.0016993545535246568,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.00298525866170929,
+                "normalized_absolute_change": -0.00025365064501123476,
+                "normalized_changed_response_rms": 0.14900928244045325,
+                "normalized_native_response_rms": 0.14926293308546448
+              },
+              {
+                "absolute_change": -2.959924310516008e-07,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0016335112167363657,
+                "fractional_change": -0.00018116729403006016,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.0016338072091674173,
+                "normalized_absolute_change": -2.959924310516008e-05,
+                "normalized_changed_response_rms": 0.16335112167363655,
+                "normalized_native_response_rms": 0.16338072091674172
+              },
+              {
+                "absolute_change": 2.0974380642085552e-06,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.003302402742989944,
+                "fractional_change": 0.0006355284952208606,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.0033003053049257356,
+                "normalized_absolute_change": 0.00010487190321042776,
+                "normalized_changed_response_rms": 0.1651201371494972,
+                "normalized_native_response_rms": 0.1650152652462868
+              }
+            ],
+            "positive_fraction": 0.375
+          }
+        },
+        {
+          "branch": "L0H3",
+          "weak": {
+            "changed_response_rms": 0.002517609546506392,
+            "classifiable": true,
+            "eligible": false,
+            "median_absolute_change": 1.3290445655857381e-05,
+            "median_fractional_change": 0.006134147629618392,
+            "median_normalized_absolute_change": 0.0009730639383048897,
+            "native_response_rms": 0.002503650879409305,
+            "normalized_native_response_rms": 0.15894160442218708,
+            "per_group": [
+              {
+                "absolute_change": 1.073205296325732e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0015826992162854409,
+                "fractional_change": 0.00682714831051312,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.0015719671633221835,
+                "normalized_absolute_change": 0.001073205296325732,
+                "normalized_changed_response_rms": 0.15826992162854409,
+                "normalized_native_response_rms": 0.15719671633221835
+              },
+              {
+                "absolute_change": 1.6064143180781563e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0030604757528978083,
+                "fractional_change": 0.005276600289365829,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.0030444116097170268,
+                "normalized_absolute_change": 0.0008032071590390781,
+                "normalized_changed_response_rms": 0.1530237876448904,
+                "normalized_native_response_rms": 0.15222058048585133
+              },
+              {
+                "absolute_change": 9.103921373422325e-06,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.001648924604659691,
+                "fractional_change": 0.0055517785976315626,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.0016398206832862687,
+                "normalized_absolute_change": 0.0009103921373422325,
+                "normalized_changed_response_rms": 0.1648924604659691,
+                "normalized_native_response_rms": 0.16398206832862686
+              },
+              {
+                "absolute_change": 1.0545449213039855e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.003303371001913608,
+                "fractional_change": 0.003202553261405283,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.003292825552700568,
+                "normalized_absolute_change": 0.0005272724606519927,
+                "normalized_changed_response_rms": 0.1651685500956804,
+                "normalized_native_response_rms": 0.1646412776350284
+              },
+              {
+                "absolute_change": 1.301131121469296e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0015627843985351916,
+                "fractional_change": 0.008395623411675768,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.0015497730873204987,
+                "normalized_absolute_change": 0.001301131121469296,
+                "normalized_changed_response_rms": 0.15627843985351916,
+                "normalized_native_response_rms": 0.15497730873204987
+              },
+              {
+                "absolute_change": 1.7886743429318917e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.003003145405138609,
+                "fractional_change": 0.00599168965113317,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.00298525866170929,
+                "normalized_absolute_change": 0.0008943371714659459,
+                "normalized_changed_response_rms": 0.15015727025693043,
+                "normalized_native_response_rms": 0.14926293308546448
+              },
+              {
+                "absolute_change": 1.3569580097021802e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.001647376789264439,
+                "fractional_change": 0.008305496524242173,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.0016338072091674173,
+                "normalized_absolute_change": 0.0013569580097021802,
+                "normalized_changed_response_rms": 0.1647376789264439,
+                "normalized_native_response_rms": 0.16338072091674172
+              },
+              {
+                "absolute_change": 2.0714714785350936e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0033210200197110865,
+                "fractional_change": 0.006276605608103614,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.0033003053049257356,
+                "normalized_absolute_change": 0.0010357357392675468,
+                "normalized_changed_response_rms": 0.16605100098555434,
+                "normalized_native_response_rms": 0.1650152652462868
+              }
+            ],
+            "positive_fraction": 1.0
+          }
+        },
+        {
+          "branch": "L0MLP",
+          "weak": {
+            "changed_response_rms": 0.0024273763151089144,
+            "classifiable": true,
+            "eligible": false,
+            "median_absolute_change": -7.14439066208006e-05,
+            "median_fractional_change": -0.03056402613623932,
+            "median_normalized_absolute_change": -0.00477771066528229,
+            "native_response_rms": 0.002503650879409305,
+            "normalized_native_response_rms": 0.15894160442218708,
+            "per_group": [
+              {
+                "absolute_change": -4.6873745920347635e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.001525093417401836,
+                "fractional_change": -0.02981852739295454,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.0015719671633221835,
+                "normalized_absolute_change": -0.0046873745920347635,
+                "normalized_changed_response_rms": 0.15250934174018357,
+                "normalized_native_response_rms": 0.15719671633221835
+              },
+              {
+                "absolute_change": -9.035740374831484e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.002954054205968712,
+                "fractional_change": -0.02967975928744848,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.0030444116097170268,
+                "normalized_absolute_change": -0.004517870187415742,
+                "normalized_changed_response_rms": 0.1477027102984356,
+                "normalized_native_response_rms": 0.15222058048585133
+              },
+              {
+                "absolute_change": -4.820093685493801e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0015916197464313307,
+                "fractional_change": -0.029394029082705164,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.0016398206832862687,
+                "normalized_absolute_change": -0.004820093685493801,
+                "normalized_changed_response_rms": 0.15916197464313306,
+                "normalized_native_response_rms": 0.16398206832862686
+              },
+              {
+                "absolute_change": -9.470655290141558e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0031981189997991526,
+                "fractional_change": -0.028761485048530155,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.003292825552700568,
+                "normalized_absolute_change": -0.004735327645070779,
+                "normalized_changed_response_rms": 0.15990594998995764,
+                "normalized_native_response_rms": 0.1646412776350284
+              },
+              {
+                "absolute_change": -4.9725197441844804e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0015000478898786538,
+                "fractional_change": -0.032085469704353886,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.0015497730873204987,
+                "normalized_absolute_change": -0.00497251974418448,
+                "normalized_changed_response_rms": 0.15000478898786537,
+                "normalized_native_response_rms": 0.15497730873204987
+              },
+              {
+                "absolute_change": -9.346703034060185e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.002891791631368688,
+                "fractional_change": -0.0313095248795241,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.00298525866170929,
+                "normalized_absolute_change": -0.004673351517030092,
+                "normalized_changed_response_rms": 0.1445895815684344,
+                "normalized_native_response_rms": 0.14926293308546448
+              },
+              {
+                "absolute_change": -5.253040949328635e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.001581276799674131,
+                "fractional_change": -0.03215214695989477,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.0016338072091674173,
+                "normalized_absolute_change": -0.005253040949328635,
+                "normalized_changed_response_rms": 0.1581276799674131,
+                "normalized_native_response_rms": 0.16338072091674172
+              },
+              {
+                "absolute_change": -0.00010489568562299309,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0031954096193027425,
+                "fractional_change": -0.03178363088603808,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.0033003053049257356,
+                "normalized_absolute_change": -0.0052447842811496545,
+                "normalized_changed_response_rms": 0.15977048096513713,
+                "normalized_native_response_rms": 0.1650152652462868
+              }
+            ],
+            "positive_fraction": 0.0
+          }
+        },
+        {
+          "branch": "L1H0",
+          "weak": {
+            "changed_response_rms": 0.002566045526121257,
+            "classifiable": true,
+            "eligible": true,
+            "median_absolute_change": 5.749277781962644e-05,
+            "median_fractional_change": 0.02514530590159647,
+            "median_normalized_absolute_change": 0.004013800101877198,
+            "native_response_rms": 0.002503650879409305,
+            "normalized_native_response_rms": 0.15894160442218708,
+            "per_group": [
+              {
+                "absolute_change": 3.96044095832247e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0016115715729054082,
+                "fractional_change": 0.025194171040777258,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.0015719671633221835,
+                "normalized_absolute_change": 0.00396044095832247,
+                "normalized_changed_response_rms": 0.1611571572905408,
+                "normalized_native_response_rms": 0.15719671633221835
+              },
+              {
+                "absolute_change": 7.541674485562339e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.00311982835457265,
+                "fractional_change": 0.024772190664005933,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.0030444116097170268,
+                "normalized_absolute_change": 0.0037708372427811693,
+                "normalized_changed_response_rms": 0.1559914177286325,
+                "normalized_native_response_rms": 0.15222058048585133
+              },
+              {
+                "absolute_change": 4.128564129794667e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0016811063245842153,
+                "fractional_change": 0.0251769243544413,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.0016398206832862687,
+                "normalized_absolute_change": 0.004128564129794667,
+                "normalized_changed_response_rms": 0.16811063245842153,
+                "normalized_native_response_rms": 0.16398206832862686
+              },
+              {
+                "absolute_change": 8.134318490863853e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0033741687376092067,
+                "fractional_change": 0.024703156485750055,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.003292825552700568,
+                "normalized_absolute_change": 0.004067159245431926,
+                "normalized_changed_response_rms": 0.16870843688046033,
+                "normalized_native_response_rms": 0.1646412776350284
+              },
+              {
+                "absolute_change": 3.892051693145382e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0015886936042519525,
+                "fractional_change": 0.025113687448751643,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.0015497730873204987,
+                "normalized_absolute_change": 0.003892051693145382,
+                "normalized_changed_response_rms": 0.15886936042519526,
+                "normalized_native_response_rms": 0.15497730873204987
+              },
+              {
+                "absolute_change": 7.323961497959037e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0030584982766888803,
+                "fractional_change": 0.024533758470917544,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.00298525866170929,
+                "normalized_absolute_change": 0.0036619807489795186,
+                "normalized_changed_response_rms": 0.152924913834444,
+                "normalized_native_response_rms": 0.14926293308546448
+              },
+              {
+                "absolute_change": 4.174594065966251e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0016755531498270798,
+                "fractional_change": 0.025551326022692722,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.0016338072091674173,
+                "normalized_absolute_change": 0.004174594065966251,
+                "normalized_changed_response_rms": 0.16755531498270798,
+                "normalized_native_response_rms": 0.16338072091674172
+              },
+              {
+                "absolute_change": 8.336942255788259e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.003383674727483618,
+                "fractional_change": 0.025261124306728,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.0033003053049257356,
+                "normalized_absolute_change": 0.004168471127894129,
+                "normalized_changed_response_rms": 0.1691837363741809,
+                "normalized_native_response_rms": 0.1650152652462868
+              }
+            ],
+            "positive_fraction": 1.0
+          }
+        },
+        {
+          "branch": "L1H1",
+          "weak": {
+            "changed_response_rms": 0.00251364618341667,
+            "classifiable": true,
+            "eligible": false,
+            "median_absolute_change": 9.20678972561378e-06,
+            "median_fractional_change": 0.004233777772900238,
+            "median_normalized_absolute_change": 0.0006636527592649116,
+            "native_response_rms": 0.002503650879409305,
+            "normalized_native_response_rms": 0.15894160442218708,
+            "per_group": [
+              {
+                "absolute_change": 6.7816057053183415e-06,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0015787487690275019,
+                "fractional_change": 0.0043140886549983826,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.0015719671633221835,
+                "normalized_absolute_change": 0.0006781605705318342,
+                "normalized_changed_response_rms": 0.15787487690275018,
+                "normalized_native_response_rms": 0.15719671633221835
+              },
+              {
+                "absolute_change": 1.158499745205913e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.003055996607169086,
+                "fractional_change": 0.0038053321748880986,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.0030444116097170268,
+                "normalized_absolute_change": 0.0005792498726029565,
+                "normalized_changed_response_rms": 0.1527998303584543,
+                "normalized_native_response_rms": 0.15222058048585133
+              },
+              {
+                "absolute_change": 6.491449479979891e-06,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0016463121327662486,
+                "fractional_change": 0.003958633737300321,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.0016398206832862687,
+                "normalized_absolute_change": 0.0006491449479979891,
+                "normalized_changed_response_rms": 0.16463121327662486,
+                "normalized_native_response_rms": 0.16398206832862686
+              },
+              {
+                "absolute_change": 1.01415113776945e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0033029670640782626,
+                "fractional_change": 0.0030798811584102914,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.003292825552700568,
+                "normalized_absolute_change": 0.000507075568884725,
+                "normalized_changed_response_rms": 0.16514835320391313,
+                "normalized_native_response_rms": 0.1646412776350284
+              },
+              {
+                "absolute_change": 7.633004329413509e-06,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0015574060916499122,
+                "fractional_change": 0.004925239954070015,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.0015497730873204987,
+                "normalized_absolute_change": 0.0007633004329413509,
+                "normalized_changed_response_rms": 0.15574060916499122,
+                "normalized_native_response_rms": 0.15497730873204987
+              },
+              {
+                "absolute_change": 1.2399173011889714e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0029976578347211797,
+                "fractional_change": 0.004153466890802093,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.00298525866170929,
+                "normalized_absolute_change": 0.0006199586505944857,
+                "normalized_changed_response_rms": 0.14988289173605898,
+                "normalized_native_response_rms": 0.14926293308546448
+              },
+              {
+                "absolute_change": 8.272068073533062e-06,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0016420792772409503,
+                "fractional_change": 0.005063062537071561,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.0016338072091674173,
+                "normalized_absolute_change": 0.0008272068073533062,
+                "normalized_changed_response_rms": 0.16420792772409504,
+                "normalized_native_response_rms": 0.16338072091674172
+              },
+              {
+                "absolute_change": 1.4502155321373823e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0033148074602471094,
+                "fractional_change": 0.004394185986287047,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.0033003053049257356,
+                "normalized_absolute_change": 0.0007251077660686911,
+                "normalized_changed_response_rms": 0.16574037301235547,
+                "normalized_native_response_rms": 0.1650152652462868
+              }
+            ],
+            "positive_fraction": 1.0
+          }
+        },
+        {
+          "branch": "L1H2",
+          "weak": {
+            "changed_response_rms": 0.0025346106776045155,
+            "classifiable": true,
+            "eligible": true,
+            "median_absolute_change": 2.9135045020606612e-05,
+            "median_fractional_change": 0.01247114949820094,
+            "median_normalized_absolute_change": 0.001964418089471303,
+            "native_response_rms": 0.002503650879409305,
+            "normalized_native_response_rms": 0.15894160442218708,
+            "per_group": [
+              {
+                "absolute_change": 1.955146588727562e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0015915186292094592,
+                "fractional_change": 0.01243757906873566,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.0015719671633221835,
+                "normalized_absolute_change": 0.001955146588727562,
+                "normalized_changed_response_rms": 0.1591518629209459,
+                "normalized_native_response_rms": 0.15719671633221835
+              },
+              {
+                "absolute_change": 3.8069514524047016e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.003082481124241074,
+                "fractional_change": 0.012504719927666219,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.0030444116097170268,
+                "normalized_absolute_change": 0.0019034757262023508,
+                "normalized_changed_response_rms": 0.1541240562120537,
+                "normalized_native_response_rms": 0.15222058048585133
+              },
+              {
+                "absolute_change": 1.9964231914990386e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.001659784915201259,
+                "fractional_change": 0.012174643312207412,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.0016398206832862687,
+                "normalized_absolute_change": 0.0019964231914990386,
+                "normalized_changed_response_rms": 0.1659784915201259,
+                "normalized_native_response_rms": 0.16398206832862686
+              },
+              {
+                "absolute_change": 3.928342161686879e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.003332108974317437,
+                "fractional_change": 0.011930003879085271,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.003292825552700568,
+                "normalized_absolute_change": 0.0019641710808434394,
+                "normalized_changed_response_rms": 0.16660544871587185,
+                "normalized_native_response_rms": 0.1646412776350284
+              },
+              {
+                "absolute_change": 1.9646650980991668e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0015694197383014903,
+                "fractional_change": 0.012677114567113845,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.0015497730873204987,
+                "normalized_absolute_change": 0.001964665098099167,
+                "normalized_changed_response_rms": 0.15694197383014902,
+                "normalized_native_response_rms": 0.15497730873204987
+              },
+              {
+                "absolute_change": 3.781279646027395e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.003023071458169564,
+                "fractional_change": 0.012666505902916736,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.00298525866170929,
+                "normalized_absolute_change": 0.0018906398230136975,
+                "normalized_changed_response_rms": 0.1511535729084782,
+                "normalized_native_response_rms": 0.14926293308546448
+              },
+              {
+                "absolute_change": 2.0457293580939274e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0016542645027483565,
+                "fractional_change": 0.01252124085764339,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.0016338072091674173,
+                "normalized_absolute_change": 0.0020457293580939274,
+                "normalized_changed_response_rms": 0.16542645027483566,
+                "normalized_native_response_rms": 0.16338072091674172
+              },
+              {
+                "absolute_change": 4.0790665726978936e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0033410959706527145,
+                "fractional_change": 0.01235966432138813,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.0033003053049257356,
+                "normalized_absolute_change": 0.0020395332863489468,
+                "normalized_changed_response_rms": 0.16705479853263572,
+                "normalized_native_response_rms": 0.1650152652462868
+              }
+            ],
+            "positive_fraction": 1.0
+          }
+        },
+        {
+          "branch": "L1H3",
+          "weak": {
+            "changed_response_rms": 0.0025309221369136012,
+            "classifiable": true,
+            "eligible": true,
+            "median_absolute_change": 2.5314938644859777e-05,
+            "median_fractional_change": 0.010889695907427832,
+            "median_normalized_absolute_change": 0.0017455751743686385,
+            "native_response_rms": 0.002503650879409305,
+            "normalized_native_response_rms": 0.15894160442218708,
+            "per_group": [
+              {
+                "absolute_change": 1.757552185328035e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0015895426851754639,
+                "fractional_change": 0.011180590958488112,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.0015719671633221835,
+                "normalized_absolute_change": 0.001757552185328035,
+                "normalized_changed_response_rms": 0.15895426851754638,
+                "normalized_native_response_rms": 0.15719671633221835
+              },
+              {
+                "absolute_change": 3.423783966885214e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.003078649449385879,
+                "fractional_change": 0.011246127021580454,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.0030444116097170268,
+                "normalized_absolute_change": 0.001711891983442607,
+                "normalized_changed_response_rms": 0.15393247246929395,
+                "normalized_native_response_rms": 0.15222058048585133
+              },
+              {
+                "absolute_change": 1.8044291437706046e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0016578649747239747,
+                "fractional_change": 0.011003819882027921,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.0016398206832862687,
+                "normalized_absolute_change": 0.0018044291437706046,
+                "normalized_changed_response_rms": 0.16578649747239746,
+                "normalized_native_response_rms": 0.16398206832862686
+              },
+              {
+                "absolute_change": 3.577290616194745e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0033285984588625156,
+                "fractional_change": 0.010863893513158862,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.003292825552700568,
+                "normalized_absolute_change": 0.0017886453080973724,
+                "normalized_changed_response_rms": 0.16642992294312578,
+                "normalized_native_response_rms": 0.1646412776350284
+              },
+              {
+                "absolute_change": 1.680452140398448e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0015665776087244831,
+                "fractional_change": 0.010843214107582044,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.0015497730873204987,
+                "normalized_absolute_change": 0.0016804521403984479,
+                "normalized_changed_response_rms": 0.15665776087244832,
+                "normalized_native_response_rms": 0.15497730873204987
+              },
+              {
+                "absolute_change": 3.258558585201351e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0030178442475613035,
+                "fractional_change": 0.010915498301696802,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.00298525866170929,
+                "normalized_absolute_change": 0.0016292792926006754,
+                "normalized_changed_response_rms": 0.15089221237806516,
+                "normalized_native_response_rms": 0.14926293308546448
+              },
+              {
+                "absolute_change": 1.7472416178583713e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.001651279625346001,
+                "fractional_change": 0.010694294945293725,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.0016338072091674173,
+                "normalized_absolute_change": 0.0017472416178583713,
+                "normalized_changed_response_rms": 0.1651279625346001,
+                "normalized_native_response_rms": 0.16338072091674172
+              },
+              {
+                "absolute_change": 3.4878174617578115e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0033351834795433137,
+                "fractional_change": 0.010568166092246756,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.0033003053049257356,
+                "normalized_absolute_change": 0.0017439087308789058,
+                "normalized_changed_response_rms": 0.1667591739771657,
+                "normalized_native_response_rms": 0.1650152652462868
+              }
+            ],
+            "positive_fraction": 1.0
+          }
+        },
+        {
+          "branch": "L1MLP",
+          "weak": {
+            "changed_response_rms": 0.002348304126428937,
+            "classifiable": true,
+            "eligible": false,
+            "median_absolute_change": -0.00014642190150593358,
+            "median_fractional_change": -0.06297145015069427,
+            "median_normalized_absolute_change": -0.009905184613528148,
+            "native_response_rms": 0.002503650879409305,
+            "normalized_native_response_rms": 0.15894160442218708,
+            "per_group": [
+              {
+                "absolute_change": -0.00010114714774140244,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.001470820015580781,
+                "fractional_change": -0.0643443133555276,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.0015719671633221835,
+                "normalized_absolute_change": -0.010114714774140244,
+                "normalized_changed_response_rms": 0.1470820015580781,
+                "normalized_native_response_rms": 0.15719671633221835
+              },
+              {
+                "absolute_change": -0.0001985353240567091,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0028458762856603177,
+                "fractional_change": -0.06521303605039219,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.0030444116097170268,
+                "normalized_absolute_change": -0.009926766202835455,
+                "normalized_changed_response_rms": 0.14229381428301588,
+                "normalized_native_response_rms": 0.15222058048585133
+              },
+              {
+                "absolute_change": -9.883603024220841e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0015409846530440603,
+                "fractional_change": -0.06027246225735905,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.0016398206832862687,
+                "normalized_absolute_change": -0.00988360302422084,
+                "normalized_changed_response_rms": 0.15409846530440602,
+                "normalized_native_response_rms": 0.16398206832862686
+              },
+              {
+                "absolute_change": -0.00019159073278207086,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0031012348199184973,
+                "fractional_change": -0.058184294829994876,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.003292825552700568,
+                "normalized_absolute_change": -0.009579536639103542,
+                "normalized_changed_response_rms": 0.15506174099592487,
+                "normalized_native_response_rms": 0.1646412776350284
+              },
+              {
+                "absolute_change": -0.0001012530702297963,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0014485200170907024,
+                "fractional_change": -0.0653341260460647,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.0015497730873204987,
+                "normalized_absolute_change": -0.01012530702297963,
+                "normalized_changed_response_rms": 0.14485200170907023,
+                "normalized_native_response_rms": 0.15497730873204987
+              },
+              {
+                "absolute_change": -0.00019635580748387236,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0027889028542254176,
+                "fractional_change": -0.0657751403596778,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.00298525866170929,
+                "normalized_absolute_change": -0.009817790374193617,
+                "normalized_changed_response_rms": 0.13944514271127087,
+                "normalized_native_response_rms": 0.14926293308546448
+              },
+              {
+                "absolute_change": -0.00010064021542667361,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0015331669937407436,
+                "fractional_change": -0.061598586945860956,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.0016338072091674173,
+                "normalized_absolute_change": -0.01006402154266736,
+                "normalized_changed_response_rms": 0.15331669937407436,
+                "normalized_native_response_rms": 0.16338072091674172
+              },
+              {
+                "absolute_change": -0.00019629929655507307,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0031040060083706625,
+                "fractional_change": -0.0594791325099816,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.0033003053049257356,
+                "normalized_absolute_change": -0.009814964827753653,
+                "normalized_changed_response_rms": 0.1552003004185331,
+                "normalized_native_response_rms": 0.1650152652462868
+              }
+            ],
+            "positive_fraction": 0.0
+          }
+        }
+      ],
+      "classifiable": true,
+      "eligible_count": 5,
+      "eligible_fraction": 0.5,
+      "selected": [
+        "L0H0",
+        "L0H1",
+        "L1H0",
+        "L1H2",
+        "L1H3"
+      ]
+    },
+    "selected": {
+      "branches": [
+        {
+          "branch": "L0H0",
+          "weak": {
+            "changed_response_rms": 0.008118160021885886,
+            "classifiable": true,
+            "eligible": false,
+            "median_absolute_change": 2.7020314320493673e-05,
+            "median_fractional_change": 0.0037792865127103115,
+            "median_normalized_absolute_change": 0.0019396974636600242,
+            "native_response_rms": 0.008088294909135051,
+            "normalized_native_response_rms": 0.5124517924997704,
+            "per_group": [
+              {
+                "absolute_change": 1.9329322496696236e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005137422816066953,
+                "fractional_change": 0.0037766645960999323,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.0051180934935702565,
+                "normalized_absolute_change": 0.0019329322496696236,
+                "normalized_changed_response_rms": 0.5137422816066952,
+                "normalized_native_response_rms": 0.5118093493570256
+              },
+              {
+                "absolute_change": 3.9061579142497804e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010199222155871997,
+                "fractional_change": 0.003844582853539169,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.010160160576729499,
+                "normalized_absolute_change": 0.0019530789571248902,
+                "normalized_changed_response_rms": 0.5099611077935998,
+                "normalized_native_response_rms": 0.5080080288364749
+              },
+              {
+                "absolute_change": 1.9517435323252418e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005173927205972373,
+                "fractional_change": 0.0037865509712462497,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.0051544097706491205,
+                "normalized_absolute_change": 0.0019517435323252418,
+                "normalized_changed_response_rms": 0.5173927205972373,
+                "normalized_native_response_rms": 0.515440977064912
+              },
+              {
+                "absolute_change": 3.907427868651142e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010293760451766292,
+                "fractional_change": 0.0038103826901194626,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.01025468617307978,
+                "normalized_absolute_change": 0.001953713934325571,
+                "normalized_changed_response_rms": 0.5146880225883146,
+                "normalized_native_response_rms": 0.5127343086539891
+              },
+              {
+                "absolute_change": 1.7159261938998367e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005139441995214852,
+                "fractional_change": 0.003349924795741366,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.005122282733275854,
+                "normalized_absolute_change": 0.0017159261938998367,
+                "normalized_changed_response_rms": 0.5139441995214852,
+                "normalized_native_response_rms": 0.5122282733275854
+              },
+              {
+                "absolute_change": 3.452319331773493e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010201149507441044,
+                "fractional_change": 0.0033957374109221394,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.010166626314123309,
+                "normalized_absolute_change": 0.0017261596658867465,
+                "normalized_changed_response_rms": 0.5100574753720521,
+                "normalized_native_response_rms": 0.5083313157061654
+              },
+              {
+                "absolute_change": 1.8546307123664535e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005181748351782035,
+                "fractional_change": 0.0035920165361051914,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.00516320204465837,
+                "normalized_absolute_change": 0.0018546307123664535,
+                "normalized_changed_response_rms": 0.5181748351782035,
+                "normalized_native_response_rms": 0.516320204465837
+              },
+              {
+                "absolute_change": 3.89292535530085e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010332476620061006,
+                "fractional_change": 0.0037819084293206906,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.010293547366507998,
+                "normalized_absolute_change": 0.0019464626776504249,
+                "normalized_changed_response_rms": 0.5166238310030503,
+                "normalized_native_response_rms": 0.5146773683253999
+              }
+            ],
+            "positive_fraction": 1.0
+          }
+        },
+        {
+          "branch": "L0H1",
+          "weak": {
+            "changed_response_rms": 0.00823365521937657,
+            "classifiable": true,
+            "eligible": true,
+            "median_absolute_change": 0.00013082958009054835,
+            "median_fractional_change": 0.01828319714157145,
+            "median_normalized_absolute_change": 0.009397822919696326,
+            "native_response_rms": 0.008088294909135051,
+            "normalized_native_response_rms": 0.5124517924997704,
+            "per_group": [
+              {
+                "absolute_change": 9.567356428537722e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005213767057855634,
+                "fractional_change": 0.018693203710633544,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.0051180934935702565,
+                "normalized_absolute_change": 0.009567356428537722,
+                "normalized_changed_response_rms": 0.5213767057855634,
+                "normalized_native_response_rms": 0.5118093493570256
+              },
+              {
+                "absolute_change": 0.00019587558946782165,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.01035603616619732,
+                "fractional_change": 0.019278788754229836,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.010160160576729499,
+                "normalized_absolute_change": 0.009793779473391082,
+                "normalized_changed_response_rms": 0.517801808309866,
+                "normalized_native_response_rms": 0.5080080288364749
+              },
+              {
+                "absolute_change": 8.730506168291678e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005241714832332037,
+                "fractional_change": 0.016937935780748425,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.0051544097706491205,
+                "normalized_absolute_change": 0.008730506168291678,
+                "normalized_changed_response_rms": 0.5241714832332037,
+                "normalized_native_response_rms": 0.515440977064912
+              },
+              {
+                "absolute_change": 0.00016329239927596537,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010417978572355746,
+                "fractional_change": 0.01592368567110669,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.01025468617307978,
+                "normalized_absolute_change": 0.008164619963798268,
+                "normalized_changed_response_rms": 0.5208989286177873,
+                "normalized_native_response_rms": 0.5127343086539891
+              },
+              {
+                "absolute_change": 9.836676090513134e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005220649494180985,
+                "fractional_change": 0.01920369609160999,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.005122282733275854,
+                "normalized_absolute_change": 0.009836676090513134,
+                "normalized_changed_response_rms": 0.5220649494180986,
+                "normalized_native_response_rms": 0.5122282733275854
+              },
+              {
+                "absolute_change": 0.00019914232749722316,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010365768641620532,
+                "fractional_change": 0.019587847663937286,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.010166626314123309,
+                "normalized_absolute_change": 0.009957116374861158,
+                "normalized_changed_response_rms": 0.5182884320810266,
+                "normalized_native_response_rms": 0.5083313157061654
+              },
+              {
+                "absolute_change": 9.22828941085493e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.00525548493876692,
+                "fractional_change": 0.017873190572509356,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.00516320204465837,
+                "normalized_absolute_change": 0.00922828941085493,
+                "normalized_changed_response_rms": 0.525548493876692,
+                "normalized_native_response_rms": 0.516320204465837
+              },
+              {
+                "absolute_change": 0.00017447344124329502,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010468020807751293,
+                "fractional_change": 0.016949787573813158,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.010293547366507998,
+                "normalized_absolute_change": 0.00872367206216475,
+                "normalized_changed_response_rms": 0.5234010403875646,
+                "normalized_native_response_rms": 0.5146773683253999
+              }
+            ],
+            "positive_fraction": 1.0
+          }
+        },
+        {
+          "branch": "L0H2",
+          "weak": {
+            "changed_response_rms": 0.007993859011625333,
+            "classifiable": true,
+            "eligible": false,
+            "median_absolute_change": -8.028722700879638e-05,
+            "median_fractional_change": -0.011848147163095124,
+            "median_normalized_absolute_change": -0.006093682051771555,
+            "native_response_rms": 0.008088294909135051,
+            "normalized_native_response_rms": 0.5124517924997704,
+            "per_group": [
+              {
+                "absolute_change": -5.3907280293085356e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005064186213277171,
+                "fractional_change": -0.010532687681615749,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.0051180934935702565,
+                "normalized_absolute_change": -0.005390728029308536,
+                "normalized_changed_response_rms": 0.5064186213277171,
+                "normalized_native_response_rms": 0.5118093493570256
+              },
+              {
+                "absolute_change": -9.430340065174139e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010065857176077758,
+                "fractional_change": -0.009281684077683816,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.010160160576729499,
+                "normalized_absolute_change": -0.00471517003258707,
+                "normalized_changed_response_rms": 0.5032928588038879,
+                "normalized_native_response_rms": 0.5080080288364749
+              },
+              {
+                "absolute_change": -6.835715871696992e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0050860526119321505,
+                "fractional_change": -0.013261879004307642,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.0051544097706491205,
+                "normalized_absolute_change": -0.0068357158716969915,
+                "normalized_changed_response_rms": 0.508605261193215,
+                "normalized_native_response_rms": 0.515440977064912
+              },
+              {
+                "absolute_change": -0.00014268061498914214,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010112005558090638,
+                "fractional_change": -0.013913698828122323,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.01025468617307978,
+                "normalized_absolute_change": -0.007134030749457107,
+                "normalized_changed_response_rms": 0.5056002779045319,
+                "normalized_native_response_rms": 0.5127343086539891
+              },
+              {
+                "absolute_change": -5.2198006903531394e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005070084726372322,
+                "fractional_change": -0.010190379879743472,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.005122282733275854,
+                "normalized_absolute_change": -0.005219800690353139,
+                "normalized_changed_response_rms": 0.5070084726372323,
+                "normalized_native_response_rms": 0.5122282733275854
+              },
+              {
+                "absolute_change": -9.221729530062284e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010074409018822686,
+                "fractional_change": -0.009070589638227933,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.010166626314123309,
+                "normalized_absolute_change": -0.004610864765031142,
+                "normalized_changed_response_rms": 0.5037204509411343,
+                "normalized_native_response_rms": 0.5083313157061654
+              },
+              {
+                "absolute_change": -6.796636074234575e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0050952356839160245,
+                "fractional_change": -0.0131636066445745,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.00516320204465837,
+                "normalized_absolute_change": -0.006796636074234575,
+                "normalized_changed_response_rms": 0.5095235683916024,
+                "normalized_native_response_rms": 0.516320204465837
+              },
+              {
+                "absolute_change": -0.00014636539188928217,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010147181974618716,
+                "fractional_change": -0.014219140076579428,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.010293547366507998,
+                "normalized_absolute_change": -0.007318269594464109,
+                "normalized_changed_response_rms": 0.5073590987309358,
+                "normalized_native_response_rms": 0.5146773683253999
+              }
+            ],
+            "positive_fraction": 0.0
+          }
+        },
+        {
+          "branch": "L0H3",
+          "weak": {
+            "changed_response_rms": 0.008198961108199843,
+            "classifiable": true,
+            "eligible": true,
+            "median_absolute_change": 9.954995084059202e-05,
+            "median_fractional_change": 0.013583439990653146,
+            "median_normalized_absolute_change": 0.006980693181341284,
+            "native_response_rms": 0.008088294909135051,
+            "normalized_native_response_rms": 0.5124517924997704,
+            "per_group": [
+              {
+                "absolute_change": 6.54165300058478e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005183510023576104,
+                "fractional_change": 0.012781425366306554,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.0051180934935702565,
+                "normalized_absolute_change": 0.00654165300058478,
+                "normalized_changed_response_rms": 0.5183510023576104,
+                "normalized_native_response_rms": 0.5118093493570256
+              },
+              {
+                "absolute_change": 0.00012530064334051114,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.01028546122007001,
+                "fractional_change": 0.01233254557290131,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.010160160576729499,
+                "normalized_absolute_change": 0.006265032167025557,
+                "normalized_changed_response_rms": 0.5142730610035005,
+                "normalized_native_response_rms": 0.5080080288364749
+              },
+              {
+                "absolute_change": 7.338826546829467e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005227798036117415,
+                "fractional_change": 0.014237957153928837,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.0051544097706491205,
+                "normalized_absolute_change": 0.007338826546829467,
+                "normalized_changed_response_rms": 0.5227798036117415,
+                "normalized_native_response_rms": 0.515440977064912
+              },
+              {
+                "absolute_change": 0.00015243449470001523,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010407120667779796,
+                "fractional_change": 0.014864861988675981,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.01025468617307978,
+                "normalized_absolute_change": 0.0076217247350007615,
+                "normalized_changed_response_rms": 0.5203560333889897,
+                "normalized_native_response_rms": 0.5127343086539891
+              },
+              {
+                "absolute_change": 6.6225598158531e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005188508331434385,
+                "fractional_change": 0.012928922827377454,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.005122282733275854,
+                "normalized_absolute_change": 0.0066225598158531004,
+                "normalized_changed_response_rms": 0.5188508331434385,
+                "normalized_native_response_rms": 0.5122282733275854
+              },
+              {
+                "absolute_change": 0.0001282118267191927,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010294838140842501,
+                "fractional_change": 0.01261104940397817,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.010166626314123309,
+                "normalized_absolute_change": 0.006410591335959635,
+                "normalized_changed_response_rms": 0.5147419070421251,
+                "normalized_native_response_rms": 0.5083313157061654
+              },
+              {
+                "absolute_change": 7.37992583406729e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005237001302999043,
+                "fractional_change": 0.014293312115690293,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.00516320204465837,
+                "normalized_absolute_change": 0.00737992583406729,
+                "normalized_changed_response_rms": 0.5237001302999043,
+                "normalized_native_response_rms": 0.516320204465837
+              },
+              {
+                "absolute_change": 0.00015421271672635267,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.01044776008323435,
+                "fractional_change": 0.014981493865575679,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.010293547366507998,
+                "normalized_absolute_change": 0.007710635836317634,
+                "normalized_changed_response_rms": 0.5223880041617175,
+                "normalized_native_response_rms": 0.5146773683253999
+              }
+            ],
+            "positive_fraction": 1.0
+          }
+        },
+        {
+          "branch": "L0MLP",
+          "weak": {
+            "changed_response_rms": 0.008003862595237395,
+            "classifiable": true,
+            "eligible": false,
+            "median_absolute_change": -7.415130023763266e-05,
+            "median_fractional_change": -0.010465153556387996,
+            "median_normalized_absolute_change": -0.005378792343399726,
+            "native_response_rms": 0.008088294909135051,
+            "normalized_native_response_rms": 0.5124517924997704,
+            "per_group": [
+              {
+                "absolute_change": -5.577296887397231e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005062320524696284,
+                "fractional_change": -0.010897215719884445,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.0051180934935702565,
+                "normalized_absolute_change": -0.005577296887397231,
+                "normalized_changed_response_rms": 0.5062320524696284,
+                "normalized_native_response_rms": 0.5118093493570256
+              },
+              {
+                "absolute_change": -0.00011795060253525988,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010042209974194239,
+                "fractional_change": -0.011609127793256513,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.010160160576729499,
+                "normalized_absolute_change": -0.005897530126762994,
+                "normalized_changed_response_rms": 0.5021104987097119,
+                "normalized_native_response_rms": 0.5080080288364749
+              },
+              {
+                "absolute_change": -4.888494488146204e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005105524825767658,
+                "fractional_change": -0.009484101392137845,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.0051544097706491205,
+                "normalized_absolute_change": -0.004888494488146204,
+                "normalized_changed_response_rms": 0.5105524825767658,
+                "normalized_native_response_rms": 0.515440977064912
+              },
+              {
+                "absolute_change": -9.055740571124564e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010164128767368535,
+                "fractional_change": -0.008830831503061853,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.01025468617307978,
+                "normalized_absolute_change": -0.004527870285562282,
+                "normalized_changed_response_rms": 0.5082064383684267,
+                "normalized_native_response_rms": 0.5127343086539891
+              },
+              {
+                "absolute_change": -5.774519476401969e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005064537538511834,
+                "fractional_change": -0.011273332178423079,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.005122282733275854,
+                "normalized_absolute_change": -0.005774519476401969,
+                "normalized_changed_response_rms": 0.5064537538511834,
+                "normalized_native_response_rms": 0.5122282733275854
+              },
+              {
+                "absolute_change": -0.00012092536062814283,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010045700953495166,
+                "fractional_change": -0.011894344976578486,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.010166626314123309,
+                "normalized_absolute_change": -0.006046268031407141,
+                "normalized_changed_response_rms": 0.5022850476747582,
+                "normalized_native_response_rms": 0.5083313157061654
+              },
+              {
+                "absolute_change": -5.18028779940222e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005111399166664348,
+                "fractional_change": -0.010033091392891547,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.00516320204465837,
+                "normalized_absolute_change": -0.00518028779940222,
+                "normalized_changed_response_rms": 0.5111399166664348,
+                "normalized_native_response_rms": 0.516320204465837
+              },
+              {
+                "absolute_change": -9.778773940075612e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010195759627107242,
+                "fractional_change": -0.009499906681240566,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.010293547366507998,
+                "normalized_absolute_change": -0.004889386970037806,
+                "normalized_changed_response_rms": 0.5097879813553621,
+                "normalized_native_response_rms": 0.5146773683253999
+              }
+            ],
+            "positive_fraction": 0.0
+          }
+        },
+        {
+          "branch": "L1H0",
+          "weak": {
+            "changed_response_rms": 0.0081626018633906,
+            "classifiable": true,
+            "eligible": false,
+            "median_absolute_change": 6.915598046272836e-05,
+            "median_fractional_change": 0.009186308609960836,
+            "median_normalized_absolute_change": 0.0047225144950154875,
+            "native_response_rms": 0.008088294909135051,
+            "normalized_native_response_rms": 0.5124517924997704,
+            "per_group": [
+              {
+                "absolute_change": 4.666055043228267e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005164754044002539,
+                "fractional_change": 0.009116783523181349,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.0051180934935702565,
+                "normalized_absolute_change": 0.004666055043228267,
+                "normalized_changed_response_rms": 0.5164754044002539,
+                "normalized_native_response_rms": 0.5118093493570256
+              },
+              {
+                "absolute_change": 9.119919153170904e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010251359768261208,
+                "fractional_change": 0.00897615651278083,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.010160160576729499,
+                "normalized_absolute_change": 0.004559959576585452,
+                "normalized_changed_response_rms": 0.5125679884130604,
+                "normalized_native_response_rms": 0.5080080288364749
+              },
+              {
+                "absolute_change": 4.854369196417244e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005202953462613293,
+                "fractional_change": 0.0094178953797186,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.0051544097706491205,
+                "normalized_absolute_change": 0.004854369196417244,
+                "normalized_changed_response_rms": 0.5202953462613292,
+                "normalized_native_response_rms": 0.515440977064912
+              },
+              {
+                "absolute_change": 9.78023654917698e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.01035248853857155,
+                "fractional_change": 0.009537333843381512,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.01025468617307978,
+                "normalized_absolute_change": 0.00489011827458849,
+                "normalized_changed_response_rms": 0.5176244269285775,
+                "normalized_native_response_rms": 0.5127343086539891
+              },
+              {
+                "absolute_change": 4.590406865570811e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005168186801931562,
+                "fractional_change": 0.008961642893607236,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.005122282733275854,
+                "normalized_absolute_change": 0.004590406865570811,
+                "normalized_changed_response_rms": 0.5168186801931561,
+                "normalized_native_response_rms": 0.5122282733275854
+              },
+              {
+                "absolute_change": 8.976826896128429e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010256394583084593,
+                "fractional_change": 0.00882970084545942,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.010166626314123309,
+                "normalized_absolute_change": 0.004488413448064214,
+                "normalized_changed_response_rms": 0.5128197291542297,
+                "normalized_native_response_rms": 0.5083313157061654
+              },
+              {
+                "absolute_change": 4.778973946802708e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005210991784126397,
+                "fractional_change": 0.009255833696740323,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.00516320204465837,
+                "normalized_absolute_change": 0.004778973946802708,
+                "normalized_changed_response_rms": 0.5210991784126398,
+                "normalized_native_response_rms": 0.516320204465837
+              },
+              {
+                "absolute_change": 9.666573502472957e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010390213101532727,
+                "fractional_change": 0.009390905931928817,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.010293547366507998,
+                "normalized_absolute_change": 0.004833286751236478,
+                "normalized_changed_response_rms": 0.5195106550766363,
+                "normalized_native_response_rms": 0.5146773683253999
+              }
+            ],
+            "positive_fraction": 1.0
+          }
+        },
+        {
+          "branch": "L1H1",
+          "weak": {
+            "changed_response_rms": 0.008189841821699486,
+            "classifiable": true,
+            "eligible": true,
+            "median_absolute_change": 9.558503691546724e-05,
+            "median_fractional_change": 0.012549878768280509,
+            "median_normalized_absolute_change": 0.006454172390711176,
+            "native_response_rms": 0.008088294909135051,
+            "normalized_native_response_rms": 0.5124517924997704,
+            "per_group": [
+              {
+                "absolute_change": 6.39105090555871e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005182004002625844,
+                "fractional_change": 0.012487171079597514,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.0051180934935702565,
+                "normalized_absolute_change": 0.00639105090555871,
+                "normalized_changed_response_rms": 0.5182004002625843,
+                "normalized_native_response_rms": 0.5118093493570256
+              },
+              {
+                "absolute_change": 0.0001258868205368073,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010286047397266306,
+                "fractional_change": 0.012390239266998782,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.010160160576729499,
+                "normalized_absolute_change": 0.006294341026840365,
+                "normalized_changed_response_rms": 0.5143023698633153,
+                "normalized_native_response_rms": 0.5080080288364749
+              },
+              {
+                "absolute_change": 6.528325329412717e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005219693023943248,
+                "fractional_change": 0.012665514811389444,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.0051544097706491205,
+                "normalized_absolute_change": 0.006528325329412717,
+                "normalized_changed_response_rms": 0.5219693023943247,
+                "normalized_native_response_rms": 0.515440977064912
+              },
+              {
+                "absolute_change": 0.0001309112266961402,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.01038559739977592,
+                "fractional_change": 0.012765990541943939,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.01025468617307978,
+                "normalized_absolute_change": 0.00654556133480701,
+                "normalized_changed_response_rms": 0.519279869988796,
+                "normalized_native_response_rms": 0.5127343086539891
+              },
+              {
+                "absolute_change": 6.405109495848452e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005186333828234338,
+                "fractional_change": 0.012504404441088246,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.005122282733275854,
+                "normalized_absolute_change": 0.006405109495848452,
+                "normalized_changed_response_rms": 0.5186333828234339,
+                "normalized_native_response_rms": 0.5122282733275854
+              },
+              {
+                "absolute_change": 0.00012614874119416634,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010292775055317475,
+                "fractional_change": 0.012408122153454437,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.010166626314123309,
+                "normalized_absolute_change": 0.006307437059708317,
+                "normalized_changed_response_rms": 0.5146387527658738,
+                "normalized_native_response_rms": 0.5083313157061654
+              },
+              {
+                "absolute_change": 6.503235285573901e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005228234397514109,
+                "fractional_change": 0.012595353095472772,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.00516320204465837,
+                "normalized_absolute_change": 0.006503235285573901,
+                "normalized_changed_response_rms": 0.5228234397514109,
+                "normalized_native_response_rms": 0.516320204465837
+              },
+              {
+                "absolute_change": 0.0001301082075498422,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.01042365557405784,
+                "fractional_change": 0.01263978324646109,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.010293547366507998,
+                "normalized_absolute_change": 0.00650541037749211,
+                "normalized_changed_response_rms": 0.521182778702892,
+                "normalized_native_response_rms": 0.5146773683253999
+              }
+            ],
+            "positive_fraction": 1.0
+          }
+        },
+        {
+          "branch": "L1H2",
+          "weak": {
+            "changed_response_rms": 0.008123834439274594,
+            "classifiable": true,
+            "eligible": false,
+            "median_absolute_change": 3.340966529530526e-05,
+            "median_fractional_change": 0.004409997463850512,
+            "median_normalized_absolute_change": 0.0022545619364617003,
+            "native_response_rms": 0.008088294909135051,
+            "normalized_native_response_rms": 0.5124517924997704,
+            "per_group": [
+              {
+                "absolute_change": 2.2532113270422142e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005140625606840679,
+                "fractional_change": 0.0044024426866622335,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.0051180934935702565,
+                "normalized_absolute_change": 0.0022532113270422142,
+                "normalized_changed_response_rms": 0.5140625606840679,
+                "normalized_native_response_rms": 0.5118093493570256
+              },
+              {
+                "absolute_change": 4.488304012504468e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010205043616854544,
+                "fractional_change": 0.004417552241038791,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.010160160576729499,
+                "normalized_absolute_change": 0.002244152006252234,
+                "normalized_changed_response_rms": 0.5102521808427272,
+                "normalized_native_response_rms": 0.5080080288364749
+              },
+              {
+                "absolute_change": 2.2316670862325416e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005176726441511446,
+                "fractional_change": 0.00432962683514293,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.0051544097706491205,
+                "normalized_absolute_change": 0.0022316670862325416,
+                "normalized_changed_response_rms": 0.5176726441511446,
+                "normalized_native_response_rms": 0.515440977064912
+              },
+              {
+                "absolute_change": 4.389392819333267e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010298580101273113,
+                "fractional_change": 0.004280377522284606,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.01025468617307978,
+                "normalized_absolute_change": 0.0021946964096666334,
+                "normalized_changed_response_rms": 0.5149290050636557,
+                "normalized_native_response_rms": 0.5127343086539891
+              },
+              {
+                "absolute_change": 2.2925402397277854e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005145208135673132,
+                "fractional_change": 0.004475622215921016,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.005122282733275854,
+                "normalized_absolute_change": 0.0022925402397277854,
+                "normalized_changed_response_rms": 0.5145208135673132,
+                "normalized_native_response_rms": 0.5122282733275854
+              },
+              {
+                "absolute_change": 4.557283457567313e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010212199148698982,
+                "fractional_change": 0.00448259168455567,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.010166626314123309,
+                "normalized_absolute_change": 0.0022786417287836563,
+                "normalized_changed_response_rms": 0.5106099574349491,
+                "normalized_native_response_rms": 0.5083313157061654
+              },
+              {
+                "absolute_change": 2.2847261772833763e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005186049306431204,
+                "fractional_change": 0.004425017958859634,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.00516320204465837,
+                "normalized_absolute_change": 0.0022847261772833763,
+                "normalized_changed_response_rms": 0.5186049306431204,
+                "normalized_native_response_rms": 0.516320204465837
+              },
+              {
+                "absolute_change": 4.5118250917623726e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010338665617425621,
+                "fractional_change": 0.004383158624637451,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.010293547366507998,
+                "normalized_absolute_change": 0.0022559125458811863,
+                "normalized_changed_response_rms": 0.5169332808712811,
+                "normalized_native_response_rms": 0.5146773683253999
+              }
+            ],
+            "positive_fraction": 1.0
+          }
+        },
+        {
+          "branch": "L1H3",
+          "weak": {
+            "changed_response_rms": 0.008144042148543142,
+            "classifiable": true,
+            "eligible": false,
+            "median_absolute_change": 5.28299567326136e-05,
+            "median_fractional_change": 0.006851695781078804,
+            "median_normalized_absolute_change": 0.0035141606677184,
+            "native_response_rms": 0.008088294909135051,
+            "normalized_native_response_rms": 0.5124517924997704,
+            "per_group": [
+              {
+                "absolute_change": 3.507169271283091e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005153165186283087,
+                "fractional_change": 0.006852491607840072,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.0051180934935702565,
+                "normalized_absolute_change": 0.0035071692712830907,
+                "normalized_changed_response_rms": 0.5153165186283087,
+                "normalized_native_response_rms": 0.5118093493570256
+              },
+              {
+                "absolute_change": 7.060094646631904e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010230761523195818,
+                "fractional_change": 0.006948802229368445,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.010160160576729499,
+                "normalized_absolute_change": 0.003530047323315952,
+                "normalized_changed_response_rms": 0.5115380761597909,
+                "normalized_native_response_rms": 0.5080080288364749
+              },
+              {
+                "absolute_change": 3.4931653450227286e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005189341424099348,
+                "fractional_change": 0.0067770423781863265,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.0051544097706491205,
+                "normalized_absolute_change": 0.0034931653450227286,
+                "normalized_changed_response_rms": 0.5189341424099347,
+                "normalized_native_response_rms": 0.515440977064912
+              },
+              {
+                "absolute_change": 7.025382903469261e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010324940002114473,
+                "fractional_change": 0.006850899954317535,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.01025468617307978,
+                "normalized_absolute_change": 0.0035126914517346307,
+                "normalized_changed_response_rms": 0.5162470001057237,
+                "normalized_native_response_rms": 0.5127343086539891
+              },
+              {
+                "absolute_change": 3.540608443053459e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005157688817706388,
+                "fractional_change": 0.006912169100023791,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.005122282733275854,
+                "normalized_absolute_change": 0.003540608443053459,
+                "normalized_changed_response_rms": 0.5157688817706388,
+                "normalized_native_response_rms": 0.5122282733275854
+              },
+              {
+                "absolute_change": 7.116912242728646e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010237795436550595,
+                "fractional_change": 0.007000269335012188,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.010166626314123309,
+                "normalized_absolute_change": 0.003558456121364323,
+                "normalized_changed_response_rms": 0.5118897718275297,
+                "normalized_native_response_rms": 0.5083313157061654
+              },
+              {
+                "absolute_change": 3.509904272503382e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005198301087383404,
+                "fractional_change": 0.006797921603967749,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.00516320204465837,
+                "normalized_absolute_change": 0.003509904272503382,
+                "normalized_changed_response_rms": 0.5198301087383403,
+                "normalized_native_response_rms": 0.516320204465837
+              },
+              {
+                "absolute_change": 7.03125976740434e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010363859964182041,
+                "fractional_change": 0.00683074504546588,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.010293547366507998,
+                "normalized_absolute_change": 0.0035156298837021698,
+                "normalized_changed_response_rms": 0.518192998209102,
+                "normalized_native_response_rms": 0.5146773683253999
+              }
+            ],
+            "positive_fraction": 1.0
+          }
+        },
+        {
+          "branch": "L1MLP",
+          "weak": {
+            "changed_response_rms": 0.008158447533687973,
+            "classifiable": true,
+            "eligible": false,
+            "median_absolute_change": 6.292485801419768e-05,
+            "median_fractional_change": 0.008734598320073617,
+            "median_normalized_absolute_change": 0.004490573581883298,
+            "native_response_rms": 0.008088294909135051,
+            "normalized_native_response_rms": 0.5124517924997704,
+            "per_group": [
+              {
+                "absolute_change": 4.37417793946928e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005161835272964949,
+                "fractional_change": 0.00854649870105817,
+                "group": "seed_1010001_amplitude_-0.01",
+                "native_response_rms": 0.0051180934935702565,
+                "normalized_absolute_change": 0.00437417793946928,
+                "normalized_changed_response_rms": 0.516183527296495,
+                "normalized_native_response_rms": 0.5118093493570256
+              },
+              {
+                "absolute_change": 8.190613472427305e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010242066711453772,
+                "fractional_change": 0.008061500023126333,
+                "group": "seed_1010001_amplitude_-0.02",
+                "native_response_rms": 0.010160160576729499,
+                "normalized_absolute_change": 0.0040953067362136525,
+                "normalized_changed_response_rms": 0.5121033355726886,
+                "normalized_native_response_rms": 0.5080080288364749
+              },
+              {
+                "absolute_change": 4.803310008948472e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005202442870738605,
+                "fractional_change": 0.009318836147448106,
+                "group": "seed_1010001_amplitude_0.01",
+                "native_response_rms": 0.0051544097706491205,
+                "normalized_absolute_change": 0.004803310008948472,
+                "normalized_changed_response_rms": 0.5202442870738605,
+                "normalized_native_response_rms": 0.515440977064912
+              },
+              {
+                "absolute_change": 9.856188494402306e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010353248058023803,
+                "fractional_change": 0.009611399440264012,
+                "group": "seed_1010001_amplitude_0.02",
+                "native_response_rms": 0.01025468617307978,
+                "normalized_absolute_change": 0.004928094247201153,
+                "normalized_changed_response_rms": 0.5176624029011901,
+                "normalized_native_response_rms": 0.5127343086539891
+              },
+              {
+                "absolute_change": 4.1831012041425135e-05,
+                "amplitude": -0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.005164113745317279,
+                "fractional_change": 0.008166478544747058,
+                "group": "seed_1010002_amplitude_-0.01",
+                "native_response_rms": 0.005122282733275854,
+                "normalized_absolute_change": 0.0041831012041425135,
+                "normalized_changed_response_rms": 0.5164113745317279,
+                "normalized_native_response_rms": 0.5122282733275854
+              },
+              {
+                "absolute_change": 7.781661593891064e-05,
+                "amplitude": -0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.01024444293006222,
+                "fractional_change": 0.007654123751043018,
+                "group": "seed_1010002_amplitude_-0.02",
+                "native_response_rms": 0.010166626314123309,
+                "normalized_absolute_change": 0.0038908307969455318,
+                "normalized_changed_response_rms": 0.5122221465031109,
+                "normalized_native_response_rms": 0.5083313157061654
+              },
+              {
+                "absolute_change": 4.606969224297316e-05,
+                "amplitude": 0.01,
+                "baseline_valid": true,
+                "changed_response_rms": 0.0052092717369013435,
+                "fractional_change": 0.008922697939089064,
+                "group": "seed_1010002_amplitude_0.01",
+                "native_response_rms": 0.00516320204465837,
+                "normalized_absolute_change": 0.004606969224297316,
+                "normalized_changed_response_rms": 0.5209271736901343,
+                "normalized_native_response_rms": 0.516320204465837
+              },
+              {
+                "absolute_change": 9.535558074259473e-05,
+                "amplitude": 0.02,
+                "baseline_valid": true,
+                "changed_response_rms": 0.010388902947250592,
+                "fractional_change": 0.009263626750565246,
+                "group": "seed_1010002_amplitude_0.02",
+                "native_response_rms": 0.010293547366507998,
+                "normalized_absolute_change": 0.0047677790371297366,
+                "normalized_changed_response_rms": 0.5194451473625296,
+                "normalized_native_response_rms": 0.5146773683253999
+              }
+            ],
+            "positive_fraction": 1.0
+          }
+        }
+      ],
+      "classifiable": true,
+      "eligible_count": 3,
+      "eligible_fraction": 0.3,
+      "selected": [
+        "L0H1",
+        "L0H3",
+        "L1H1"
+      ]
+    }
+  },
+  "dependencies": {
+    "bank": {
+      "path": "runs/collective_suppression/banks/tau_0.05_discovery.npz",
+      "sha256": "5c11096cd97ab9f9dc656443d8121f2690c9d795505e00a2ec0423986109d6f7"
+    }
+  },
+  "noise_tau": 0.2,
+  "seed": 22,
+  "tau": 0.05
+}

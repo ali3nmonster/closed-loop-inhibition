@@ -1,0 +1,97 @@
+{
+  "baseline_epsilon": 0.0001,
+  "checkpoints": {
+    "epoch_025": "epoch_025.pt",
+    "initial": "initial.pt",
+    "selected": "selected.pt"
+  },
+  "confirmation_seeds": [
+    1030001,
+    1030002,
+    1030003,
+    1030004
+  ],
+  "cpu_threads": 2,
+  "discovery_seeds": [
+    1010001,
+    1010002
+  ],
+  "dynamics": {
+    "alternative_grid": {
+      "max": 1.5,
+      "min": 0.5,
+      "step": 0.01
+    },
+    "alternative_seed": 1100000,
+    "calibration_seeds": [
+      1020001,
+      1020002
+    ],
+    "confirmation_seeds": [
+      1040001,
+      1040002,
+      1040003,
+      1040004
+    ],
+    "duration": 4.0,
+    "gain_grid": {
+      "max": 2.0,
+      "min": 0.5,
+      "step": 0.005
+    },
+    "match_tolerance": 0.05,
+    "pulse_amplitudes": [
+      -0.02,
+      0.02
+    ],
+    "pulse_onset": 1.0,
+    "pulse_width": 0.1,
+    "response_direction_epsilon": 1e-12,
+    "strong_scale": 1.1,
+    "weak_scale": 0.9
+  },
+  "frequency": {
+    "amplitude": 0.01,
+    "amplitude_epsilon": 0.0001,
+    "burn_in": 4.0,
+    "duration": 12.0,
+    "frequencies": [
+      0.5,
+      1.0,
+      2.0,
+      4.0,
+      8.0
+    ],
+    "phases": [
+      0.0,
+      1.5707963267948966
+    ],
+    "weak_scale": 0.9
+  },
+  "joint_weak_scales": [
+    0.95,
+    0.9,
+    0.8
+  ],
+  "min_fractional_increase": 0.01,
+  "min_positive_fraction": 0.75,
+  "parent_commit": "b28b764",
+  "parent_results": "results/timescale_maps",
+  "probe": {
+    "amplitudes": [
+      -0.02,
+      -0.01,
+      0.01,
+      0.02
+    ],
+    "background_std": 0.01,
+    "background_tau": 0.2,
+    "duration": 4.0,
+    "onset": 1.0,
+    "width": 0.1
+  },
+  "schema_version": 1,
+  "scope": "Frozen-checkpoint architecture-wide residual-pathway suppression, learning-associated change, frequency selectivity and closed-loop usefulness",
+  "strong_scale": 1.1,
+  "weak_scale": 0.9
+}
