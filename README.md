@@ -4,9 +4,13 @@ Research project investigating whether emergent suppression and explicit excitat
 
 **Central question:** Do suppressive mechanisms change the combined controller–environment dynamics beneficially, and does their causal contribution depend on the relationship between environmental timescales, observation-to-action latency, and fresh-feedback intervals?
 
-**Status on 8 October 2026:** The within-controller delay sweep is complete: 48 frozen transformers, seven latencies, 20,352 additional trials and 12 figure sets. For the 200 ms plant, weakening switches from helping recovery at zero delay to harming it at 100 ms in 11/12 models. Effects are nonmonotonic across the full grid, the pooled absolute primary interaction is negative, and scalar gain also produces the local crossover. There are 5,436 task-failed trials at changed latencies, all retained. The suite passes 477 tests. No explicit E/I-inspired architecture has been tested.
+**Status on 8 October 2026:** Complete-loop dynamics and gain rescue are now measured for the 12 existing 200 ms plant controllers: five delays, 4,308 additional physical trials/checks and seven figure sets. Weakening improves recovery and local decay at zero delay but worsens both at 100 ms in all twelve. Gain-and-mean compensation partly rescues the effect; remaining effects vary across initialization seeds. Two intervention equilibria become locally unstable despite no failures in four-second trials. The larger preceding grid's mixed results remain documented. No explicit E/I-inspired architecture has been tested.
 
 ## First results
+
+Read the [complete-loop dynamics and gain-rescue report](results/loop_mechanism/README.md) and [plots](results/loop_mechanism/plots/). Fresh disturbance tapes reproduce the recovery crossover: weakening changes error by −9.57% at zero delay and +23.54% at 100 ms. Independent gain-and-mean compensation reduces those effects to +0.13% and +8.54%. Full augmented-state analysis shows corresponding local damping changes. The crossover persists from 50 to 100 ms, where the inherited policies' equilibria and current-action-age features stay the same. This supports a timing-dependent feedback mechanism; it does not establish a uniquely inhibitory computation or independent training replication.
+
+![Complete-loop recovery and partial gain rescue](results/loop_mechanism/plots/loop_recovery.png)
 
 Read the [within-controller delay report](results/delay_sweep/README.md) and [plots](results/delay_sweep/plots/). The experiment holds each model's weights, pathways, intervention settings, explicit delay cue, plant and noise condition fixed and changes only physical command latency at fixed cadence. The 200 ms plant shows a useful-control crossover: weakening changes recovery error from −9.65% to +26.50% between 0 and 100 ms delay, while strengthening shows the opposite sign change. The report preserves the heterogeneous primary result, normalization dependence, gain-control explanation and failures at longer delays.
 
@@ -127,6 +131,15 @@ The [frozen-controller delay protocol](docs/DELAY_SWEEP.md) holds each model, se
 
 This requires the collective experiment and all its inherited server-side artifacts, including weights, demonstration data and common-history banks, at their recorded paths. The runner verifies both generations of provenance. Gain controls retain their original 50 ms calibration; matching drift is measured without refitting. Four worker processes run independent simulations, with publication and sealing performed by the main process.
 
+The [complete-loop mechanism protocol](docs/LOOP_MECHANISM.md) adds separate per-delay gain/mean calibration and the full history-and-command-pipeline dynamics for the twelve 200 ms plant controllers:
+
+```bash
+.venv/bin/python experiments/run_loop_mechanism.py --output runs/loop_mechanism_reproduction
+.venv/bin/python experiments/plot_loop_mechanism.py --results runs/loop_mechanism_reproduction
+```
+
+This requires the preceding delay results and their inherited artifacts. Launch from clean committed scientific sources into a new empty directory. The runner seals all calibration records before confirmation and mechanism analysis; plots are written to the result directory's `plots/` subfolder. The report distinguishes four-second noisy task performance from local equilibrium stability and twelve-second map transients.
+
 ## Read first
 
 1. [Research background and proposal](docs/RESEARCH_PROPOSAL.md) — the complete conceptual argument, evidence, definitions, hypotheses, and intended contribution.
@@ -167,6 +180,8 @@ This requires the collective experiment and all its inherited server-side artifa
 | `collective_suppression.py` | Ten-branch survey, joint suppression and interaction effects across saved checkpoints |
 | `collective_dynamics.py` | Frequency-resolved fixed-history assays and own-loop collective interventions |
 | `delay_sweep.py` | Fixed-cue, fixed-parameter controllers across physical command latencies, with timing audits and passive references |
+| `gain_rescue.py` | Independent per-delay waveform gain matching and gain/mean compensation with frozen confirmation |
+| `loop_mechanism.py` | Complete observation-history and command-pipeline map, equilibrium modes, force responses and simulator parity |
 
 Validation covers analytical dynamics, delayed-feedback trajectories, information causality, event ordering, saturation, deterministic replay, reporting-grid independence and metric definitions. Neural checks additionally cover future-token and padding isolation, shared-information encoding, gradients and checkpoint round trips. Virtual computation time is independent of Python runtime. The fixed-cadence schedule assumes idealized parallel throughput; it is not a single-processor deployment claim.
 
@@ -174,6 +189,6 @@ The divergence guard is checked at event times rather than continuously. The pre
 
 ## Next milestone
 
-The [within-controller delay experiment](results/delay_sweep/README.md) is complete. The next research decisions are an independent training-seed replication of the competent-control crossover, direct analysis of the full controller–environment dynamics, and stronger gain/temporal-response controls. A separate sensor-noise grid, direct closed-loop optimization and an explicit suppressive architecture remain later comparisons; the present timing dependence does not establish a uniquely inhibitory mechanism.
+The [complete-loop dynamics and gain-rescue experiment](results/loop_mechanism/README.md) is complete. The next research decisions are independent training replication and separating gain, offset and the remaining history-dependent response. A separate sensor-noise grid, direct closed-loop optimization and an explicit suppressive architecture remain later comparisons; the present timing dependence does not establish a uniquely inhibitory mechanism.
 
 The primary research outcome remains the **stability–responsiveness tradeoff**, including disturbance recovery and delay tolerance at useful tracking performance. A reward increase, smaller actions, negative weights, or a static cancellation score alone would not establish the proposed mechanism.

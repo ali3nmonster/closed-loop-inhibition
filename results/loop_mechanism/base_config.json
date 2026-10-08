@@ -1,0 +1,109 @@
+{
+  "action_limit": 0.5,
+  "delay": 0.05,
+  "diagnostics": {
+    "alternative_grid": {
+      "max": 1.5,
+      "min": 0.5,
+      "step": 0.01
+    },
+    "baseline_epsilon": 0.0001,
+    "calibration_seeds": [
+      920001,
+      920002
+    ],
+    "common_amplitudes": [
+      -0.02,
+      -0.01,
+      0.01,
+      0.02
+    ],
+    "confirmation_seeds": [
+      930001,
+      930002,
+      930003,
+      930004
+    ],
+    "discovery_seeds": [
+      910001,
+      910002
+    ],
+    "duration": 4.0,
+    "gain_grid": {
+      "max": 1.5,
+      "min": 1.0,
+      "step": 0.005
+    },
+    "match_tolerance": 0.05,
+    "min_fractional_increase": 0.01,
+    "min_positive_fraction": 0.75,
+    "pulse_amplitudes": [
+      -0.02,
+      0.02
+    ],
+    "pulse_onset": 1.0,
+    "pulse_width": 0.1,
+    "strong_scale": 1.1,
+    "weak_scale": 0.9
+  },
+  "evaluation": {
+    "burn_in": 3.0,
+    "duration": 12.0,
+    "failure_rms": 0.1,
+    "max_abs_state": 100.0,
+    "seeds": [
+      810001,
+      810002,
+      810003,
+      810004
+    ]
+  },
+  "history_seconds": 0.5,
+  "max_tokens": 11,
+  "model": {
+    "input_dim": 10,
+    "max_tokens": 11,
+    "width": 32
+  },
+  "noise_dt": 0.0025,
+  "noise_std": 0.02,
+  "noise_taus": [
+    0.01,
+    0.05,
+    0.2,
+    1.0
+  ],
+  "output_scale": 0.1,
+  "period": 0.05,
+  "plant_taus": [
+    0.05,
+    0.1,
+    0.2,
+    0.5
+  ],
+  "sample_interval": 0.01,
+  "schema_version": 1,
+  "scope": "Exploratory force-disturbance maps; separate teacher-imitation models per timing cell; ordinary transformers",
+  "seeds": [
+    11,
+    22,
+    33
+  ],
+  "state_scale": 0.1,
+  "training": {
+    "batch_size": 128,
+    "cpu_threads": 2,
+    "duration": 4.0,
+    "episodes": 16,
+    "epochs": 50,
+    "gradient_clip": 1.0,
+    "initial_std": 0.05,
+    "intermediate_epoch": 25,
+    "lr": 0.001,
+    "train_seed": 710001,
+    "validation_episodes": 6,
+    "validation_seed": 720001,
+    "weight_decay": 0.0001
+  },
+  "zeta": 0.15
+}
