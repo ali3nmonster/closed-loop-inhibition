@@ -8,7 +8,9 @@
 
 **Dynamics-validation update:** the [expanded environment protocol](DYNAMICS_VALIDATION.md) and [192-rollout validation report](../results/dynamics_validation/README.md) are complete. Plant `tau` spans 500–50 ms against 50 ms updates; force and position-measurement noise have independently specified correlation times of 10 ms to 1 s. All 254 main analytical/empirical checks and four supplemental reporting-resolution cases pass; the software suite now has 318 passing tests. The fixed-gain PD grid contains eight stable and eight unstable conditions, with guard-crossing cases retained. These are environment and classical-controller results.
 
-**Immediate next step:** use the [two-timescale map design](TIMESCALE_MAPS.md): fix both computation latency and update period at 50 ms, then vary plant tau and noise correlation time on a four-by-four grid. First establish a competent delay-aware reference, then freeze the neural training protocol. Separate per-cell training for learned emergence from shared-model evaluation for context-dependent use. Produce accuracy/effort/failure maps before separate maps of functional suppression and its causal usefulness, with fresh confirmation noise and matched controls.
+**First timescale maps complete:** the [frozen force-noise protocol](TIMESCALE_MAPS_PILOT.md) and [results with 2D plots](../results/timescale_maps/README.md) cover 48 separately trained transformers, 16 timing cells and 4,950 simulator rollouts. All 48 selected pathways show held-out suppression, but common-input eligible-head prevalence decreases from 57.29% at initialization to 47.40% after training. Weakening usually improves control slightly, while the fastest plant shows adverse pulse-recovery effects and some adverse noise-regulation effects. Matched gain controls remain competitive. The suite passes 357 tests.
+
+**Next research decisions:** replicate the fastest-condition crossover with fresh seeds and measure the joint loop's temporal response, then repeat the grid for sensor noise. Direct closed-loop training and explicit E/I-inspired components remain separate subsequent experiments.
 
 ## Research question and first claim to test
 

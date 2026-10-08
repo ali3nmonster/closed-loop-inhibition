@@ -4,9 +4,13 @@ Research project investigating whether emergent suppression and explicit excitat
 
 **Central question:** Do suppressive mechanisms change the combined controller–environment dynamics beneficially, and does their causal contribution depend on the relationship between environmental timescales, observation-to-action latency, and fresh-feedback intervals?
 
-**Status on 8 October 2026:** The expanded environment passes its dynamics validation: 192 physical rollouts, 254 main validation checks plus four successful reporting-resolution cases, and 318 software tests. Plant speed, delayed feedback and perturbation timescale can now be varied separately, with analytically verified stable and unstable regimes. The preceding centered-intervention follow-up contains 2,816 confirmation rollouts; its delay interactions disagree across models and matched output gain performs better. No explicit E/I-inspired architecture has been tested.
+**Status on 8 October 2026:** The first fixed-delay plant/noise maps are complete: 48 transformers trained across 16 timing cells, 4,950 simulator rollouts and 357 passing software tests. All 48 selected pathways show held-out functional suppression. Weakening usually improves control slightly, but can harm the fastest conditions; common-input suppression prevalence is lower after training than at initialization. No explicit E/I-inspired architecture has been tested.
 
 ## First results
+
+Read the [two-timescale experiment report](results/timescale_maps/README.md) and its [2D plots](results/timescale_maps/plots/). Delay and update period are fixed at 50 ms, while plant tau and force-noise correlation time vary independently. Learned controllers improve over passive motion in all 16 cell means and remain close to the delay-aware teacher. Suppression, its change during learning, causal accuracy/effort effects and control-matching quality are plotted separately. The results show a timing-dependent contribution, with small effects and important matched-gain comparisons.
+
+![Two-timescale control maps](results/timescale_maps/plots/performance.png)
 
 Read the [plant and feedback dynamics report](results/dynamics_validation/README.md). The plant characteristic timescale spans 500–50 ms against 50 ms controller updates. For the fastest plant, classical PD is stable at zero delay and unstable with one update of delay; all measured trajectory/growth checks agree with the predictions. Colored force and position-measurement noise have separately controlled correlation times from 10 ms to 1 s and produce distinct response curves. These checks establish the environment's properties before a new transformer experiment.
 
@@ -88,6 +92,15 @@ The [dynamics-validation protocol](docs/DYNAMICS_VALIDATION.md) checks faster pl
 
 Choose fresh directories. The runner records every analytical comparison, retains unstable cases and verifies unchanged source, configuration and protocol fingerprints. Colored inputs are stationary OU samples held on an independent 2.5 ms grid; sensor noise is evaluated at observation capture times. This validates the environment for subsequent neural-controller experiments.
 
+The [fixed-delay force-noise map protocol](docs/TIMESCALE_MAPS_PILOT.md) trains three independent transformers in each of 16 plant/noise timing cells, then performs separate pathway discovery, calibration and confirmation:
+
+```bash
+.venv/bin/python experiments/run_timescale_maps.py --output runs/timescale_reproduction/results --artifacts runs/timescale_reproduction/artifacts
+.venv/bin/python experiments/plot_timescale_maps.py --input runs/timescale_reproduction/results
+```
+
+Use fresh directories for a new experiment. The runner can resume an interrupted run with identical sources, configuration, protocol and completed artifacts. Initialization, epoch-25, selected and final weights remain in the artifact directory; compact results and PNG/SVG maps are written under the result directory. Force noise is the first channel; these models are trained by expert imitation and contain no explicit E/I component.
+
 ## Read first
 
 1. [Research background and proposal](docs/RESEARCH_PROPOSAL.md) — the complete conceptual argument, evidence, definitions, hypotheses, and intended contribution.
@@ -101,6 +114,7 @@ Choose fresh directories. The runner records every analytical comparison, retain
 9. [Centered-intervention protocol](docs/CENTERED_SUPPRESSION_PILOT.md) — smaller interventions, sham command centering and controls matched within each timing condition.
 10. [Dynamics-validation protocol](docs/DYNAMICS_VALIDATION.md) — separate plant, feedback and perturbation timescales, with analytical and stochastic-input checks.
 11. [Two-timescale map design](docs/TIMESCALE_MAPS.md) — fixed delay and cadence, plant/noise axes, and distinct maps of accuracy, learned suppression and causal usefulness.
+12. [First timescale-map protocol](docs/TIMESCALE_MAPS_PILOT.md) — the frozen force-noise grid, per-cell training, common-history checkpoint comparisons and held-out interventions.
 
 ## Implementation
 
@@ -120,6 +134,8 @@ Choose fresh directories. The runner records every analytical comparison, retain
 | `centered_metrics.py` | Exact held-action means and sampled position means |
 | `structured_signals.py` | Reproducible held OU/sinusoidal forcing and capture-time position noise |
 | `dynamics_validation.py` | Independent ringdown, delayed recurrence, frequency-response and covariance references |
+| `timescale_maps.py` | Per-cell imitation, paired force-noise trials and finite-horizon control metrics |
+| `timescale_diagnostics.py` | Common-history checkpoint assays, head selection, centered controls and held-out causal effects |
 
 Validation covers analytical dynamics, delayed-feedback trajectories, information causality, event ordering, saturation, deterministic replay, reporting-grid independence and metric definitions. Neural checks additionally cover future-token and padding isolation, shared-information encoding, gradients and checkpoint round trips. Virtual computation time is independent of Python runtime. The fixed-cadence schedule assumes idealized parallel throughput; it is not a single-processor deployment claim.
 
@@ -127,6 +143,6 @@ The divergence guard is checked at event times rather than continuously. The pre
 
 ## Next milestone
 
-Begin the [two-timescale map experiment](docs/TIMESCALE_MAPS.md) with latency and update period fixed at 50 ms. Vary plant speed and noise correlation time on a four-by-four grid, with separate force-noise and sensor-noise panels. Establish a competent delay-aware reference before training per-cell neural ensembles for the emergence question. Map control accuracy, suppression diagnostics and causal usefulness separately, using fresh perturbations and matched controls. The design is recorded; this map experiment has not yet been run.
+The first force-noise [two-timescale map experiment](results/timescale_maps/README.md) is complete. The next research decisions are a targeted replication of the fastest-condition crossover, direct measurement of the joint loop's gain/phase or modes, and a separate sensor-noise grid. Direct closed-loop optimization and an explicit suppressive architecture remain later comparisons; expert imitation alone cannot establish their benefits.
 
 The primary research outcome remains the **stability–responsiveness tradeoff**, including disturbance recovery and delay tolerance at useful tracking performance. A reward increase, smaller actions, negative weights, or a static cancellation score alone would not establish the proposed mechanism.

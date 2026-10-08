@@ -1,6 +1,6 @@
 # Two-timescale maps at fixed computation delay
 
-**Design proposal, 8 October 2026. No new training or map experiment has been run.** This proposal follows the [validated dynamics setup](../results/dynamics_validation/README.md). It fixes the feedback interface and maps performance and learned suppressive organization against plant and perturbation timescales. It is not yet a frozen training/confirmation protocol: the competence baseline, training objective and diagnostic selection rules must be specified before launch.
+**Design, 8 October 2026. The first force-noise grid is now complete:** see the [frozen implementation protocol](TIMESCALE_MAPS_PILOT.md) and [48-model results and maps](../results/timescale_maps/README.md). The broader design below follows the [validated dynamics setup](../results/dynamics_validation/README.md). It fixes the feedback interface and maps performance and learned suppressive organization against plant and perturbation timescales. The implementation protocol supplies the exact competence reference, training objective and diagnostic selection rules for this first run; sensor-noise replication and explicit E/I components remain future work.
 
 ## Axes and fixed conditions
 

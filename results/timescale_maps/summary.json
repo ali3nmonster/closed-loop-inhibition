@@ -1,0 +1,295 @@
+{
+  "aggregation": "Mean over independent noise tapes within each model, then equal model-seed weights. Any missing numeric result in the required population makes that aggregate null. Candidate effects condition on discovery selection; matched control panels additionally condition on matching success. Noise tapes are shared across model seeds and grid cells; model seeds do not independently replicate the environment tapes.",
+  "alternative_matched_candidates": 48,
+  "calibrated_candidates": 48,
+  "candidate_effects": {
+    "alternative_matched": {
+      "effect_alternative_matched_action_rms_percent": {
+        "max": 12.019280050402115,
+        "mean": 0.040624806468593046,
+        "min": -6.500645918889525,
+        "n": 48,
+        "range": 18.51992596929164,
+        "valid_n": 48
+      },
+      "effect_alternative_matched_position_rms_percent": {
+        "max": 5.397169109857702,
+        "mean": 0.2519849835476732,
+        "min": -5.973958450582673,
+        "n": 48,
+        "range": 11.371127560440375,
+        "valid_n": 48
+      },
+      "effect_alternative_matched_recovery_percent": {
+        "max": 10.776158884378173,
+        "mean": 0.4334407958029649,
+        "min": -7.536920451908157,
+        "n": 48,
+        "range": 18.31307933628633,
+        "valid_n": 48
+      },
+      "models_with_improved_noise_rms": 23,
+      "models_with_worse_noise_rms": 25
+    },
+    "centered_strong": {
+      "effect_centered_strong_action_rms_percent": {
+        "max": 0.13550040196856905,
+        "mean": -2.064105132932126,
+        "min": -7.1949721612770245,
+        "n": 48,
+        "range": 7.330472563245594,
+        "valid_n": 48
+      },
+      "effect_centered_strong_position_rms_percent": {
+        "max": 3.398716630890397,
+        "mean": 1.0454438216339506,
+        "min": -1.561289251096687,
+        "n": 48,
+        "range": 4.960005881987084,
+        "valid_n": 48
+      },
+      "effect_centered_strong_recovery_percent": {
+        "max": 4.523361221532429,
+        "mean": 1.6745037122377096,
+        "min": -4.216852347351885,
+        "n": 48,
+        "range": 8.740213568884315,
+        "valid_n": 48
+      },
+      "models_with_improved_noise_rms": 4,
+      "models_with_worse_noise_rms": 44
+    },
+    "centered_weak": {
+      "effect_centered_weak_action_rms_percent": {
+        "max": 9.632070458972542,
+        "mean": 2.306787930006871,
+        "min": -0.11948236270348245,
+        "n": 48,
+        "range": 9.751552821676025,
+        "valid_n": 48
+      },
+      "effect_centered_weak_position_rms_percent": {
+        "max": 1.9702238901511349,
+        "mean": -0.9855180882151418,
+        "min": -3.5473419193127187,
+        "n": 48,
+        "range": 5.5175658094638536,
+        "valid_n": 48
+      },
+      "effect_centered_weak_recovery_percent": {
+        "max": 7.435057291556957,
+        "mean": -1.4864321175912139,
+        "min": -4.484150036742207,
+        "n": 48,
+        "range": 11.919207328299164,
+        "valid_n": 48
+      },
+      "models_with_improved_noise_rms": 42,
+      "models_with_worse_noise_rms": 6
+    },
+    "gain_matched": {
+      "effect_gain_matched_action_rms_percent": {
+        "max": 5.201455806046518,
+        "mean": 2.193410006687759,
+        "min": 0.6078044981181252,
+        "n": 32,
+        "range": 4.5936513079283925,
+        "valid_n": 32
+      },
+      "effect_gain_matched_position_rms_percent": {
+        "max": 0.03907765388899698,
+        "mean": -1.46988302375595,
+        "min": -4.199854290405291,
+        "n": 32,
+        "range": 4.238931944294288,
+        "valid_n": 32
+      },
+      "effect_gain_matched_recovery_percent": {
+        "max": 0.23202980566698894,
+        "mean": -2.416445688290087,
+        "min": -5.629038715136192,
+        "n": 32,
+        "range": 5.8610685208031805,
+        "valid_n": 32
+      },
+      "models_with_improved_noise_rms": 31,
+      "models_with_worse_noise_rms": 1
+    }
+  },
+  "common_checkpoint_eligible_percent": {
+    "epoch_025": {
+      "max": 87.5,
+      "mean": 48.958333333333336,
+      "min": 12.5,
+      "n": 48,
+      "range": 75.0,
+      "valid_n": 48
+    },
+    "initial": {
+      "max": 87.5,
+      "mean": 57.291666666666664,
+      "min": 25.0,
+      "n": 48,
+      "range": 62.5,
+      "valid_n": 48
+    },
+    "selected": {
+      "max": 87.5,
+      "mean": 47.395833333333336,
+      "min": 12.5,
+      "n": 48,
+      "range": 75.0,
+      "valid_n": 48
+    }
+  },
+  "confirmation_classifiable_candidates": 48,
+  "confirmation_eligible_candidates": 48,
+  "confirmation_rollout_counts": {
+    "alternative_matched": {
+      "models": 48,
+      "pulse_censored_count": 0,
+      "pulse_rollouts": 384,
+      "pulse_task_failure_count": 0,
+      "sham_censored_count": 0,
+      "sham_task_failure_count": 0,
+      "unique_sham_rollouts": 192
+    },
+    "centered_strong": {
+      "models": 48,
+      "pulse_censored_count": 0,
+      "pulse_rollouts": 384,
+      "pulse_task_failure_count": 0,
+      "sham_censored_count": 0,
+      "sham_task_failure_count": 0,
+      "unique_sham_rollouts": 192
+    },
+    "centered_weak": {
+      "models": 48,
+      "pulse_censored_count": 0,
+      "pulse_rollouts": 384,
+      "pulse_task_failure_count": 0,
+      "sham_censored_count": 0,
+      "sham_task_failure_count": 0,
+      "unique_sham_rollouts": 192
+    },
+    "gain_matched": {
+      "models": 48,
+      "pulse_censored_count": 0,
+      "pulse_rollouts": 384,
+      "pulse_task_failure_count": 0,
+      "sham_censored_count": 0,
+      "sham_task_failure_count": 0,
+      "unique_sham_rollouts": 192
+    },
+    "native": {
+      "models": 48,
+      "pulse_censored_count": 0,
+      "pulse_rollouts": 384,
+      "pulse_task_failure_count": 0,
+      "sham_censored_count": 0,
+      "sham_task_failure_count": 0,
+      "unique_sham_rollouts": 192
+    }
+  },
+  "discovery_unavailable_models": 0,
+  "discovery_unclassifiable_models": 0,
+  "gain_matched_candidates": 32,
+  "grid_cells": 16,
+  "heldout_weak_response_percent": {
+    "max": 4.205425775045835,
+    "mean": 2.33586223894172,
+    "min": 1.1826171436106758,
+    "n": 48,
+    "range": 3.0228086314351588,
+    "valid_n": 48
+  },
+  "interpretation": "Exploratory teacher-imitation controllers with ordinary attention. Functional suppression is not evidence of biological E/I balance. Three model seeds do not support a precise phase boundary or a universal architectural conclusion.",
+  "missing_candidates": 0,
+  "model_seeds_per_cell": 3,
+  "paired_control_comparisons": {
+    "alternative_matched": {
+      "action_rms_percent": {
+        "control_higher_count": 8,
+        "control_lower_count": 40,
+        "max": 2.3872095914295723,
+        "mean": -2.2661631235382775,
+        "min": -14.137594404814703,
+        "n": 48,
+        "range": 16.524803996244273,
+        "valid_n": 48
+      },
+      "comparison": "Control effect minus centered-weak effect, paired within the same model. Negative noise RMS/recovery difference favors the control; negative action RMS means lower effort.",
+      "matched_models": 48,
+      "position_rms_percent": {
+        "control_higher_count": 34,
+        "control_lower_count": 14,
+        "max": 8.944511029170421,
+        "mean": 1.2375030717628148,
+        "min": -3.414831145987996,
+        "n": 48,
+        "range": 12.359342175158417,
+        "valid_n": 48
+      },
+      "recovery_percent": {
+        "control_higher_count": 31,
+        "control_lower_count": 17,
+        "max": 8.8493936920094,
+        "mean": 1.9198729133941788,
+        "min": -12.281090090106993,
+        "n": 48,
+        "range": 21.130483782116393,
+        "valid_n": 48
+      },
+      "units": "Percentage points of change relative to the same model's native value"
+    },
+    "gain_matched": {
+      "action_rms_percent": {
+        "control_higher_count": 14,
+        "control_lower_count": 18,
+        "max": 2.8470968755116344,
+        "mean": -0.502710425629048,
+        "min": -5.093117495571931,
+        "n": 32,
+        "range": 7.940214371083566,
+        "valid_n": 32
+      },
+      "comparison": "Control effect minus centered-weak effect, paired within the same model. Negative noise RMS/recovery difference favors the control; negative action RMS means lower effort.",
+      "matched_models": 32,
+      "position_rms_percent": {
+        "control_higher_count": 3,
+        "control_lower_count": 29,
+        "max": 0.7483351391636694,
+        "mean": -0.5240966704942693,
+        "min": -2.07249924373355,
+        "n": 32,
+        "range": 2.8208343828972193,
+        "valid_n": 32
+      },
+      "recovery_percent": {
+        "control_higher_count": 7,
+        "control_lower_count": 25,
+        "max": 4.042830520637186,
+        "mean": -1.2355309331195161,
+        "min": -8.694761395221528,
+        "n": 32,
+        "range": 12.737591915858715,
+        "valid_n": 32
+      },
+      "units": "Percentage points of change relative to the same model's native value"
+    }
+  },
+  "performance_rollouts": 320,
+  "raw_confirmation_eligible_candidates": 48,
+  "scope": "Exploratory force-disturbance maps; separate teacher-imitation models per timing cell; ordinary transformers",
+  "selected_candidates": 48,
+  "selected_epoch_range": [
+    36,
+    50
+  ],
+  "teacher_better_than_passive_cells": 16,
+  "trained_models": 48,
+  "transformer_better_than_passive_cells": 16,
+  "transformer_censored_rollouts": 0,
+  "transformer_performance_rollouts": 192,
+  "transformer_task_failures": 0
+}
