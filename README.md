@@ -4,9 +4,13 @@ Research project investigating whether emergent suppression and explicit excitat
 
 **Central question:** Do suppressive mechanisms change the combined controller–environment dynamics beneficially, and does their causal contribution depend on the relationship between environmental timescales, observation-to-action latency, and fresh-feedback intervals?
 
-**Status on 8 October 2026:** Complete-loop dynamics and gain rescue are now measured for the 12 existing 200 ms plant controllers: five delays, 4,308 additional physical trials/checks and seven figure sets. Weakening improves recovery and local decay at zero delay but worsens both at 100 ms in all twelve. Gain-and-mean compensation partly rescues the effect; remaining effects vary across initialization seeds. Two intervention equilibria become locally unstable despite no failures in four-second trials. The larger preceding grid's mixed results remain documented. No explicit E/I-inspired architecture has been tested.
+**Status on 8 October 2026:** Independent training replication and frozen local-response corrections are complete: 40 fresh models plus 12 existing controllers, 14,538 physical trials/checks and eight new figure sets. In the fresh population, weakening improves four-second recovery at 50 ms but worsens it at 100 ms in 38/40 models. Equilibrium correction changes little; scalar compensation helps, and restoring local feedback shape adds a further benefit. Twelve-second results expose an unstable tail and disagreement between mean absolute and percentage effects. No explicit E/I-inspired architecture has been tested.
 
 ## First results
+
+Read the [fresh replication and local-response correction report](results/kernel_rescue/README.md) and [plots](results/kernel_rescue/plots/). Forty newly trained models reproduce the timing effect: weakening changes four-second recovery by −7.43% at 50 ms and +33.52% at 100 ms. A correction fitted only at 50 ms reduces the 100 ms effect to +8.57% with scalar compensation and −0.96% with the complete local response. Paired inference uses ten initialization blocks. Local mode matching is by construction; transfer to independent noisy trajectories is the empirical result. Some native equilibria are unstable, and the twelve-second mean absolute residual remains adverse despite a slightly favorable mean percentage.
+
+![Fresh replication and frozen local-response corrections](results/kernel_rescue/plots/kernel_recovery.png)
 
 Read the [complete-loop dynamics and gain-rescue report](results/loop_mechanism/README.md) and [plots](results/loop_mechanism/plots/). Fresh disturbance tapes reproduce the recovery crossover: weakening changes error by −9.57% at zero delay and +23.54% at 100 ms. Independent gain-and-mean compensation reduces those effects to +0.13% and +8.54%. Full augmented-state analysis shows corresponding local damping changes. The crossover persists from 50 to 100 ms, where the inherited policies' equilibria and current-action-age features stay the same. This supports a timing-dependent feedback mechanism; it does not establish a uniquely inhibitory computation or independent training replication.
 
@@ -140,6 +144,15 @@ The [complete-loop mechanism protocol](docs/LOOP_MECHANISM.md) adds separate per
 
 This requires the preceding delay results and their inherited artifacts. Launch from clean committed scientific sources into a new empty directory. The runner seals all calibration records before confirmation and mechanism analysis; plots are written to the result directory's `plots/` subfolder. The report distinguishes four-second noisy task performance from local equilibrium stability and twelve-second map transients.
 
+The [frozen local-response correction protocol](docs/KERNEL_RESCUE.md) fits equilibrium, scalar-gain and complete local command-response corrections once at 50 ms, then evaluates them unchanged at 50 and 100 ms. It adds forty models trained on independent demonstrations, alongside the twelve existing controllers:
+
+```bash
+.venv/bin/python experiments/run_kernel_rescue.py --output runs/kernel_reproduction/results --artifacts runs/kernel_reproduction/artifacts
+.venv/bin/python experiments/plot_kernel_rescue.py --results runs/kernel_reproduction/results
+```
+
+Use clean committed scientific sources and fresh empty directories. The historical artifacts are required for the existing population and lineage verification. New demonstration data and all four checkpoints per fresh model are retained in the artifact directory. All corrections are sealed before confirmation; the primary analysis averages four noise conditions within each of ten fresh initialization seeds. Four-second and twelve-second results are reported separately.
+
 ## Read first
 
 1. [Research background and proposal](docs/RESEARCH_PROPOSAL.md) — the complete conceptual argument, evidence, definitions, hypotheses, and intended contribution.
@@ -156,6 +169,8 @@ This requires the preceding delay results and their inherited artifacts. Launch 
 12. [First timescale-map protocol](docs/TIMESCALE_MAPS_PILOT.md) — the frozen force-noise grid, per-cell training, common-history checkpoint comparisons and held-out interventions.
 13. [Collective-suppression protocol](docs/COLLECTIVE_SUPPRESSION.md) — ten-branch joint effects, learning-associated change, spectral selectivity and closed-loop usefulness.
 14. [Frozen-controller delay protocol](docs/DELAY_SWEEP.md) — within-model latency interventions with fixed pathways, parameters and planned-delay cue.
+15. [Complete-loop mechanism protocol](docs/LOOP_MECHANISM.md) — augmented physical dynamics and gain/mean compensation.
+16. [Local-response correction and replication protocol](docs/KERNEL_RESCUE.md) — nested corrections frozen across latency and forty independently trained models.
 
 ## Implementation
 
@@ -182,6 +197,8 @@ This requires the preceding delay results and their inherited artifacts. Launch 
 | `delay_sweep.py` | Fixed-cue, fixed-parameter controllers across physical command latencies, with timing audits and passive references |
 | `gain_rescue.py` | Independent per-delay waveform gain matching and gain/mean compensation with frozen confirmation |
 | `loop_mechanism.py` | Complete observation-history and command-pipeline map, equilibrium modes, force responses and simulator parity |
+| `kernel_rescue.py` | Causal equilibrium, scalar and local-response corrections frozen across latency, with complete-loop verification |
+| `kernel_training.py` | Independent demonstration streams and inherited training/discovery rules for fresh replication |
 
 Validation covers analytical dynamics, delayed-feedback trajectories, information causality, event ordering, saturation, deterministic replay, reporting-grid independence and metric definitions. Neural checks additionally cover future-token and padding isolation, shared-information encoding, gradients and checkpoint round trips. Virtual computation time is independent of Python runtime. The fixed-cadence schedule assumes idealized parallel throughput; it is not a single-processor deployment claim.
 
@@ -189,6 +206,6 @@ The divergence guard is checked at event times rather than continuously. The pre
 
 ## Next milestone
 
-The [complete-loop dynamics and gain-rescue experiment](results/loop_mechanism/README.md) is complete. The next research decisions are independent training replication and separating gain, offset and the remaining history-dependent response. A separate sensor-noise grid, direct closed-loop optimization and an explicit suppressive architecture remain later comparisons; the present timing dependence does not establish a uniquely inhibitory mechanism.
+The [fresh replication and local-response correction experiment](results/kernel_rescue/README.md) is complete. The next discriminating comparison separates current position/velocity, held-action and older-history correction terms. A subsequent training-delay × test-delay experiment would investigate adaptation during learning. Keep unstable conditions visible; a separate sensor-noise grid, direct closed-loop optimization and an explicit suppressive architecture remain later comparisons. The present result supports a feedback-law explanation beyond scalar gain, without establishing a uniquely inhibitory computation.
 
 The primary research outcome remains the **stability–responsiveness tradeoff**, including disturbance recovery and delay tolerance at useful tracking performance. A reward increase, smaller actions, negative weights, or a static cancellation score alone would not establish the proposed mechanism.
