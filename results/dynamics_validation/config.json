@@ -1,0 +1,94 @@
+{
+  "anchors": [
+    {
+      "delay_steps": 0,
+      "tau": 0.5
+    },
+    {
+      "delay_steps": 4,
+      "tau": 0.5
+    },
+    {
+      "delay_steps": 0,
+      "tau": 0.1
+    },
+    {
+      "delay_steps": 0,
+      "tau": 0.05
+    }
+  ],
+  "controller": {
+    "kd": 1.0,
+    "kp": 2.0,
+    "period": 0.05
+  },
+  "modes": {
+    "delay_steps": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "duration": 10.0,
+    "initial_position": 1e-08,
+    "state_guard": 10000.0
+  },
+  "noise": {
+    "burn_in": 20.0,
+    "channels": [
+      "force",
+      "position_noise"
+    ],
+    "correlation_times": [
+      0.01,
+      0.05,
+      0.2,
+      1.0
+    ],
+    "dt": 0.0025,
+    "duration": 60.0,
+    "quality_duration": 300.0,
+    "sample_interval": 0.01,
+    "seeds": [
+      101,
+      202,
+      303
+    ],
+    "std": 0.02
+  },
+  "plant": {
+    "taus": [
+      0.5,
+      0.2,
+      0.1,
+      0.05
+    ],
+    "zeta": 0.15
+  },
+  "ringdown": {
+    "envelope_times": 8,
+    "initial_position": 0.01,
+    "samples_per_tau": 100
+  },
+  "schema_version": 1,
+  "scope": "Analytical and empirical validation of plant speed, delayed feedback and temporally structured forcing; no neural training or inhibition claim",
+  "tolerances": {
+    "absolute_noise_correlation_error": 0.1,
+    "growth_sign_minimum_rate": 0.1,
+    "relative_complex_transfer_error": 0.005,
+    "relative_noise_rms_error": 0.1,
+    "relative_ringdown_decay_error": 0.01,
+    "relative_ringdown_period_error": 0.01,
+    "relative_trajectory_error": 1e-08
+  },
+  "transfer": {
+    "amplitude": 0.01,
+    "measurement_periods": 8,
+    "scaled_frequencies": [
+      0.5,
+      1.0,
+      2.0
+    ],
+    "warmup_envelopes": 8
+  }
+}

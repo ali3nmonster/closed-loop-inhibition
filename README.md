@@ -4,9 +4,11 @@ Research project investigating whether emergent suppression and explicit excitat
 
 **Central question:** Do suppressive mechanisms change the combined controller–environment dynamics beneficially, and does their causal contribution depend on the relationship between environmental timescales, observation-to-action latency, and fresh-feedback intervals?
 
-**Status on 8 October 2026:** The centered-intervention follow-up is complete: 2,816 confirmation rollouts and 252 passing tests. Small recovery effects persist after correcting command bias, but delay interactions disagree across models and a matched output-gain control performs better. Earlier milestones contain 2,432 suppression-confirmation rollouts, 768 transformer/MLP control rollouts and 36 classical validation rollouts. No explicit E/I-inspired architecture has been tested.
+**Status on 8 October 2026:** The expanded environment passes its dynamics validation: 192 physical rollouts, 254 main validation checks plus four successful reporting-resolution cases, and 318 software tests. Plant speed, delayed feedback and perturbation timescale can now be varied separately, with analytically verified stable and unstable regimes. The preceding centered-intervention follow-up contains 2,816 confirmation rollouts; its delay interactions disagree across models and matched output gain performs better. No explicit E/I-inspired architecture has been tested.
 
 ## First results
+
+Read the [plant and feedback dynamics report](results/dynamics_validation/README.md). The plant characteristic timescale spans 500–50 ms against 50 ms controller updates. For the fastest plant, classical PD is stable at zero delay and unstable with one update of delay; all measured trajectory/growth checks agree with the predictions. Colored force and position-measurement noise have separately controlled correlation times from 10 ms to 1 s and produce distinct response curves. These checks establish the environment's properties before a new transformer experiment.
 
 Read the [centered-intervention report](results/centered_suppression_pilot/README.md). Weakening a selected head by 10% with a calibrated command correction lowers mean incremental recovery error by 1.52% while raising effort by 2.43%. Centering removes most excess baseline drift, but the three models disagree on the primary delay interaction. All timing-specific control matches pass, and a simple matched gain increase achieves lower recovery cost in all 24 model × timing cells. The follow-up adds 832 calibration/probe and 48 numerical-check rollouts to its 2,816 confirmation rollouts.
 
@@ -78,6 +80,14 @@ The [centered-intervention follow-up](docs/CENTERED_SUPPRESSION_PILOT.md) uses t
 
 Inspect `calibration_readiness.json` and record the decision before evaluation. Preserve failures without replacing heads or tuning against recovery outcomes. Keep sources, configuration, protocol, checkpoints, scenarios and calibration artifacts unchanged between stages; the runner verifies their fingerprints. Centering preserves the clipped command mean on calibration sham histories, so actual drift and signed held-action means are measured separately in closed loop.
 
+The [dynamics-validation protocol](docs/DYNAMICS_VALIDATION.md) checks faster plants, delayed classical feedback and independently timed force or position-measurement noise. It uses the base scientific dependencies and does not require pretrained checkpoints:
+
+```bash
+.venv/bin/python experiments/run_dynamics_validation.py --output runs/dynamics_reproduction/results --artifacts runs/dynamics_reproduction/artifacts
+```
+
+Choose fresh directories. The runner records every analytical comparison, retains unstable cases and verifies unchanged source, configuration and protocol fingerprints. Colored inputs are stationary OU samples held on an independent 2.5 ms grid; sensor noise is evaluated at observation capture times. This validates the environment for subsequent neural-controller experiments.
+
 ## Read first
 
 1. [Research background and proposal](docs/RESEARCH_PROPOSAL.md) — the complete conceptual argument, evidence, definitions, hypotheses, and intended contribution.
@@ -89,6 +99,7 @@ Inspect `calibration_readiness.json` and record the decision before evaluation. 
 7. [Transformer pilot protocol](docs/TRANSFORMER_PILOT.md) — teacher imitation, matched-history architectures, data splits, training and evaluation.
 8. [Suppression pilot protocol](docs/SUPPRESSION_PILOT.md) — frozen-head discovery, independent calibration and paired causal interventions.
 9. [Centered-intervention protocol](docs/CENTERED_SUPPRESSION_PILOT.md) — smaller interventions, sham command centering and controls matched within each timing condition.
+10. [Dynamics-validation protocol](docs/DYNAMICS_VALIDATION.md) — separate plant, feedback and perturbation timescales, with analytical and stochastic-input checks.
 
 ## Implementation
 
@@ -106,6 +117,8 @@ Inspect `calibration_readiness.json` and record the decision before evaluation. 
 | `suppression_analysis.py` | Functional suppression statistics and matched-control calibration |
 | `centered_calibration.py` | Clipping-aware command offsets with equal scenario weighting |
 | `centered_metrics.py` | Exact held-action means and sampled position means |
+| `structured_signals.py` | Reproducible held OU/sinusoidal forcing and capture-time position noise |
+| `dynamics_validation.py` | Independent ringdown, delayed recurrence, frequency-response and covariance references |
 
 Validation covers analytical dynamics, delayed-feedback trajectories, information causality, event ordering, saturation, deterministic replay, reporting-grid independence and metric definitions. Neural checks additionally cover future-token and padding isolation, shared-information encoding, gradients and checkpoint round trips. Virtual computation time is independent of Python runtime. The fixed-cadence schedule assumes idealized parallel throughput; it is not a single-processor deployment claim.
 
@@ -113,6 +126,6 @@ The divergence guard is checked at event times rather than continuously. The pre
 
 ## Next milestone
 
-Estimate local controller–environment dynamics around the sham operating trajectory, including observation history, pending commands and dispatch phase. Compare selected-head changes with matched output gain and validate their predicted responses using fresh small disturbances. The centered follow-up has addressed much of the command-bias confound; it has not measured gain, damping, phase lag or stability margins directly. Freeze a new protocol before that analysis and its confirmation. Plant-timescale sweeps, direct closed-loop training and explicit E/I-inspired architectural comparisons remain subsequent work.
+Freeze a neural-controller protocol for the validated plant-speed, feedback-delay and perturbation distribution. Establish competent classical and learned baselines on the selected cells before comparing suppression; the old transformer checkpoints were trained at one plant speed. Measure controller and joint-loop responses, including observation history, pending commands and dispatch phase, then compare selected-head changes with matched output gain using fresh perturbations. Direct closed-loop training and explicit E/I-inspired architectures remain subsequent research choices.
 
 The primary research outcome remains the **stability–responsiveness tradeoff**, including disturbance recovery and delay tolerance at useful tracking performance. A reward increase, smaller actions, negative weights, or a static cancellation score alone would not establish the proposed mechanism.
