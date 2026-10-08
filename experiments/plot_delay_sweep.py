@@ -139,6 +139,8 @@ def flatten(records, passive, seeds, amplitudes, epsilon=1e-12):
     for record in sorted(records, key=lambda item: (*identity(item), item["delay"])):
         model = identity(record)
         settings = record["frozen_settings"]
+        if set(settings) != set(record["summary"]):
+            raise ValueError("Frozen settings and evaluated variants differ")
         signature = json.dumps({"settings": settings, "group": record["group"]}, sort_keys=True)
         if model in frozen and frozen[model] != signature:
             raise ValueError("Controller intervention settings or group changed across delays")
@@ -235,17 +237,25 @@ def signed_stats(values):
             "negative_models": sum(number(v) and v < 0 for v in values)}
 
 
+def competence_stats(values):
+    values = list(values)
+    return {**stats(values), "better_than_passive_models": sum(number(v) and v < 1 for v in values),
+            "worse_than_passive_models": sum(number(v) and v > 1 for v in values)}
+
+
 def summarize(rows, endpoints, low, high):
     result = {"model_lineages": len(endpoints), "model_delay_records": len(rows),
               "primary_low_delay": low, "primary_high_delay": high,
               "own_loop_trials": sum(row["unique_rollouts"] for row in rows),
               "own_loop_task_failures": sum(row["task_failures"] for row in rows),
               "own_loop_censored": sum(row["censored"] for row in rows),
-              "primary_interactions": {}, "controls": {}, "by_plant": [], "by_delay": [], "by_plant_delay": []}
+              "primary_interactions": {}, "all_model_control_interactions": {}, "controls": {},
+              "by_plant": [], "by_delay": [], "by_plant_delay": []}
     for variant in VARIANTS[1:]:
         fields = ("recovery_absolute_interaction", "recovery_percent_interaction", "position_rms_percent_interaction",
                   "helpful_to_harmful", "harmful_to_helpful", "low_effect_percent", "high_effect_percent")
-        result["primary_interactions"][variant] = {field: signed_stats(row.get(f"{variant}_{field}") for row in endpoints) for field in fields}
+        target = "all_model_control_interactions" if variant in CONTROLS else "primary_interactions"
+        result[target][variant] = {field: signed_stats(row.get(f"{variant}_{field}") for row in endpoints) for field in fields}
     for control in CONTROLS:
         pool = [row for row in endpoints if row[f"{control}_qualified"]]
         result["controls"][control] = {"fixed_qualified_models": len(pool), "control_minus_weak_interaction": {}}
@@ -262,9 +272,12 @@ def summarize(rows, endpoints, low, high):
         result["by_delay"].append({"delay": delay, "variants": {
             variant: {field: signed_stats(row.get(f"{variant}_{field}") for row in pool)
                       for field in ("recovery_energy", "recovery_percent", "recovery_absolute", "recovery_passive_ratio",
-                                    "position_rms_percent", "action_rms_percent", "saturation_fraction",
+                                    "position_rms", "position_passive_ratio", "position_rms_percent", "action_rms_percent", "saturation_fraction",
                                     "sham_task_failure_percent", "pulse_task_failure_percent")}
-            for variant in VARIANTS}, "controls": {
+            for variant in VARIANTS}, "passive_competence": {
+            variant: {field: competence_stats(row.get(f"{variant}_{field}") for row in pool)
+                      for field in ("recovery_passive_ratio", "position_passive_ratio")}
+            for variant in ("native", "joint_weak", "joint_strong")}, "controls": {
             control: {field: signed_stats(row.get(f"{control}_{field}") for row in pool if row[f"{control}_qualified"])
                       for field in ("minus_weak_recovery_percent", "minus_weak_position_rms_percent",
                                     "shifted_weak_relative_magnitude_error", "shifted_matched_on_shifted_histories",
@@ -274,7 +287,8 @@ def summarize(rows, endpoints, low, high):
             plant = [row for row in pool if row["tau"] == tau]
             result["by_plant_delay"].append({"tau": tau, "delay": delay, "variants": {
                 variant: {field: signed_stats(row.get(f"{variant}_{field}") for row in plant)
-                          for field in ("recovery_energy", "recovery_percent", "recovery_passive_ratio", "position_rms_percent")}
+                          for field in ("recovery_energy", "recovery_percent", "recovery_passive_ratio",
+                                        "position_rms", "position_passive_ratio", "position_rms_percent")}
                 for variant in ("native", "joint_weak", "joint_strong")}})
     result["interpretation"] = ("Within-controller finite-horizon delay-by-intervention effects. Weights, groups and calibration settings are frozen; "
         "the explicit delay feature remains at training 50 ms. Reported seed ranges are descriptive, not confidence intervals. "
@@ -305,11 +319,12 @@ def curve_plot(rows, cells, directory, name, fields, title, ylabel, baseline, *,
             xs = np.asarray([row["delay"] * 1000 for row in averaged])
             for field, variant, label in fields:
                 eligible = cohort(population, field)
+                style = "--" if "_pulse_" in field else "-"
                 for seed in sorted({row["seed"] for row in eligible}):
                     individual = sorted((row for row in eligible if row["seed"] == seed), key=lambda row: row["delay"])
                     axis.plot([row["delay"] * 1000 for row in individual],
                               [row.get(field) if number(row.get(field)) else np.nan for row in individual],
-                              color=COLORS[variant], alpha=.18, linewidth=.7)
+                              color=COLORS[variant], alpha=.18, linewidth=.7, linestyle=style)
                 means = np.asarray([row.get(field + "_mean") if number(row.get(field + "_mean")) else np.nan for row in averaged])
                 lower = np.asarray([row.get(field + "_min") if number(row.get(field + "_min")) else np.nan for row in averaged])
                 upper = np.asarray([row.get(field + "_max") if number(row.get(field + "_max")) else np.nan for row in averaged])
@@ -320,12 +335,16 @@ def curve_plot(rows, cells, directory, name, fields, title, ylabel, baseline, *,
                 legend = f"{label} (n={numer}/{denom})" if variant != "passive" else "Passive (shared reference)"
                 axis.errorbar(xs, means, yerr=[np.maximum(0., means - lower), np.maximum(0., upper - means)],
                               color=COLORS[variant], label=legend, linewidth=1.25,
-                              marker="o", markersize=3, capsize=2)
+                              marker="o", markersize=3, capsize=2, linestyle=style)
             axis.axvline(baseline * 1000, color="black", linestyle=":", linewidth=.8)
             if reference is not None:
                 axis.axhline(reference, color="black", linewidth=.5)
             if log:
                 axis.set_yscale("log")
+            if all("task_failure_percent" in field for field, _, _ in fields):
+                axis.set_ylim(-3., 103.)
+            if all("saturation_fraction" in field for field, _, _ in fields):
+                axis.set_ylim(-.02, 1.02)
             axis.set_title(f"Plant τ={tau:g} s · noise τ={nt:g} s", fontsize=9.5)
             axis.set_xlabel("Physical computation delay (ms)", fontsize=8.5)
             axis.set_ylabel(ylabel, fontsize=8.5)
@@ -365,12 +384,12 @@ def interaction_plot(endpoints, directory, low, high):
                 value = data[iy, ix]
                 count = f"n={row[field + '_valid_n']}/{row[field + '_n']}"
                 if np.isfinite(value):
-                    label = f"{value:.3g}\n[{row[field+'_min']:.3g}, {row[field+'_max']:.3g}]\n{count}"
+                    label = f"{value:.3g}\n[{row[field+'_min']:.3g},\n{row[field+'_max']:.3g}]\n{count}"
                     rgba = image.cmap(image.norm(value))
                     color = "white" if np.dot(rgba[:3], [.2126, .7152, .0722]) < .46 else "black"
                 else:
                     label, color = f"undefined\n{count}", "black"
-                axis.text(ix, iy, label, ha="center", va="center", fontsize=8.2, color=color)
+                axis.text(ix, iy, label, ha="center", va="center", fontsize=8., color=color)
         axis.set(xticks=np.arange(len(taus)), xticklabels=[f"{v:g}" for v in taus],
                  yticks=np.arange(len(nts)), yticklabels=[f"{v:g}" for v in nts],
                  xlabel="Plant τ (s)", ylabel="Noise τ (s)", title=title)
@@ -386,6 +405,10 @@ def main():
     args = parser.parse_args()
     directory = args.input.resolve()
     config, base, manifest = [read(directory / name) for name in ("config.json", "base_config.json", "run_manifest.json")]
+    if config != manifest["protocol_config"] or base != manifest["base_config"]:
+        raise ValueError("Copied scientific configuration differs from frozen manifest")
+    if not {"passive", "confirm"} <= set(manifest["stages"]):
+        raise ValueError("Scientific run has not sealed every required stage")
     expected = list(itertools.product(base["plant_taus"], base["noise_taus"], base["seeds"]))
     if config.get("model_subset"):
         expected = [tuple(item) if isinstance(item, list) else (item["tau"], item["noise_tau"], item["seed"]) for item in config["model_subset"]]
@@ -395,11 +418,13 @@ def main():
     observed = [(*identity(row), row["delay"]) for row in records]
     if set(observed) != wanted or len(observed) != len(wanted):
         raise ValueError("Incomplete or duplicate model-delay population")
+    if any(row["delay_cue"] != config["delay_cue"] or row["period"] != base["period"] for row in records):
+        raise ValueError("A record changed the fixed cue or update period")
     pfiles = sorted((directory / "passive").glob("*.json"))
     passive = {(row["tau"], row["noise_tau"]): row for row in map(read, pfiles)}
     if set(passive) != {model[:2] for model in expected} or len(passive) != len(pfiles):
         raise ValueError("Incomplete or duplicate passive reference population")
-    for path in files + pfiles:
+    for path in [directory / "config.json", directory / "base_config.json", *files, *pfiles]:
         if manifest["completed_sha256"].get(str(path.relative_to(ROOT))) != sha(path):
             raise ValueError(f"Unsealed or changed scientific input: {path}")
     seeds, amplitudes = config["confirmation_seeds"], config["probe"]["pulse_amplitudes"]
@@ -429,8 +454,17 @@ def main():
               "Recovery relative to the passive plant", "Recovery energy / passive recovery energy", 1., True),
              ("delay_noise_effects", [(v + "_position_rms_percent", v, LABELS[v]) for v in ("joint_weak", "joint_strong")],
               "Noise regulation · delay-dependent effects", "Noise position RMS change (%)", 0., False),
+             ("delay_noise_accuracy", [(v + "_position_rms", v, LABELS[v]) for v in ("native", "joint_weak", "joint_strong", "passive")],
+              "Absolute noise-regulation error · passive comparator", "Noise position RMS", None, True),
+             ("delay_noise_passive_ratios", [(v + "_position_passive_ratio", v, LABELS[v]) for v in ("native", "joint_weak", "joint_strong")],
+              "Noise regulation relative to the passive plant", "Position RMS / passive position RMS", 1., True),
              ("delay_action_effort", [(v + "_action_rms", v, LABELS[v]) for v in ("native", "joint_weak", "joint_strong")],
               "Applied command effort · finite-horizon deployment", "Applied action RMS", None, True),
+             ("delay_task_failures", [(v + "_" + arm + "_task_failure_percent", v, LABELS[v] + " " + arm)
+                                       for v in ("native", "joint_weak", "joint_strong") for arm in ("sham", "pulse")],
+              "Completed task failures · sham (solid) and pulse (dashed)", "Task failures (% of required trials)", 0., False),
+             ("delay_saturation", [(v + "_saturation_fraction", v, LABELS[v]) for v in ("native", "joint_weak", "joint_strong")],
+              "Actuator saturation · exact held-action time fraction", "Saturated fraction of scoring window", 0., False),
              ("delay_controls", [(v + "_minus_weak_recovery_percent", v, LABELS[v]) for v in CONTROLS],
               "Calibration-qualified controls minus group weakening", "Recovery-effect difference (percentage points)", 0., False),
              ("delay_match_drift", [(v + "_shifted_weak_relative_magnitude_error", v, LABELS[v]) for v in CONTROLS],

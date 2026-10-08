@@ -4,9 +4,13 @@ Research project investigating whether emergent suppression and explicit excitat
 
 **Central question:** Do suppressive mechanisms change the combined controller–environment dynamics beneficially, and does their causal contribution depend on the relationship between environmental timescales, observation-to-action latency, and fresh-feedback intervals?
 
-**Status on 8 October 2026:** Collective suppression measurements are complete for 48 transformers at three checkpoints each, adding 3,944 simulator rollouts and seven figure sets. Weakening discovered groups of attention and MLP branches increases trained response strength by 8.29% on average. Training reduces this relative score while increasing the mean physical effect. Weakening improves slower-plant control but worsens fastest-plant pulse recovery by 17.19% on average; matched output gain remains competitive. The software suite passes 409 tests. No explicit E/I-inspired architecture has been tested.
+**Status on 8 October 2026:** The within-controller delay sweep is complete: 48 frozen transformers, seven latencies, 20,352 additional trials and 12 figure sets. For the 200 ms plant, weakening switches from helping recovery at zero delay to harming it at 100 ms in 11/12 models. Effects are nonmonotonic across the full grid, the pooled absolute primary interaction is negative, and scalar gain also produces the local crossover. There are 5,436 task-failed trials at changed latencies, all retained. The suite passes 477 tests. No explicit E/I-inspired architecture has been tested.
 
 ## First results
+
+Read the [within-controller delay report](results/delay_sweep/README.md) and [plots](results/delay_sweep/plots/). The experiment holds each model's weights, pathways, intervention settings, explicit delay cue, plant and noise condition fixed and changes only physical command latency at fixed cadence. The 200 ms plant shows a useful-control crossover: weakening changes recovery error from −9.65% to +26.50% between 0 and 100 ms delay, while strengthening shows the opposite sign change. The report preserves the heterogeneous primary result, normalization dependence, gain-control explanation and failures at longer delays.
+
+![Within-controller delay-dependent recovery effects](results/delay_sweep/plots/delay_recovery_effects.png)
 
 Read the [collective-suppression report](results/collective_suppression/README.md) and its [plots](results/collective_suppression/plots/). This saved-checkpoint follow-up surveys eight attention heads and both complete MLP residual branches, measures joint effects and interactions, compares initialization with training on common inputs, and tests frequency dependence and actual closed-loop usefulness. It keeps physical and relative suppression separate and preserves failed control matches. In the fastest plant/noise cell, weakening worsens recovery while matched output gain improves it; three model seeds and previously used trained models limit the interpretation.
 
@@ -114,6 +118,15 @@ The [collective-suppression protocol](docs/COLLECTIVE_SUPPRESSION.md) analyzes t
 
 This follow-up requires the inherited checkpoint artifacts recorded in the timescale-map manifest. It verifies the parent bytes, saves its own probe banks and freezes discovery/calibration before confirmation. It does not retrain models. Frequency effects are measured on fixed teacher-generated histories; own-loop accuracy and recovery are reported separately.
 
+The [frozen-controller delay protocol](docs/DELAY_SWEEP.md) holds each model, selected group, intervention settings, explicit delay input, plant and noise condition fixed while changing physical command latency at a 50 ms update cadence:
+
+```bash
+.venv/bin/python experiments/run_delay_sweep.py --output runs/delay_reproduction/results --artifacts runs/delay_reproduction/artifacts
+.venv/bin/python experiments/plot_delay_sweep.py --input runs/delay_reproduction/results
+```
+
+This requires the collective experiment and all its inherited server-side artifacts, including weights, demonstration data and common-history banks, at their recorded paths. The runner verifies both generations of provenance. Gain controls retain their original 50 ms calibration; matching drift is measured without refitting. Four worker processes run independent simulations, with publication and sealing performed by the main process.
+
 ## Read first
 
 1. [Research background and proposal](docs/RESEARCH_PROPOSAL.md) — the complete conceptual argument, evidence, definitions, hypotheses, and intended contribution.
@@ -129,6 +142,7 @@ This follow-up requires the inherited checkpoint artifacts recorded in the times
 11. [Two-timescale map design](docs/TIMESCALE_MAPS.md) — fixed delay and cadence, plant/noise axes, and distinct maps of accuracy, learned suppression and causal usefulness.
 12. [First timescale-map protocol](docs/TIMESCALE_MAPS_PILOT.md) — the frozen force-noise grid, per-cell training, common-history checkpoint comparisons and held-out interventions.
 13. [Collective-suppression protocol](docs/COLLECTIVE_SUPPRESSION.md) — ten-branch joint effects, learning-associated change, spectral selectivity and closed-loop usefulness.
+14. [Frozen-controller delay protocol](docs/DELAY_SWEEP.md) — within-model latency interventions with fixed pathways, parameters and planned-delay cue.
 
 ## Implementation
 
@@ -152,6 +166,7 @@ This follow-up requires the inherited checkpoint artifacts recorded in the times
 | `timescale_diagnostics.py` | Common-history checkpoint assays, head selection, centered controls and held-out causal effects |
 | `collective_suppression.py` | Ten-branch survey, joint suppression and interaction effects across saved checkpoints |
 | `collective_dynamics.py` | Frequency-resolved fixed-history assays and own-loop collective interventions |
+| `delay_sweep.py` | Fixed-cue, fixed-parameter controllers across physical command latencies, with timing audits and passive references |
 
 Validation covers analytical dynamics, delayed-feedback trajectories, information causality, event ordering, saturation, deterministic replay, reporting-grid independence and metric definitions. Neural checks additionally cover future-token and padding isolation, shared-information encoding, gradients and checkpoint round trips. Virtual computation time is independent of Python runtime. The fixed-cadence schedule assumes idealized parallel throughput; it is not a single-processor deployment claim.
 
@@ -159,6 +174,6 @@ The divergence guard is checked at event times rather than continuously. The pre
 
 ## Next milestone
 
-The first force-noise [two-timescale map experiment](results/timescale_maps/README.md) is complete. The next research decisions are a targeted replication of the fastest-condition crossover, direct measurement of the joint loop's gain/phase or modes, and a separate sensor-noise grid. Direct closed-loop optimization and an explicit suppressive architecture remain later comparisons; expert imitation alone cannot establish their benefits.
+The [within-controller delay experiment](results/delay_sweep/README.md) is complete. The next research decisions are an independent training-seed replication of the competent-control crossover, direct analysis of the full controller–environment dynamics, and stronger gain/temporal-response controls. A separate sensor-noise grid, direct closed-loop optimization and an explicit suppressive architecture remain later comparisons; the present timing dependence does not establish a uniquely inhibitory mechanism.
 
 The primary research outcome remains the **stability–responsiveness tradeoff**, including disturbance recovery and delay tolerance at useful tracking performance. A reward increase, smaller actions, negative weights, or a static cancellation score alone would not establish the proposed mechanism.
